@@ -2107,6 +2107,14 @@ body {
         transform: translateY(-2px);
     }
 
+    .footer-contact {
+        text-align: center;
+    }
+
+    .contact-link {
+        justify-content: center;
+    }
+
 
 }
 
