@@ -246,20 +246,26 @@ function closeServiceModal() {
     document.body.style.overflow = ''; // Restore scrolling
 }
 
-// Event listeners for service cards
+// Event listeners for service accordion
 document.addEventListener('DOMContentLoaded', () => {
-    // Service card clicks
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        card.addEventListener('click', (e) => {
-            const serviceId = card.getAttribute('data-service-id');
-            if (serviceId) {
-                openServiceModal(serviceId);
-            }
+    // Service accordion functionality
+    const serviceItems = document.querySelectorAll('.service-item');
+    serviceItems.forEach(item => {
+        const header = item.querySelector('.service-header');
+        header.addEventListener('click', () => {
+            // Close all other items
+            serviceItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
         });
     });
     
-    // Modal close button
+    // Modal close button (keep for any remaining modal functionality)
     const closeBtn = document.querySelector('.modal-close');
     if (closeBtn) {
         closeBtn.addEventListener('click', closeServiceModal);
