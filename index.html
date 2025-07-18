@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BROCODEDEVS - Professional Web Development</title>
+    <meta name="description" content="BROCODEDEVS - Professional web development services">
+    <link rel="stylesheet" href="styles.css?v=1.1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logo.png" alt="BROCODEDEVS Logo" class="logo-image">
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to BROCODEDEVS</h1>
+                <p class="hero-subtitle">Professional web development solutions for modern businesses</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#services" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-placeholder">
+                    <span>Your Hero Image Here</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Complete business solutions from registration to digital presence</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-service-id="company-registration">
+                    <img src="company-registration.png" alt="Company Registration Service" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <span>🏢</span>
+                        </div>
+                        <h3>Company Registrations</h3>
+                        <p class="short-desc">Register your business fast with CIPC — name, documents & ownership updates included.</p>
+                        <p class="detailed-desc">Start your business the right way with BROCODEDEVS' Company Registration service.<br><br>We handle the full process through CIPC, so you can focus on your vision — not the paperwork. Our service includes:<br>• Company name reservation<br>• CIPC company registration<br>• Memorandum of Incorporation (MOI)<br>• Beneficial Ownership (BO) update<br><br>Whether you're a solo founder or a growing team, we ensure your business is fully compliant, registered fast, and ready to operate in South Africa.<br><br>📌 Need a domain or email setup too? We can handle that — just ask.<br><br>Get started today and become a registered business in no time.</p>
+                        <button class="read-more-btn">Read More</button>
+                    </div>
+                </div>
+                <div class="service-card" data-service-id="logo-design">
+                    <img src="logo-design.png" alt="Logo Design Service" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <span>🎨</span>
+                        </div>
+                        <h3>Logo Design</h3>
+                        <p class="short-desc">Stand out with a custom business logo designed in Adobe Illustrator & Photoshop.</p>
+                        <p class="detailed-desc" style="display: none;">Our creative team designs unique, memorable logos that capture your brand essence. We provide multiple concepts, unlimited revisions, and deliver your logo in all formats (vector, PNG, JPG). Includes brand guidelines and usage recommendations for consistent application across all platforms.</p>
+                        <button class="read-more-btn">Read More</button>
+                    </div>
+                </div>
+                <div class="service-card" data-service-id="trademark-service">
+                    <img src="trademark-service.png" alt="Trademark Registration Service" class="service-image">
+                    <div class="service-icon">
+                        <span>®️</span>
+                    </div>
+                    <h3>Trademarks</h3>
+                    <p class="short-desc">Protect your logo — we handle the full trademark registration process.</p>
+                    <p class="detailed-desc" style="display: none;">Own your brand. Protect your logo.
+                        At BROCODEDEVS, we help you legally protect your brand by registering your trademark in South Africa. Whether we designed your logo or you already have one, we’ll guide you through the full trademark application process — so your brand is safe from copycats.
+                        Our service includes:
+                        Logo file prep (if needed)
+                        Thorough trademark search (to avoid conflicts)
+                        Application submission to the CIPC's IP Office
+                        Ongoing updates until final approval
+                        A registered trademark gives you the exclusive right to use your logo — a major step in building a serious, trustworthy business.
+                        💡 Tip: Pair this with our Logo Design or Company Registration services for a full brand protection setup.
+                        Lock in your brand identity today — we’ll handle the paperwork.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+                <div class="service-card" data-service-id="small-apps">
+                    <img src="app-development.png" alt="App Development Service" class="service-image">
+                    <div class="service-icon">
+                        <span>📱</span>
+                    </div>
+                    <h3>Small Apps</h3>
+                    <p class="short-desc">We build sleek mobile & web apps — plus setup your Play Store & App Store.</p>
+                    <p class="detailed-desc" style="display: none;">We develop custom applications for iOS, Android, and web platforms. From concept to deployment, we handle UI/UX design, development, testing, and maintenance. Our apps are scalable, secure, and built with modern technologies to ensure optimal performance and user experience.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+                <div class="service-card" data-service-id="landing-page-websites">
+                    <img src="website-design.png" alt="Website Design Service" class="service-image">
+                    <div class="service-icon">
+                        <span>🌐</span>
+                    </div>
+                    <h3>Landing Page Websites</h3>
+                    <p class="short-desc">Professional business websites — 1 to 3-page landing sites with domain setup.</p>
+                    <p class="detailed-desc" style="display: none;">We create conversion-focused landing pages that turn visitors into customers. Our designs include compelling copy, strategic CTAs, lead capture forms, and A/B testing capabilities. We optimize for speed, mobile responsiveness, and search engine visibility to maximize your ROI.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+                <div class="service-card" data-service-id="shopify-stores">
+                    <img src="shopify-store.png" alt="Shopify Store Development" class="service-image">
+                    <div class="service-icon">
+                        <span>🛒</span>
+                    </div>
+                    <h3>Shopify Stores</h3>
+                    <p class="short-desc">Launch your online store with Shopify — payments & domain included.</p>
+                    <p class="detailed-desc" style="display: none;">We build custom Shopify stores that drive sales and provide exceptional user experience. Our services include theme customization, payment gateway integration, inventory management, SEO optimization, and ongoing support. We also handle app integrations and performance optimization.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+                <div class="service-card" data-service-id="digital-ads">
+                    <img src="digital-ads.png" alt="Digital Advertising Service" class="service-image">
+                    <div class="service-icon">
+                        <span>📢</span>
+                    </div>
+                    <h3>Digital Advertising</h3>
+                    <p class="short-desc">We design & run ads on Facebook, TikTok, Instagram, and YouTube.</p>
+                    <p class="detailed-desc" style="display: none;">Our digital advertising services include Google Ads, Facebook/Instagram ads, LinkedIn campaigns, and remarketing strategies. We create targeted campaigns, optimize for conversions, and provide detailed analytics and reporting. Our data-driven approach ensures maximum ROI for your advertising spend.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+                <div class="service-card" data-service-id="business-email">
+                    <img src="business-email.png" alt="Business Email Setup" class="service-image">
+                    <div class="service-icon">
+                        <span>📧</span>
+                    </div>
+                    <h3>Business Emails</h3>
+                    <p class="short-desc">Get a professional Gmail business email like you@yourcompany.co.za.</p>
+                    <p class="detailed-desc" style="display: none;">We set up professional business email accounts using Google Workspace or Microsoft 365. Our services include domain email configuration, email security, backup solutions, and team collaboration tools. We also provide training and ongoing support for your team.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+                <div class="service-card" data-service-id="domain-registration">
+                    <img src="domain-registration.png" alt="Domain Registration Service" class="service-image">
+                    <div class="service-icon">
+                        <span>🌍</span>
+                    </div>
+                    <h3>Domain Registration</h3>
+                    <p class="short-desc">We register your business domain using Google — fast & professional.</p>
+                    <p class="detailed-desc" style="display: none;">We handle domain registration, DNS management, SSL certificates, and domain transfers. Our services include domain monitoring, renewal reminders, and security protection. We ensure your domain is properly configured and protected from cyber threats.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+                <div class="service-card" data-service-id="payment-methods">
+                    <img src="payment-methods.png" alt="Payment Gateway Setup" class="service-image">
+                    <div class="service-icon">
+                        <span>💳</span>
+                    </div>
+                    <h3>Payment Methods</h3>
+                    <p class="short-desc">We set up Payfast, PayPal & Yoco for your website, app, or Shopify store.</p>
+                    <p class="detailed-desc" style="display: none;">We integrate multiple payment gateways including PayPal, Stripe, PayGate, and local South African payment methods. Our services include payment security setup, fraud protection, and compliance with PCI DSS standards. We ensure seamless checkout experiences for your customers.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Modal Popup -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon"></div>
+                <h3 class="modal-title"></h3>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About BROCODEDEVS</h2>
+                    <p>We are a team of passionate developers dedicated to creating exceptional digital experiences. Our mission is to help businesses thrive in the digital world through innovative web solutions.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>100%</h3>
+                            <p>Client Satisfaction</p>
+                        </div>
+                        <div class="stat">
+                            <h3>24/7</h3>
+                            <p>Support Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-placeholder">
+                        <span>About Us Image</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your next project? Let's discuss how we can help you.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@brocodedevs.co.za</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+27 (0) XX XXX XXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>South Africa</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BROCODEDEVS</h3>
+                    <p>Professional web development solutions for modern businesses.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>Company Registrations</li>
+                        <li>Logo & Trademark Design</li>
+                        <li>Websites & Apps</li>
+                        <li>Shopify Stores</li>
+                        <li>Digital Marketing</li>
+                        <li>Business Setup</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">GitHub</a>
+                        <a href="#" class="social-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BROCODEDEVS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
