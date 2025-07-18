@@ -82,41 +82,168 @@ if (contactForm) {
     });
 }
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.service-card, .about-text, .contact-info');
+// Enhanced Scroll Animations with Intersection Observer
+class ScrollAnimations {
+    constructor() {
+        this.observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        this.animationTypes = {
+            'fade-up': {
+                initial: { opacity: 0, transform: 'translateY(40px)' },
+                final: { opacity: 1, transform: 'translateY(0)' }
+            },
+            'fade-left': {
+                initial: { opacity: 0, transform: 'translateX(-40px)' },
+                final: { opacity: 1, transform: 'translateX(0)' }
+            },
+            'fade-right': {
+                initial: { opacity: 0, transform: 'translateX(40px)' },
+                final: { opacity: 1, transform: 'translateX(0)' }
+            },
+            'scale-up': {
+                initial: { opacity: 0, transform: 'scale(0.8)' },
+                final: { opacity: 1, transform: 'scale(1)' }
+            },
+            'slide-up': {
+                initial: { opacity: 0, transform: 'translateY(60px)' },
+                final: { opacity: 1, transform: 'translateY(0)' }
+            }
+        };
+        
+        this.init();
+    }
     
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+    init() {
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.animateElement(entry.target);
+                }
+            });
+        }, this.observerOptions);
+        
+        this.setupAnimations();
+    }
+    
+    setupAnimations() {
+        // Section headers
+        document.querySelectorAll('.section-header').forEach(el => {
+            this.addAnimation(el, 'fade-up', 0);
+        });
+        
+        // Hero section elements
+        document.querySelectorAll('.hero-badge, .hero-title, .hero-subtitle, .hero-buttons, .hero-features, .hero-cards').forEach((el, index) => {
+            this.addAnimation(el, 'fade-up', index * 0.2);
+        });
+        
+        // Services accordion items
+        document.querySelectorAll('.service-item').forEach((el, index) => {
+            this.addAnimation(el, 'fade-up', index * 0.1);
+        });
+        
+        // Bundle cards
+        document.querySelectorAll('.bundle-card').forEach((el, index) => {
+            this.addAnimation(el, 'scale-up', index * 0.2);
+        });
+        
+        // Process steps
+        document.querySelectorAll('.process-step').forEach((el, index) => {
+            this.addAnimation(el, 'fade-up', index * 0.15);
+        });
+        
+        // Team members
+        document.querySelectorAll('.team-member').forEach((el, index) => {
+            this.addAnimation(el, 'fade-up', index * 0.2);
+        });
+        
+        // Portfolio cards
+        document.querySelectorAll('.portfolio-card').forEach((el, index) => {
+            this.addAnimation(el, 'fade-up', index * 0.2);
+        });
+        
+        // FAQ items
+        document.querySelectorAll('.faq-item').forEach((el, index) => {
+            this.addAnimation(el, 'fade-up', index * 0.1);
+        });
+        
+        // Contact form elements
+        document.querySelectorAll('.contact-info, .contact-form').forEach((el, index) => {
+            this.addAnimation(el, index === 0 ? 'fade-left' : 'fade-right', 0);
+        });
+        
+        // Footer elements
+        document.querySelectorAll('.footer-brand, .footer-links').forEach((el, index) => {
+            this.addAnimation(el, 'fade-up', index * 0.1);
+        });
+        
+        // About section
+        document.querySelectorAll('.about-text, .about-stats, .about-placeholder').forEach((el, index) => {
+            this.addAnimation(el, 'fade-up', index * 0.2);
+        });
+    }
+    
+    addAnimation(element, type, delay = 0) {
+        const animation = this.animationTypes[type];
+        if (!animation) return;
+        
+        // Set initial state
+        Object.assign(element.style, {
+            opacity: animation.initial.opacity,
+            transform: animation.initial.transform,
+            transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s`
+        });
+        
+        // Add data attribute for tracking
+        element.setAttribute('data-animation', type);
+        element.setAttribute('data-animation-delay', delay);
+        
+        // Observe the element
+        this.observer.observe(element);
+    }
+    
+    animateElement(element) {
+        const type = element.getAttribute('data-animation');
+        const animation = this.animationTypes[type];
+        
+        if (animation) {
+            Object.assign(element.style, {
+                opacity: animation.final.opacity,
+                transform: animation.final.transform
+            });
+            
+            // Remove from observer after animation
+            setTimeout(() => {
+                this.observer.unobserve(element);
+            }, 1000);
+        }
+    }
+}
+
+// Initialize scroll animations
+document.addEventListener('DOMContentLoaded', () => {
+    new ScrollAnimations();
 });
 
-// Add loading animation to page
+// Enhanced page loading with animation preparation
 window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
+    // Add loading class to body
+    document.body.classList.add('page-loaded');
     
+    // Initialize animations after a short delay to ensure smooth transitions
     setTimeout(() => {
         document.body.style.opacity = '1';
-    }, 100);
+        document.body.style.visibility = 'visible';
+    }, 50);
+});
+
+// Prevent flash of unstyled content
+document.addEventListener('DOMContentLoaded', () => {
+    // Hide body initially to prevent FOUC
+    document.body.style.opacity = '0';
+    document.body.style.visibility = 'hidden';
 });
 
 // Typing animation for hero title (optional enhancement)
@@ -169,7 +296,59 @@ function createScrollProgress() {
 }
 
 // Initialize scroll progress
-createScrollProgress(); 
+createScrollProgress();
+
+// FAQ Accordion functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            if (isActive) {
+                item.classList.remove('active');
+            } else {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+
+// Bundle offers functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const bundleButtons = document.querySelectorAll('.bundle-cta');
+    
+    bundleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const bundleCard = this.closest('.bundle-card');
+            const bundleName = bundleCard.querySelector('h3').textContent;
+            const bundlePrice = bundleCard.querySelector('.price').textContent;
+            
+            // Create bundle request message
+            let message = `Hi BROCODEDEVS,\n\nI'm interested in the ${bundleName} package (${bundlePrice}).\n\nCould you please provide more details about this package and how to proceed?\n\nThank you!`;
+            
+            // Open WhatsApp with pre-filled message
+            const whatsappNumber = '+27612345678'; // Replace with actual WhatsApp number
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Open in new tab
+            window.open(whatsappUrl, '_blank');
+        });
+    });
+});
+
+ 
 
 // Service data object
 const serviceData = {
