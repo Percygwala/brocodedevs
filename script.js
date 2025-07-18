@@ -13,16 +13,88 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
     navMenu.classList.remove('active');
 }));
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(0, 0, 0, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 255, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-        navbar.style.boxShadow = 'none';
+// Enhanced Navbar with auto-hide functionality
+class NavbarController {
+    constructor() {
+        this.navbar = document.querySelector('.navbar');
+        this.lastScrollY = window.scrollY;
+        this.scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+        this.hideThreshold = 100; // Scroll distance before hiding
+        this.isHidden = false;
+        this.isScrolling = false;
+        
+        this.init();
     }
+    
+    init() {
+        // Add transition for smooth hide/show
+        this.navbar.style.transition = 'transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease';
+        
+        // Throttled scroll event for better performance
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    this.handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // Show navbar when scrolling to top
+        window.addEventListener('scroll', () => {
+            if (window.scrollY < 50) {
+                this.showNavbar();
+            }
+        });
+    }
+    
+    handleScroll() {
+        const currentScrollY = window.scrollY;
+        const scrollDelta = currentScrollY - this.lastScrollY;
+        
+        // Update background based on scroll position
+        if (currentScrollY > this.hideThreshold) {
+            this.navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+            this.navbar.style.boxShadow = '0 2px 20px rgba(0, 255, 0, 0.1)';
+        } else {
+            this.navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+            this.navbar.style.boxShadow = 'none';
+        }
+        
+        // Auto-hide/show logic
+        if (Math.abs(scrollDelta) > this.scrollThreshold) {
+            if (scrollDelta > 0 && currentScrollY > this.hideThreshold) {
+                // Scrolling down - hide navbar
+                this.hideNavbar();
+            } else if (scrollDelta < 0) {
+                // Scrolling up - show navbar
+                this.showNavbar();
+            }
+        }
+        
+        this.lastScrollY = currentScrollY;
+    }
+    
+    hideNavbar() {
+        if (!this.isHidden) {
+            this.navbar.style.transform = 'translateY(-100%)';
+            this.isHidden = true;
+        }
+    }
+    
+    showNavbar() {
+        if (this.isHidden) {
+            this.navbar.style.transform = 'translateY(0)';
+            this.isHidden = false;
+        }
+    }
+}
+
+// Initialize navbar controller
+document.addEventListener('DOMContentLoaded', () => {
+    new NavbarController();
 });
 
 // Smooth scrolling for anchor links
