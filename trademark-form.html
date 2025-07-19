@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trademark Application - BROCODEDEVS</title>
+    <meta name="description" content="Submit your trademark application and protect your brand with our professional service">
+    
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="stylesheet" href="styles.css?v=2.5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .form-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .form-header p {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .form-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .form-section h3 {
+            color: #00ff88;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            padding-right: 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .form-group::after {
+            content: '';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #ffffff;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .form-group select:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+        }
+        
+        .form-group select:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .form-group select option {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 0.5rem;
+        }
+        
+        .form-group select:invalid {
+            color: #888888;
+        }
+        
+        .form-group select:valid {
+            color: #ffffff;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #888888;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+            accent-color: #00ff88;
+        }
+        
+        .radio-option label {
+            margin: 0;
+            cursor: pointer;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-input-wrapper input[type="file"] {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-input-wrapper input[type="file"]:hover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.05);
+        }
+        
+        .required {
+            color: #ff6b6b;
+        }
+        
+        .conditional-field {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 10px;
+        }
+        
+        .conditional-field.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-back {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #000000;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+        }
+        
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #ff6b6b;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .success-message {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .form-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .form-header h1 {
+                font-size: 2rem;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .btn-back,
+            .btn-submit {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Trademark Application Form</h1>
+                <p>Protect your brand with our comprehensive trademark registration service. Please provide detailed information to help us process your application efficiently.</p>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <strong>Thank you!</strong> Your trademark application has been submitted successfully. We'll review your details and contact you within 24 hours to proceed with the registration process.
+            </div>
+            
+            <form id="trademarkForm" method="POST" action="#">
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <div class="error-message">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <div class="error-message">Please enter your phone number</div>
+                    </div>
+                </div>
+                
+                <!-- Business Information -->
+                <div class="form-section">
+                    <h3>Business Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="businessName">Business Name <span class="required">*</span></label>
+                        <input type="text" id="businessName" name="businessName" required>
+                        <div class="error-message">Please enter your business name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="companyRegNumber">Company Registration Number</label>
+                        <input type="text" id="companyRegNumber" name="companyRegNumber" placeholder="e.g., 2023/123456/07">
+                    </div>
+                </div>
+                
+                <!-- Trademark Details -->
+                <div class="form-section">
+                    <h3>Trademark Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="trademarkType">Type of Trademark <span class="required">*</span></label>
+                        <select id="trademarkType" name="trademarkType" required>
+                            <option value="">Select trademark type</option>
+                            <option value="logo-only">Logo Only</option>
+                            <option value="logo-name">Logo & Name</option>
+                            <option value="name-only">Name Only</option>
+                            <option value="slogan">Slogan</option>
+                        </select>
+                        <div class="error-message">Please select a trademark type</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Is the logo new or already exists?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="logo-new" name="logoStatus" value="new" checked>
+                                <label for="logo-new">Newly Created</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="logo-exists" name="logoStatus" value="exists">
+                                <label for="logo-exists">Already Exists</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="trademarkDescription">Trademark Description <span class="required">*</span></label>
+                        <textarea id="trademarkDescription" name="trademarkDescription" placeholder="Please describe your trademark in detail, including any distinctive features, colors, or elements" required></textarea>
+                        <div class="error-message">Please provide a trademark description</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="logoAsset">Upload Logo / Asset <span class="required">*</span></label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="logoAsset" name="logoAsset" accept=".jpg,.jpeg,.png,.pdf,.ai,.eps" required>
+                        </div>
+                        <div class="error-message">Please upload your logo or asset</div>
+                        <small style="color: #888888; margin-top: 0.5rem; display: block;">Accepted formats: JPG, PNG, PDF, AI, EPS</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="trademarkRepresentation">What will this trademark represent? <span class="required">*</span></label>
+                        <textarea id="trademarkRepresentation" name="trademarkRepresentation" placeholder="Describe what products, services, or business activities this trademark will represent" required></textarea>
+                        <div class="error-message">Please describe what the trademark will represent</div>
+                    </div>
+                </div>
+                
+                <!-- Ownership Information -->
+                <div class="form-section">
+                    <h3>Ownership Information</h3>
+                    
+                    <div class="form-group">
+                        <label>Are you the sole owner?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="sole-owner-yes" name="soleOwner" value="yes" checked>
+                                <label for="sole-owner-yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sole-owner-no" name="soleOwner" value="no">
+                                <label for="sole-owner-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conditional-field" id="coOwnersField">
+                        <div class="form-group">
+                            <label for="coOwners">Co-owners Information</label>
+                            <textarea id="coOwners" name="coOwners" placeholder="Please provide full names, contact details, and ownership percentages of all co-owners"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Registration Details -->
+                <div class="form-section">
+                    <h3>Registration Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="targetRegions">Target Regions or Countries</label>
+                        <input type="text" id="targetRegions" name="targetRegions" value="South Africa" placeholder="e.g., South Africa, United States, European Union">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Need help with legal categories?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="legal-help-yes" name="legalHelp" value="yes">
+                                <label for="legal-help-yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="legal-help-no" name="legalHelp" value="no" checked>
+                                <label for="legal-help-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h3>Additional Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="notes">Notes or Questions</label>
+                        <textarea id="notes" name="notes" placeholder="Any additional information, questions, or special requirements you'd like us to know about"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <a href="index.html#services" class="btn-back">← Back to Services</a>
+                    <button type="submit" class="btn-submit" id="submitBtn">Submit Trademark Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('trademarkForm');
+            const successMessage = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const coOwnersField = document.getElementById('coOwnersField');
+            
+            // Handle conditional field for co-owners
+            const soleOwnerRadios = document.querySelectorAll('input[name="soleOwner"]');
+            soleOwnerRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'no') {
+                        coOwnersField.classList.add('show');
+                    } else {
+                        coOwnersField.classList.remove('show');
+                    }
+                });
+            });
+            
+            // Form validation
+            function validateField(field) {
+                const formGroup = field.closest('.form-group');
+                const errorMessage = formGroup.querySelector('.error-message');
+                
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    formGroup.classList.add('error');
+                    return false;
+                }
+                
+                if (field.type === 'email' && field.value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value)) {
+                        formGroup.classList.add('error');
+                        return false;
+                    }
+                }
+                
+                formGroup.classList.remove('error');
+                return true;
+            }
+            
+            // Real-time validation
+            const inputs = form.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', () => validateField(input));
+                input.addEventListener('input', () => {
+                    if (input.classList.contains('error')) {
+                        validateField(input);
+                    }
+                });
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate all fields
+                let isValid = true;
+                inputs.forEach(input => {
+                    if (!validateField(input)) {
+                        isValid = false;
+                    }
+                });
+                
+                if (!isValid) {
+                    return;
+                }
+                
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    successMessage.style.display = 'block';
+                    form.style.display = 'none';
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Reset form after 5 seconds
+                    setTimeout(() => {
+                        window.location.href = 'index.html#services';
+                    }, 5000);
+                }, 2000);
+            });
+            
+            // File input styling
+            const fileInput = document.getElementById('logoAsset');
+            fileInput.addEventListener('change', function() {
+                const fileName = this.files[0]?.name;
+                if (fileName) {
+                    this.setAttribute('data-file', fileName);
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
