@@ -544,8 +544,6 @@
             
             // Form submission
             form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
                 // Validate all fields
                 let isValid = true;
                 inputs.forEach(input => {
@@ -555,6 +553,7 @@
                 });
                 
                 if (!isValid) {
+                    e.preventDefault();
                     return;
                 }
                 
@@ -562,19 +561,8 @@
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Submitting...';
                 
-                // Simulate form submission
-                setTimeout(() => {
-                    successMessage.style.display = 'block';
-                    form.style.display = 'none';
-                    
-                    // Scroll to success message
-                    successMessage.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Reset form after 5 seconds
-                    setTimeout(() => {
-                        window.location.href = 'index.html#services';
-                    }, 5000);
-                }, 2000);
+                // Let the form submit to FormSubmit.co
+                // The form will redirect to thank-you.html after successful submission
             });
         });
     </script>
