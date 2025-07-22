@@ -115,8 +115,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
         // Get form data
         const formData = new FormData(this);
         const name = formData.get('name');
@@ -126,6 +124,7 @@ if (contactForm) {
         
         // Basic validation
         if (!name || !email || !subject || !message) {
+            e.preventDefault();
             alert('Please fill in all fields');
             return;
         }
@@ -133,24 +132,18 @@ if (contactForm) {
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
+            e.preventDefault();
             alert('Please enter a valid email address');
             return;
         }
         
-        // Simulate form submission (replace with actual form handling)
+        // Update button text and disable it
         const submitButton = this.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        
         submitButton.textContent = 'Sending...';
         submitButton.disabled = true;
         
-        // Simulate API call
-        setTimeout(() => {
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }, 2000);
+        // Let the form submit to FormSubmit.co
+        // The form will redirect to thank-you.html after successful submission
     });
 }
 
