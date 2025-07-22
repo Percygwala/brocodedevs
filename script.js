@@ -390,28 +390,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Bundle offers functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const bundleButtons = document.querySelectorAll('.bundle-cta');
-    
-    bundleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const bundleCard = this.closest('.bundle-card');
-            const bundleName = bundleCard.querySelector('h3').textContent;
-            const bundlePrice = bundleCard.querySelector('.price').textContent;
-            
-            // Create bundle request message
-            let message = `Hi BROCODEDEVS,\n\nI'm interested in the ${bundleName} package (${bundlePrice}).\n\nCould you please provide more details about this package and how to proceed?\n\nThank you!`;
-            
-            // Open WhatsApp with pre-filled message
-            const whatsappNumber = '+27612345678'; // Replace with actual WhatsApp number
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            
-            // Open in new tab
-            window.open(whatsappUrl, '_blank');
-        });
-    });
-});
+// Bundle offers functionality - Now handled by direct links to form pages
+// The bundle buttons are now <a> tags that link directly to the form pages
+// No JavaScript needed for WhatsApp functionality
 
  
 
