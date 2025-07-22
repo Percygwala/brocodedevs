@@ -347,7 +347,12 @@
                 <strong>Thank you!</strong> Your registration details have been submitted successfully. We'll contact you within 24 hours to proceed with your company registration.
             </div>
             
-            <form id="registrationForm" method="POST" action="#">
+            <form id="registrationForm" method="POST" action="https://formsubmit.co/info@brocodedevs.co.za">
+                <!-- Hidden fields for FormSubmit.co -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Company Registration Request!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://percygwala.github.io/brocodedevs-website/thank-you.html">
                 <!-- Personal Information -->
                 <div class="form-section">
                     <h3>Personal Information</h3>

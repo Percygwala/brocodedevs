@@ -328,7 +328,12 @@
                 <strong>Thank you!</strong> Your business email setup request has been submitted successfully. We'll review your requirements and contact you within 24 hours with setup details and pricing.
             </div>
             
-            <form id="businessEmailForm" method="POST" action="#">
+            <form id="businessEmailForm" method="POST" action="https://formsubmit.co/info@brocodedevs.co.za">
+                <!-- Hidden fields for FormSubmit.co -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Business Email Setup Request!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://percygwala.github.io/brocodedevs-website/thank-you.html">
                 <!-- Contact Information -->
                 <div class="form-section">
                     <h3>Contact Information</h3>

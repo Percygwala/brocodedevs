@@ -366,7 +366,12 @@
                 <strong>Thank you!</strong> Your logo design brief has been submitted successfully. We'll review your requirements and get back to you within 24 hours with initial concepts and next steps.
             </div>
             
-            <form id="logoForm" method="POST" action="#">
+            <form id="logoForm" method="POST" action="https://formsubmit.co/info@brocodedevs.co.za">
+                <!-- Hidden fields for FormSubmit.co -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Logo Design Request!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://percygwala.github.io/brocodedevs-website/thank-you.html">
                 <!-- Contact Information -->
                 <div class="form-section">
                     <h3>Contact Information</h3>
