@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStart Solutions - BROCODEDEVS Portfolio</title>
+    <meta name="description" content="Complete Shopify store with custom branding, payment integration, and mobile optimization. Increased online sales by 300% in the first month.">
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="styles.css?v=2.4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .project-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #00ff00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .screenshot-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
+            border-color: rgba(0, 255, 0, 0.3);
+        }
+
+        .screenshot-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #00ff00;
+            position: relative;
+        }
+
+        .screenshot-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 0, 0.1) 50%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .screenshot-item:hover .screenshot-image::before {
+            opacity: 1;
+        }
+
+        .screenshot-caption {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .project-link {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-link.live {
+            background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+            color: #000000;
+        }
+
+        .project-link.live:hover {
+            background: linear-gradient(135deg, #00cc00 0%, #009900 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+        }
+
+        .project-link.github {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .project-link.github:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .back-link a {
+            color: #00ff00;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #00cc00;
+            transform: translateX(-5px);
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #00ff00;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image" class="lightbox-image" src="" alt="Screenshot">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">TechStart Solutions</h1>
+            <p class="project-subtitle">Complete Shopify store with custom branding, payment integration, and mobile optimization. Increased online sales by 300% in the first month.</p>
+        </div>
+
+        <div class="screenshots-grid">
+            <div class="screenshot-item" onclick="openLightbox('🏢')">
+                <div class="screenshot-image">
+                    <span>🏢</span>
+                </div>
+                <div class="screenshot-caption">Homepage Design</div>
+            </div>
+            <div class="screenshot-item" onclick="openLightbox('🛒')">
+                <div class="screenshot-image">
+                    <span>🛒</span>
+                </div>
+                <div class="screenshot-caption">Product Catalog</div>
+            </div>
+            <div class="screenshot-item" onclick="openLightbox('💳')">
+                <div class="screenshot-image">
+                    <span>💳</span>
+                </div>
+                <div class="screenshot-caption">Checkout Process</div>
+            </div>
+            <div class="screenshot-item" onclick="openLightbox('📱')">
+                <div class="screenshot-image">
+                    <span>📱</span>
+                </div>
+                <div class="screenshot-caption">Mobile Experience</div>
+            </div>
+            <div class="screenshot-item" onclick="openLightbox('📊')">
+                <div class="screenshot-image">
+                    <span>📊</span>
+                </div>
+                <div class="screenshot-caption">Admin Dashboard</div>
+            </div>
+            <div class="screenshot-item" onclick="openLightbox('🎨')">
+                <div class="screenshot-image">
+                    <span>🎨</span>
+                </div>
+                <div class="screenshot-caption">Brand Elements</div>
+            </div>
+        </div>
+
+        <div class="project-links">
+            <a href="https://techstart-solutions.com" target="_blank" class="project-link live">
+                <span>🌐</span>
+                View Live Website
+            </a>
+            <a href="https://github.com/brocodedevs/techstart-solutions" target="_blank" class="project-link github">
+                <span>📂</span>
+                View GitHub Repo
+            </a>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html#portfolio">
+                <span>←</span>
+                Back to Portfolio
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function openLightbox(emoji) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            
+            // For demo purposes, we'll use the emoji as the "image"
+            // In a real implementation, you'd use actual image URLs
+            lightboxImage.style.fontSize = '10rem';
+            lightboxImage.style.display = 'flex';
+            lightboxImage.style.alignItems = 'center';
+            lightboxImage.style.justifyContent = 'center';
+            lightboxImage.style.width = '400px';
+            lightboxImage.style.height = '400px';
+            lightboxImage.style.background = 'linear-gradient(135deg, #1a1a1a, #2a2a2a)';
+            lightboxImage.style.borderRadius = '12px';
+            lightboxImage.textContent = emoji;
+            
+            lightbox.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html> 
