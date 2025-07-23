@@ -416,6 +416,45 @@ body {
     flex: 1;
 }
 
+.service-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+
+.service-title-row h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    flex: 1;
+}
+
+.service-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.1rem;
+    flex-shrink: 0;
+}
+
+.price-label {
+    font-size: 0.7rem;
+    color: #00ff00;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-amount {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00ff00 !important;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+}
+
 .service-info h3 {
     font-size: 1.3rem;
     font-weight: 700;
@@ -462,6 +501,8 @@ body {
 .service-description p {
     margin: 0;
 }
+
+
 
 .service-cta {
     margin: 0 1.5rem 1.5rem;
@@ -1604,6 +1645,23 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .service-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .service-price {
+        align-items: flex-start;
+    }
+    
+    .price-amount {
+        font-size: 1rem;
+    }
+    
+    .price-label {
+        font-size: 0.65rem;
+    }
     .hamburger {
         display: flex;
     }
