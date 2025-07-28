@@ -589,6 +589,14 @@ function openServiceModal(serviceId) {
     const getStartedBtn = modal.querySelector('.modal-cta');
     getStartedBtn.href = service.formLink;
     
+    // Add click event listener to Get Started button
+    getStartedBtn.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Get Started button clicked, navigating to:', service.formLink);
+        window.location.href = service.formLink;
+    };
+    
     // Show modal
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
