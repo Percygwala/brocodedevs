@@ -550,30 +550,20 @@ function initializeServiceCards() {
                 e.preventDefault();
                 e.stopPropagation();
                 
+                // Get current state of this specific card
                 const isExpanded = header.getAttribute('aria-expanded') === 'true';
                 
-                // Close all other cards first
-                serviceCards.forEach(otherCard => {
-                    if (otherCard !== card) {
-                        const otherHeader = otherCard.querySelector('.service-card-header');
-                        const otherContent = otherCard.querySelector('.service-card-content');
-                        
-                        if (otherHeader && otherContent) {
-                            otherHeader.setAttribute('aria-expanded', 'false');
-                            otherContent.setAttribute('aria-hidden', 'true');
-                        }
-                    }
-                });
-                
-                // Toggle current card
+                // Toggle only this card's state
                 if (isExpanded) {
-                    // Close current card
+                    // Close this card
                     header.setAttribute('aria-expanded', 'false');
                     content.setAttribute('aria-hidden', 'true');
+                    card.setAttribute('data-open', 'false');
                 } else {
-                    // Open current card
+                    // Open this card
                     header.setAttribute('aria-expanded', 'true');
                     content.setAttribute('aria-hidden', 'false');
+                    card.setAttribute('data-open', 'true');
                 }
             });
         }

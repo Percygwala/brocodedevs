@@ -619,6 +619,7 @@ section {
     height: auto;
     position: relative;
     margin-bottom: var(--space-4);
+    min-height: 120px;
 }
 
 .service-card:hover {
