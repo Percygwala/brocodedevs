@@ -611,3 +611,35 @@ function closeServiceModal() {
     modal.classList.remove('show');
     document.body.style.overflow = '';
 }
+
+// Initialize modal event listeners
+function initializeModalEvents() {
+    // Close button
+    const closeBtn = document.querySelector('.modal-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeServiceModal);
+    }
+    
+    // Close when clicking backdrop
+    const modal = document.getElementById('serviceModal');
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('modal-backdrop')) {
+                closeServiceModal();
+            }
+        });
+    }
+    
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeServiceModal();
+        }
+    });
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeServiceCards();
+    initializeModalEvents();
+});
