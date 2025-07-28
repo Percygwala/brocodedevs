@@ -647,15 +647,19 @@ const serviceData = {
 // Initialize service card modals
 function initializeServiceCards() {
     const serviceCards = document.querySelectorAll('.service-card');
+    console.log('Found service cards:', serviceCards.length);
     
     serviceCards.forEach(card => {
         const header = card.querySelector('.service-card-header');
         const serviceId = card.getAttribute('data-service-id');
         
+        console.log('Service card:', serviceId, 'Header:', header);
+        
         if (header && serviceId) {
             header.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                console.log('Service card clicked:', serviceId);
                 openServiceModal(serviceId);
             });
         }
@@ -664,10 +668,19 @@ function initializeServiceCards() {
 
 // Open service modal
 function openServiceModal(serviceId) {
+    console.log('Opening modal for service:', serviceId);
     const service = serviceData[serviceId];
-    if (!service) return;
+    if (!service) {
+        console.error('Service not found:', serviceId);
+        return;
+    }
     
     const modal = document.getElementById('serviceModal');
+    if (!modal) {
+        console.error('Modal not found');
+        return;
+    }
+    
     const modalContent = modal.querySelector('.modal-content');
     
     // Update modal content
@@ -696,6 +709,8 @@ function openServiceModal(serviceId) {
     setTimeout(() => {
         modalContent.classList.add('modal-animate');
     }, 10);
+    
+    console.log('Modal opened successfully');
 }
 
 // Close service modal
