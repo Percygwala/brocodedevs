@@ -603,8 +603,8 @@
                 <div class="form-section">
                     <h3>Additional Files</h3>
                     <div class="form-group">
-                        <label for="attachment">Upload Image (optional):</label>
-                        <input type="file" name="attachment" accept="image/*">
+                        <label for="attachment">Upload Image (Max size: 10MB):</label>
+                        <input type="file" name="attachment" accept="image/*" required onchange="validateFileSize(this)">
                     </div>
                 </div>
                 
@@ -617,6 +617,19 @@
     </div>
 
     <script>
+        // File size validation function
+        function validateFileSize(input) {
+            const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+            const file = input.files[0];
+            
+            if (file && file.size > maxSize) {
+                alert('File size must be less than 10MB. Please choose a smaller file.');
+                input.value = '';
+                return false;
+            }
+            return true;
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('shopifyForm');
             const successMessage = document.getElementById('successMessage');
