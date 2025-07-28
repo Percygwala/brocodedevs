@@ -347,7 +347,7 @@
                 <strong>Thank you!</strong> Your registration details have been submitted successfully. We'll contact you within 24 hours to proceed with your company registration.
             </div>
             
-            <form id="registrationForm" method="POST" action="https://formsubmit.co/info@brocodedevs.co.za">
+            <form id="registrationForm" method="POST" action="https://formsubmit.co/info@brocodedevs.co.za" enctype="multipart/form-data">
                 <!-- Hidden fields for FormSubmit.co -->
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="New Company Registration Request!">
@@ -479,6 +479,15 @@
                     <div class="form-group">
                         <label for="notes">Notes / Special Instructions</label>
                         <textarea id="notes" name="notes" placeholder="Any additional information or special requirements you'd like us to know about"></textarea>
+                    </div>
+                </div>
+                
+                <!-- File Upload Section -->
+                <div class="form-section">
+                    <h3>Additional Files</h3>
+                    <div class="form-group">
+                        <label for="attachment">Upload Image (optional):</label>
+                        <input type="file" name="attachment" accept="image/*">
                     </div>
                 </div>
                 

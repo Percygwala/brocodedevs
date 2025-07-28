@@ -203,7 +203,7 @@
                 <p style="color: #00ff88; font-weight: 600; margin-top: 1rem;">Starting from R3,500 (Save R1,200)</p>
             </div>
             
-            <form action="https://formsubmit.co/info@brocodedevs.co.za" method="POST">
+            <form action="https://formsubmit.co/info@brocodedevs.co.za" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="New Request for Growth Pack">
                 <input type="hidden" name="_template" value="table">
@@ -227,6 +227,12 @@
                 
                 <div class="form-group">
                     <textarea name="message" placeholder="Additional Info (optional)"></textarea>
+                </div>
+                
+                <!-- File Upload Section -->
+                <div class="form-group">
+                    <label for="attachment">Upload Image (optional):</label>
+                    <input type="file" name="attachment" accept="image/*">
                 </div>
                 
                 <div class="form-actions">

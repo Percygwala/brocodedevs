@@ -305,7 +305,7 @@
                 <strong>Thank you!</strong> Your domain registration request has been submitted successfully. We'll check domain availability and contact you within 24 hours with registration details and pricing.
             </div>
             
-            <form id="domainRegistrationForm" method="POST" action="https://formsubmit.co/info@brocodedevs.co.za">
+            <form id="domainRegistrationForm" method="POST" action="https://formsubmit.co/info@brocodedevs.co.za" enctype="multipart/form-data">
                 <!-- Hidden fields for FormSubmit.co -->
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="New Domain Registration Request!">
@@ -454,6 +454,15 @@
                     <div class="form-group">
                         <label for="additionalInstructions">Additional Instructions</label>
                         <textarea id="additionalInstructions" name="additionalInstructions" placeholder="Any specific requirements, preferences, or additional information about your domain registration"></textarea>
+                    </div>
+                </div>
+                
+                <!-- File Upload Section -->
+                <div class="form-section">
+                    <h3>Additional Files</h3>
+                    <div class="form-group">
+                        <label for="attachment">Upload Image (optional):</label>
+                        <input type="file" name="attachment" accept="image/*">
                     </div>
                 </div>
                 
