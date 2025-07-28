@@ -632,12 +632,13 @@ section {
     justify-content: space-between;
     padding: var(--space-6) var(--space-6) var(--space-4);
     border: none;
-    background: var(--background-tertiary);
+    background: var(--background-secondary);
     cursor: pointer;
     width: 100%;
     text-align: left;
     transition: var(--transition-normal);
     position: relative;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
 .service-card-header:hover {
@@ -651,18 +652,19 @@ section {
 
 .service-icon {
     font-size: var(--font-size-2xl);
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
     background: var(--accent-color);
-    color: var(--background-primary);
+    color: #000000;
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: var(--space-4);
     flex-shrink: 0;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     transition: var(--transition-normal);
+    border: 2px solid rgba(0, 255, 0, 0.2);
 }
 
 .service-card:hover .service-icon {
@@ -804,6 +806,8 @@ section {
     padding: var(--space-6);
     max-height: 1000px;
     border-top: 1px solid var(--border-color);
+    background: var(--background-secondary);
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }
 
 .service-card-content[aria-hidden="true"] {
