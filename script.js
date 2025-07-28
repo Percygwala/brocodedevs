@@ -546,10 +546,13 @@ function initializeServiceCards() {
         const content = card.querySelector('.service-card-content');
         
         if (header && content) {
-            header.addEventListener('click', () => {
+            header.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 const isExpanded = header.getAttribute('aria-expanded') === 'true';
                 
-                // Close all other cards
+                // Close all other cards first
                 serviceCards.forEach(otherCard => {
                     if (otherCard !== card) {
                         const otherHeader = otherCard.querySelector('.service-card-header');
@@ -564,9 +567,11 @@ function initializeServiceCards() {
                 
                 // Toggle current card
                 if (isExpanded) {
+                    // Close current card
                     header.setAttribute('aria-expanded', 'false');
                     content.setAttribute('aria-hidden', 'true');
                 } else {
+                    // Open current card
                     header.setAttribute('aria-expanded', 'true');
                     content.setAttribute('aria-hidden', 'false');
                 }
