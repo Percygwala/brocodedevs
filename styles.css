@@ -609,22 +609,38 @@ section {
     box-shadow: var(--shadow-lg);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     position: relative;
+    margin-bottom: var(--space-4);
 }
 
 .service-card:hover {
     border-color: var(--accent-color);
     box-shadow: var(--shadow-xl), var(--shadow-glow);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
 }
 
 .service-card-header {
     display: flex;
     align-items: center;
-    padding: var(--space-8) var(--space-8) var(--space-4);
-    border-bottom: 1px solid var(--border-color);
+    justify-content: space-between;
+    padding: var(--space-6) var(--space-6) var(--space-4);
+    border: none;
     background: var(--background-tertiary);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: var(--transition-normal);
+    position: relative;
+}
+
+.service-card-header:hover {
+    background: var(--background-primary);
+}
+
+.service-card-header:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
 }
 
 .service-icon {
@@ -646,6 +662,43 @@ section {
 .service-card:hover .service-icon {
     transform: scale(1.1);
     box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.service-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    background: var(--accent-light);
+    transition: var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.service-toggle:hover {
+    background: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.toggle-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--accent-color);
+    transition: var(--transition-normal);
+    transform: rotate(0deg);
+}
+
+.service-card-header[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.service-card-header[aria-expanded="true"] + .service-toggle {
+    background: var(--accent-color);
+}
+
+.service-card-header[aria-expanded="true"] .toggle-icon {
+    color: var(--background-primary);
 }
 
 .service-info {
@@ -731,11 +784,25 @@ section {
 }
 
 .service-card-content {
-    padding: 2rem;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow), padding var(--transition-normal);
+    background: var(--background-secondary);
     display: flex;
     flex-direction: column;
-    flex: 1;
-    gap: 1.5rem;
+    gap: var(--space-4);
+}
+
+.service-card-content[aria-hidden="false"] {
+    padding: var(--space-6);
+    max-height: 1000px;
+    border-top: 1px solid var(--border-color);
+}
+
+.service-card-content[aria-hidden="true"] {
+    padding: 0;
+    max-height: 0;
 }
 
 .service-description {

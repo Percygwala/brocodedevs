@@ -9,7 +9,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="cache-control" content="no-cache">
-    <link rel="stylesheet" href="styles.css?v=7.0">
+    <link rel="stylesheet" href="styles.css?v=8.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -120,7 +120,7 @@
             </div>
             <div class="services-grid">
                 <div class="service-card" data-service-id="company-registration">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-company-registration">
                         <div class="service-icon">🏢</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -128,8 +128,13 @@
                                 <p class="service-subtitle">Name, documents & ownership updates included</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-company-registration" aria-hidden="true">
                         <p class="service-description">Register your business fast with CIPC — name, documents & ownership updates included.</p>
                         <div class="service-features">
                             <div class="service-feature">• Company name reservation</div>
@@ -142,7 +147,7 @@
                 </div>
 
                 <div class="service-card" data-service-id="logo-design">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-logo-design">
                         <div class="service-icon">🎨</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -150,8 +155,13 @@
                                 <p class="service-subtitle">Custom designs in Adobe Illustrator & Photoshop</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-logo-design" aria-hidden="true">
                         <p class="service-description">Stand out with a custom business logo designed in Adobe Illustrator & Photoshop.</p>
                         <div class="service-features">
                             <div class="service-feature">• Custom concept development</div>
@@ -164,7 +174,7 @@
                 </div>
 
                 <div class="service-card" data-service-id="trademark-service">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-trademark-service">
                         <div class="service-icon">®️</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -172,8 +182,13 @@
                                 <p class="service-subtitle">Full trademark registration process handled</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-trademark-service" aria-hidden="true">
                         <p class="service-description">Protect your logo — we handle the full trademark registration process.</p>
                         <div class="service-features">
                             <div class="service-feature">• Logo file prep (if needed)</div>
@@ -186,7 +201,7 @@
                 </div>
 
                 <div class="service-card" data-service-id="small-apps">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-small-apps">
                         <div class="service-icon">📱</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -194,8 +209,13 @@
                                 <p class="service-subtitle">Mobile & web apps with Play Store & App Store setup</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-small-apps" aria-hidden="true">
                         <p class="service-description">We build sleek mobile & web apps — plus setup your Play Store & App Store.</p>
                         <div class="service-features">
                             <div class="service-feature">• Android (Google Play Store)</div>
@@ -208,7 +228,7 @@
                 </div>
 
                 <div class="service-card" data-service-id="landing-page-websites">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-landing-page-websites">
                         <div class="service-icon">🌐</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -216,8 +236,13 @@
                                 <p class="service-subtitle">1 to 3-page business websites with domain setup</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-landing-page-websites" aria-hidden="true">
                         <p class="service-description">Professional business websites — 1 to 3-page landing sites with domain setup.</p>
                         <div class="service-features">
                             <div class="service-feature">• 1–3 page website</div>
@@ -230,7 +255,7 @@
                 </div>
 
                 <div class="service-card" data-service-id="shopify-stores">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-shopify-stores">
                         <div class="service-icon">🛒</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -238,8 +263,13 @@
                                 <p class="service-subtitle">Complete online stores with payments & domain included</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-shopify-stores" aria-hidden="true">
                         <p class="service-description">Launch your online store with Shopify — payments & domain included.</p>
                         <div class="service-features">
                             <div class="service-feature">• Full store design & layout</div>
@@ -252,7 +282,7 @@
                 </div>
 
                 <div class="service-card" data-service-id="digital-ads">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-digital-ads">
                         <div class="service-icon">📢</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -260,8 +290,13 @@
                                 <p class="service-subtitle">Facebook, TikTok, Instagram & YouTube ad campaigns</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-digital-ads" aria-hidden="true">
                         <p class="service-description">We design & run ads on Facebook, TikTok, Instagram, and YouTube.</p>
                         <div class="service-features">
                             <div class="service-feature">• Facebook & Instagram Ads</div>
@@ -274,7 +309,7 @@
                 </div>
 
                 <div class="service-card" data-service-id="business-email">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-business-email">
                         <div class="service-icon">📧</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -282,8 +317,13 @@
                                 <p class="service-subtitle">Professional Gmail business email setup</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-business-email" aria-hidden="true">
                         <p class="service-description">Get a professional Gmail business email like you@yourcompany.co.za.</p>
                         <div class="service-features">
                             <div class="service-feature">• Gmail business email setup</div>
@@ -296,7 +336,7 @@
                 </div>
 
                 <div class="service-card" data-service-id="domain-registration">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-domain-registration">
                         <div class="service-icon">🌍</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -304,8 +344,13 @@
                                 <p class="service-subtitle">Fast & professional domain registration using Google</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-domain-registration" aria-hidden="true">
                         <p class="service-description">We register your business domain using Google — fast & professional.</p>
                         <div class="service-features">
                             <div class="service-feature">• Domain name search</div>
@@ -318,7 +363,7 @@
                 </div>
 
                 <div class="service-card" data-service-id="payment-methods">
-                    <div class="service-card-header">
+                    <button class="service-card-header" aria-expanded="false" aria-controls="service-content-payment-methods">
                         <div class="service-icon">💳</div>
                         <div class="service-info">
                             <div class="service-title-row">
@@ -326,8 +371,13 @@
                                 <p class="service-subtitle">Payfast, PayPal & Yoco integration for your business</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="service-card-content">
+                        <div class="service-toggle">
+                            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="service-card-content" id="service-content-payment-methods" aria-hidden="true">
                         <p class="service-description">We set up Payfast, PayPal & Yoco for your website, app, or Shopify store.</p>
                         <div class="service-features">
                             <div class="service-feature">• Payfast integration</div>
@@ -800,6 +850,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=2.0"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html> 
