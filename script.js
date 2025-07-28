@@ -57,10 +57,10 @@ class NavbarController {
         // Update background based on scroll position
         if (currentScrollY > this.hideThreshold) {
             this.navbar.style.background = 'rgba(0, 0, 0, 0.98)';
-            this.navbar.style.boxShadow = '0 2px 20px rgba(0, 255, 0, 0.1)';
+            this.navbar.style.boxShadow = '0 2px 20px rgba(0, 255, 0, 0.15)';
         } else {
             this.navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-            this.navbar.style.boxShadow = 'none';
+            this.navbar.style.boxShadow = '0 2px 20px rgba(0, 255, 0, 0.05)';
         }
         
         // Auto-hide/show logic

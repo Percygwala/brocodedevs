@@ -208,14 +208,14 @@ section {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
     padding: 0;
     transition: var(--transition);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: var(--shadow-light);
+    border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 255, 0, 0.05);
 }
 
 .nav-container {
@@ -254,7 +254,7 @@ section {
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-primary);
+    color: #ffffff;
     font-weight: 500;
     font-size: 0.9375rem;
     transition: var(--transition);
@@ -295,7 +295,7 @@ section {
 .bar {
     width: 20px;
     height: 2px;
-    background-color: var(--text-primary);
+    background-color: #ffffff;
     margin: 3px 0;
     transition: var(--transition);
     border-radius: 1px;
