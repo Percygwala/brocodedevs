@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Code } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -41,9 +41,13 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group touch-target">
+          <Link to="/" className="flex items-center group touch-target">
             <div className="relative">
-              <Code className="w-7 h-7 sm:w-8 sm:h-8 text-black group-hover:text-gray-600 transition-colors duration-300" />
+              <img 
+                src="/logo.png" 
+                alt="BROCODEDEVS Logo" 
+                className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
+              />
               <motion.div
                 className="absolute inset-0 bg-black rounded-full opacity-0 group-hover:opacity-10"
                 initial={{ scale: 0 }}
@@ -51,9 +55,7 @@ const Navbar = () => {
                 transition={{ duration: 0.2 }}
               />
             </div>
-            <span className="text-lg sm:text-xl md:text-2xl font-bold text-black group-hover:text-gray-600 transition-colors duration-300">
-              BROCODEDEVS
-            </span>
+
           </Link>
 
           {/* Desktop Navigation */}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Code, Mail, Phone, MapPin, Github, Linkedin, Twitter, Globe } from 'lucide-react'
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Globe } from 'lucide-react'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -38,11 +38,13 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="space-y-4">
-              <Link to="/" className="flex items-center space-x-2 group">
-                <Code className="w-8 h-8 text-white group-hover:text-gray-300 transition-colors duration-300" />
-                <span className="text-xl font-bold text-white group-hover:text-gray-300 transition-colors duration-300">
-                  BROCODEDEVS
-                </span>
+              <Link to="/" className="flex items-center group">
+                <img 
+                  src="/logo-white.png" 
+                  alt="BROCODEDEVS Logo" 
+                  className="w-8 h-8 object-contain"
+                />
+
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed">
                 100% Black Owned digital agency providing complete business solutions from company registration to digital marketing.
