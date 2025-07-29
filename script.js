@@ -552,103 +552,20 @@ const serviceData = {
 };
 
 // Initialize service card modals
-function initializeServiceCards() {
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    serviceCards.forEach(card => {
-        const header = card.querySelector('.service-card-header');
-        const serviceId = card.getAttribute('data-service-id');
+// Service items are now direct links, no modal functionality needed
+function initializeServiceItems() {
+    // Add scroll animations to service items
+    const serviceItems = document.querySelectorAll('.service-item');
+    serviceItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
         
-        if (header && serviceId) {
-            header.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                openServiceModal(serviceId);
-            });
-        }
-    });
-}
-
-// Open service modal
-function openServiceModal(serviceId) {
-    const service = serviceData[serviceId];
-    if (!service) return;
-    
-    const modal = document.getElementById('serviceModal');
-    const modalContent = modal.querySelector('.modal-content');
-    
-    // Update modal content
-    modal.querySelector('.modal-title').textContent = service.title;
-    modal.querySelector('.modal-price').textContent = service.price;
-    modal.querySelector('.modal-description').textContent = service.description;
-    
-    // Update features list
-    const featuresList = modal.querySelector('.modal-features');
-    featuresList.innerHTML = '';
-    service.features.forEach(feature => {
-        const li = document.createElement('li');
-        li.textContent = `• ${feature}`;
-        featuresList.appendChild(li);
-    });
-    
-    // Update form link
-    const getStartedBtn = modal.querySelector('.modal-cta');
-    getStartedBtn.href = service.formLink;
-    
-    // Add click event listener to Get Started button
-    getStartedBtn.onclick = function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('Get Started button clicked, navigating to:', service.formLink);
-        window.location.href = service.formLink;
-    };
-    
-    // Show modal
-    modal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-    
-    // Add animation class
-    setTimeout(() => {
-        modalContent.classList.add('modal-animate');
-    }, 10);
-}
-
-// Close service modal
-function closeServiceModal() {
-    const modal = document.getElementById('serviceModal');
-    const modalContent = modal.querySelector('.modal-content');
-    
-    // Remove animation class
-    modalContent.classList.remove('modal-animate');
-    
-    // Hide modal
-    modal.classList.remove('show');
-    document.body.style.overflow = '';
-}
-
-// Initialize modal event listeners
-function initializeModalEvents() {
-    // Close button
-    const closeBtn = document.querySelector('.modal-close');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeServiceModal);
-    }
-    
-    // Close when clicking backdrop
-    const modal = document.getElementById('serviceModal');
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal || e.target.classList.contains('modal-backdrop')) {
-                closeServiceModal();
-            }
-        });
-    }
-    
-    // Close with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeServiceModal();
-        }
+        // Stagger the animations
+        setTimeout(() => {
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, index * 100);
     });
 }
 
@@ -665,8 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new NavbarController();
     initializeMobileNavigation();
     initializeSmoothScrolling();
-    initializeServiceCards();
-    initializeModalEvents();
+    initializeServiceItems();
     
     // Initialize scroll animations
     new ScrollAnimations();
