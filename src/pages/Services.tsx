@@ -5,52 +5,84 @@ import { ArrowRight, Code, Globe, Smartphone, Database, Palette, Zap, Users, Shi
 const Services = () => {
   const services = [
     {
-      title: 'Web Development',
-      price: 'From R15,000',
-      shortDescription: 'Custom websites and web applications',
-      longDescription: 'We build modern, responsive websites and web applications using cutting-edge technologies. From simple landing pages to complex web applications, we deliver solutions that drive business growth and provide exceptional user experiences.',
-      icon: Globe,
-      features: ['Responsive Design', 'SEO Optimization', 'Content Management', 'Performance Optimization', 'Security Implementation', 'Ongoing Support']
-    },
-    {
-      title: 'Mobile App Development',
-      price: 'From R25,000',
-      shortDescription: 'Native and cross-platform mobile applications',
-      longDescription: 'Create powerful mobile applications for iOS and Android platforms. We develop both native and cross-platform solutions using React Native and Flutter, ensuring your app works seamlessly across all devices.',
-      icon: Smartphone,
-      features: ['iOS & Android', 'Cross-platform Development', 'App Store Optimization', 'Push Notifications', 'Offline Functionality', 'Performance Testing']
-    },
-    {
-      title: 'E-commerce Solutions',
-      price: 'From R20,000',
-      shortDescription: 'Complete online store platforms',
-      longDescription: 'Build your online business with our comprehensive e-commerce solutions. We create secure, scalable online stores with payment processing, inventory management, and customer relationship tools.',
-      icon: Database,
-      features: ['Payment Integration', 'Inventory Management', 'Order Processing', 'Customer Accounts', 'Analytics Dashboard', 'Multi-language Support']
-    },
-    {
-      title: 'UI/UX Design',
-      price: 'From R8,000',
-      shortDescription: 'User-centered design solutions',
-      longDescription: 'Create intuitive and beautiful user interfaces that enhance user experience and drive engagement. Our design process focuses on user research, wireframing, prototyping, and usability testing.',
-      icon: Palette,
-      features: ['User Research', 'Wireframing', 'Prototyping', 'Usability Testing', 'Design Systems', 'Interactive Prototypes']
-    },
-    {
-      title: 'Custom Software Development',
-      price: 'From R35,000',
-      shortDescription: 'Tailored business software solutions',
-      longDescription: 'Develop custom software solutions that streamline your business operations. We create enterprise-grade applications, APIs, and integrations that solve specific business challenges and improve efficiency.',
-      icon: Code,
-      features: ['Custom APIs', 'Database Design', 'System Integration', 'Cloud Deployment', 'Scalability Planning', 'Technical Documentation']
-    },
-    {
-      title: 'Website Maintenance',
-      price: 'From R2,500/month',
-      shortDescription: 'Ongoing support and updates',
-      longDescription: 'Keep your website running smoothly with our comprehensive maintenance services. We handle updates, security patches, performance optimization, and provide ongoing technical support.',
+      title: 'Company Registration',
+      price: 'From R550',
+      shortDescription: 'CIPC registration and business setup',
+      longDescription: 'Complete company registration service including CIPC registration, name reservation, Memorandum of Incorporation (MOI), and Business Owner (BO) updates. Get your business legally registered and ready to operate.',
       icon: Shield,
-      features: ['Regular Updates', 'Security Monitoring', 'Performance Optimization', 'Backup Management', 'Technical Support', 'Content Updates']
+      features: ['CIPC Registration', 'Name Reservation', 'MOI Preparation', 'BO Update', 'Legal Compliance', 'Business Setup Support']
+    },
+    {
+      title: 'Logo Design',
+      price: 'From R750',
+      shortDescription: 'Professional logo design services',
+      longDescription: 'Create a memorable brand identity with our professional logo design service. We use Adobe Illustrator and Photoshop to create high-quality, scalable logos that represent your business perfectly.',
+      icon: Palette,
+      features: ['Professional Design', 'Adobe Illustrator/Photoshop', 'Multiple Concepts', 'Scalable Formats', 'Brand Guidelines', 'Revisions Included']
+    },
+    {
+      title: 'Trademark',
+      price: 'From R1,500',
+      shortDescription: 'Trademark registration for your brand',
+      longDescription: 'Protect your brand with trademark registration for new or existing business logos. Our service ensures your intellectual property is legally protected and your brand identity is secure.',
+      icon: Shield,
+      features: ['Trademark Search', 'Application Filing', 'Legal Protection', 'Brand Security', 'Renewal Reminders', 'Legal Support']
+    },
+    {
+      title: 'Small Apps',
+      price: 'From R2,000',
+      shortDescription: 'Mobile and web applications',
+      longDescription: 'Develop custom applications for Android, iOS, or web platforms. Includes 2-10 page apps, Play Store/App Store account setup, and domain configuration. Perfect for startups and small businesses.',
+      icon: Smartphone,
+      features: ['Android & iOS Apps', 'Web Applications', 'Play Store Setup', 'App Store Setup', 'Domain Configuration', '2-10 Pages Included']
+    },
+    {
+      title: 'Landing Page Websites',
+      price: 'From R1,200',
+      shortDescription: 'Professional business websites',
+      longDescription: 'Create stunning business websites with custom domains. Our landing page websites are designed to convert visitors into customers with modern design and optimized user experience.',
+      icon: Globe,
+      features: ['Custom Domain', 'Responsive Design', 'SEO Optimization', 'Contact Forms', 'Analytics Setup', 'Mobile Optimized']
+    },
+    {
+      title: 'Shopify Stores',
+      price: 'From R2,500',
+      shortDescription: 'Complete e-commerce solutions',
+      longDescription: 'Launch your online business with a fully functional Shopify store. Includes payment method integration, custom domain setup, and complete e-commerce functionality to start selling online.',
+      icon: Database,
+      features: ['Full Store Setup', 'Payment Methods', 'Custom Domain', 'Product Management', 'Order Processing', 'Analytics Dashboard']
+    },
+    {
+      title: 'Digital Advertising',
+      price: 'From R800',
+      shortDescription: 'Social media and digital marketing',
+      longDescription: 'Reach your target audience with strategic digital advertising campaigns on Facebook, Instagram, TikTok, and YouTube. Drive traffic, increase brand awareness, and generate leads.',
+      icon: Target,
+      features: ['Facebook Ads', 'Instagram Ads', 'TikTok Ads', 'YouTube Ads', 'Campaign Management', 'Performance Analytics']
+    },
+    {
+      title: 'Business Emails',
+      price: 'From R350',
+      shortDescription: 'Professional Gmail business emails',
+      longDescription: 'Set up professional business email addresses using Gmail for Business. Create a professional image with custom domain email addresses that match your brand.',
+      icon: Users,
+      features: ['Gmail Business Setup', 'Custom Domain Emails', 'Professional Branding', 'Email Management', 'Security Features', 'Technical Support']
+    },
+    {
+      title: 'Domain Registration',
+      price: 'From R250',
+      shortDescription: 'Google domain registration service',
+      longDescription: 'Secure your online presence with Google domain registration. Get the perfect domain name for your business with reliable hosting and management services.',
+      icon: Globe,
+      features: ['Google Domains', 'Domain Search', 'Registration Service', 'DNS Management', 'Privacy Protection', 'Renewal Services']
+    },
+    {
+      title: 'Payment Methods',
+      price: 'From R450',
+      shortDescription: 'Payment gateway integration',
+      longDescription: 'Accept online payments with integrated payment gateways including PayFast, PayPal, and Yoco. Set up secure payment processing for your business website or e-commerce store.',
+      icon: Zap,
+      features: ['PayFast Integration', 'PayPal Setup', 'Yoco Integration', 'Secure Processing', 'Transaction Management', 'Payment Analytics']
     }
   ]
 
@@ -69,7 +101,7 @@ const Services = () => {
               Our Services
             </h1>
             <p className="body-lg text-gray-300">
-              Comprehensive web development solutions tailored to your business needs. From simple websites to complex applications, we deliver results that drive growth.
+              Complete business solutions from company registration to digital marketing. We help you establish and grow your business with professional services at competitive prices.
             </p>
           </motion.div>
         </div>

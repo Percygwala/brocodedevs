@@ -7,19 +7,18 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: 'Web Development', path: '/services' },
-      { name: 'Mobile Apps', path: '/services' },
-      { name: 'E-commerce', path: '/services' },
-      { name: 'UI/UX Design', path: '/services' },
+      { name: 'Company Registration', path: '/services' },
+      { name: 'Logo Design', path: '/services' },
+      { name: 'Landing Pages', path: '/services' },
+      { name: 'Shopify Stores', path: '/services' },
     ],
     company: [
       { name: 'About Us', path: '/about' },
-      { name: 'Portfolio', path: '/portfolio' },
       { name: 'Packages', path: '/packages' },
       { name: 'Contact', path: '/contact' },
+      { name: 'FAQ', path: '/faq' },
     ],
     support: [
-      { name: 'FAQ', path: '/faq' },
       { name: 'Privacy Policy', path: '/privacy' },
       { name: 'Terms of Service', path: '/terms' },
       { name: 'Support', path: '/contact' },
@@ -46,8 +45,13 @@ const Footer = () => {
                 </span>
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Professional web development services creating modern, responsive websites and applications that drive business growth.
+                100% Black Owned digital agency providing complete business solutions from company registration to digital marketing.
               </p>
+              <div className="flex items-center space-x-2">
+                <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold">
+                  100% Black Owned
+                </span>
+              </div>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                   <motion.a
@@ -105,7 +109,7 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Mail className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-400 text-sm">hello@brocodedevs.co.za</span>
+                  <span className="text-gray-400 text-sm">info@brocodedevs.co.za</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4 text-gray-400" />
@@ -113,7 +117,11 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-400 text-sm">Cape Town, South Africa</span>
+                  <span className="text-gray-400 text-sm">Johannesburg, South Africa</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Globe className="w-4 h-4 text-gray-400" />
+                  <span className="text-gray-400 text-sm">brocodedevs.co.za</span>
                 </div>
               </div>
             </div>

@@ -5,67 +5,45 @@ import { ArrowRight, Code, Globe, Smartphone, Database, Mail, Phone, MapPin, Clo
 const Home = () => {
   const services = [
     {
-      title: 'Web Development',
-      description: 'Custom websites and web applications built with modern technologies',
+      title: 'Company Registration',
+      description: 'CIPC registration, name reservation, MOI, and BO updates',
+      icon: Shield,
+      link: '/services'
+    },
+    {
+      title: 'Logo Design',
+      description: 'Professional logo design with Illustrator and Photoshop',
+      icon: Palette,
+      link: '/services'
+    },
+    {
+      title: 'Landing Pages',
+      description: 'Business websites with custom domains and SEO optimization',
       icon: Globe,
-      link: '/services'
-    },
-    {
-      title: 'Mobile Apps',
-      description: 'Native and cross-platform mobile applications for iOS and Android',
-      icon: Smartphone,
-      link: '/services'
-    },
-    {
-      title: 'E-commerce',
-      description: 'Online stores and shopping platforms with secure payment integration',
-      icon: Database,
       link: '/services'
     }
   ]
 
-  const featuredProjects = [
-    {
-      title: 'E-commerce Platform',
-      category: 'Web Development',
-      description: 'Modern online store with payment processing and inventory management',
-      image: '/api/placeholder/400/300',
-      link: '/portfolio'
-    },
-    {
-      title: 'Mobile Banking App',
-      category: 'Mobile Development',
-      description: 'Secure banking application with biometric authentication',
-      image: '/api/placeholder/400/300',
-      link: '/portfolio'
-    },
-    {
-      title: 'Corporate Website',
-      category: 'Web Design',
-      description: 'Professional business website with content management system',
-      image: '/api/placeholder/400/300',
-      link: '/portfolio'
-    }
-  ]
+
 
   const packages = [
     {
       name: 'Starter',
-      price: 'R15,000',
-      description: 'Perfect for small businesses and startups',
-      features: ['5 Pages', 'Mobile Responsive', 'Contact Form', 'Basic SEO']
+      price: 'R2,500',
+      description: 'Perfect for new businesses and startups',
+      features: ['Company Registration', 'Logo Design', 'Basic Website', 'Business Email']
     },
     {
-      name: 'Professional',
-      price: 'R25,000',
+      name: 'Growth',
+      price: 'R5,000',
       description: 'Ideal for growing businesses',
-      features: ['10 Pages', 'CMS Integration', 'Advanced SEO', 'Analytics']
+      features: ['All Starter Features', 'Shopify Store', 'Digital Advertising', 'Payment Methods']
     },
     {
-      name: 'Enterprise',
-      price: 'R45,000',
-      description: 'Complete solution for large organizations',
-      features: ['Unlimited Pages', 'Custom Features', 'Priority Support', 'Performance Optimization']
+      name: 'Premium',
+      price: 'R8,000',
+      description: 'Complete business solution',
+      features: ['All Growth Features', 'Trademark Registration', 'Small App Development', 'Priority Support']
     }
   ]
 
@@ -95,10 +73,10 @@ const Home = () => {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
-                to="/portfolio"
+                to="/services"
                 className="btn-secondary btn-large btn-full-mobile"
               >
-                View Our Work
+                View Services
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </div>
@@ -146,46 +124,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Portfolio Highlight */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <h2 className="heading-lg mb-4 sm:mb-6">
-              Featured Work
-            </h2>
-            <p className="body-lg text-gray-600 max-w-3xl mx-auto">
-              Take a look at some of our recent projects that showcase our expertise and creativity
-            </p>
-          </motion.div>
 
-          <div className="grid-responsive">
-            {featuredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card card-hover group"
-              >
-                <div className="bg-gray-200 rounded-lg h-40 sm:h-48 mb-4 sm:mb-6 flex items-center justify-center overflow-hidden">
-                  <Code className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400" />
-                </div>
-                <div className="text-xs sm:text-sm text-gray-500 mb-2">{project.category}</div>
-                <h3 className="heading-sm mb-2 sm:mb-3">{project.title}</h3>
-                <p className="body-md text-gray-600 mb-3 sm:mb-4">{project.description}</p>
-                <Link to={project.link} className="text-black font-medium hover:text-gray-600 transition-colors duration-300">
-                  View Project →
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Business Packages Overview */}
       <section className="section-padding">

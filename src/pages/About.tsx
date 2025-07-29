@@ -64,15 +64,15 @@ const About = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center px-4 py-2 bg-white text-black rounded-full text-sm font-medium mb-6">
-                <Award className="w-4 h-4 mr-2" />
+              <div className="inline-flex items-center px-6 py-3 bg-yellow-500 text-black rounded-full text-lg font-bold mb-6 shadow-lg">
+                <Award className="w-5 h-5 mr-2" />
                 100% Black Owned
               </div>
               <h1 className="heading-xl mb-6">
                 About BROCODEDEVS
               </h1>
               <p className="body-lg text-gray-300 mb-8">
-                We are a passionate team of developers, designers, and business strategists dedicated to transforming ideas into powerful digital solutions. As a 100% Black-owned company, we're committed to excellence, innovation, and making a positive impact in the tech industry.
+                We are a 100% Black-owned digital agency providing complete business solutions from company registration to digital marketing. Our passionate team of developers, designers, and business strategists is dedicated to helping South African businesses grow and succeed in the digital world.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center text-sm text-gray-300">

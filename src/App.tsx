@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Services from './pages/Services'
-import Portfolio from './pages/Portfolio'
+
 import Packages from './pages/Packages'
 import FAQ from './pages/FAQ'
 import Contact from './pages/Contact'
@@ -37,16 +37,7 @@ function App() {
                 <Services />
               </motion.div>
             } />
-            <Route path="/portfolio" element={
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Portfolio />
-              </motion.div>
-            } />
+
             <Route path="/packages" element={
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

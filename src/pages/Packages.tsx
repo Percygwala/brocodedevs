@@ -6,61 +6,58 @@ const Packages = () => {
   const packages = [
     {
       name: 'Starter',
-      price: 'R15,000',
+      price: 'R2,500',
       period: 'one-time',
-      description: 'Perfect for small businesses and startups',
+      description: 'Perfect for new businesses and startups',
       recommended: false,
       features: [
-        '5 Pages Website',
-        'Mobile Responsive Design',
-        'Contact Form',
+        'Company Registration (R550)',
+        'Logo Design (R750)',
+        'Landing Page Website (R1,200)',
+        'Business Email Setup (R350)',
+        'Domain Registration (R250)',
         'Basic SEO Setup',
-        'Google Analytics',
-        'Social Media Integration',
-        '1 Month Support',
-        'Basic Content Management'
+        'Mobile Responsive Design',
+        'Contact Form Integration',
+        '1 Month Support'
       ],
       icon: Globe
     },
     {
       name: 'Growth',
-      price: 'R35,000',
+      price: 'R5,000',
       period: 'one-time',
       description: 'Ideal for growing businesses',
       recommended: true,
       features: [
-        '10 Pages Website',
+        'All Starter Package Features',
+        'Shopify Store Setup (R2,500)',
+        'Digital Advertising Setup (R800)',
+        'Payment Methods Integration (R450)',
         'Advanced SEO Optimization',
-        'Content Management System',
-        'E-commerce Ready',
-        'Payment Gateway Setup',
-        'Email Marketing Integration',
+        'Social Media Integration',
+        'Analytics Dashboard',
         '3 Months Support',
-        'Performance Optimization',
-        'Security Implementation',
-        'Analytics Dashboard'
+        'Performance Optimization'
       ],
       icon: Zap
     },
     {
       name: 'Premium',
-      price: 'R65,000',
+      price: 'R8,000',
       period: 'one-time',
-      description: 'Complete solution for established businesses',
+      description: 'Complete business solution',
       recommended: false,
       features: [
-        'Unlimited Pages',
-        'Custom Functionality',
-        'Advanced E-commerce',
-        'Multi-language Support',
-        'API Integration',
+        'All Growth Package Features',
+        'Trademark Registration (R1,500)',
+        'Small App Development (R2,000)',
         'Priority Support (6 months)',
-        'Performance Optimization',
-        'Security & SSL',
-        'Backup & Recovery',
+        'Custom Functionality',
+        'Advanced Analytics',
+        'Security Implementation',
         'Training & Documentation',
-        'Custom Design',
-        'Advanced Analytics'
+        'Performance Optimization'
       ],
       icon: Star
     }
@@ -68,24 +65,24 @@ const Packages = () => {
 
   const additionalServices = [
     {
-      name: 'Website Maintenance',
-      price: 'R2,500/month',
-      description: 'Ongoing updates, security, and support'
-    },
-    {
-      name: 'SEO Services',
-      price: 'R5,000/month',
-      description: 'Search engine optimization and content strategy'
-    },
-    {
-      name: 'Content Creation',
-      price: 'R3,000/page',
-      description: 'Professional copywriting and content development'
+      name: 'Company Registration',
+      price: 'R550',
+      description: 'CIPC registration, name reservation, MOI, BO update'
     },
     {
       name: 'Logo Design',
-      price: 'R8,000',
-      description: 'Professional logo and brand identity design'
+      price: 'R750',
+      description: 'Professional logo design with Illustrator/Photoshop'
+    },
+    {
+      name: 'Trademark Registration',
+      price: 'R1,500',
+      description: 'Trademark registration for new or existing business logos'
+    },
+    {
+      name: 'Small App Development',
+      price: 'R2,000',
+      description: '2-10 page Android, iOS, or web apps with store setup'
     }
   ]
 
