@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Code, Globe, Smartphone, Database, Mail, Phone, MapPin, Clock, CheckCircle, Users, Target, Award } from 'lucide-react'
+import { ArrowRight, Code, Globe, Smartphone, Database, Mail, Phone, MapPin, Clock, CheckCircle, Users, Target, Award, Shield, Palette } from 'lucide-react'
 
 const Home = () => {
   const services = [
@@ -62,7 +62,7 @@ const Home = () => {
               BROCODEDEVS
             </h1>
             <p className="body-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
-              We create exceptional digital experiences that drive business growth and user engagement
+              100% Black Owned digital agency providing complete business solutions from company registration to digital marketing
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -97,7 +97,7 @@ const Home = () => {
               Our Services
             </h2>
             <p className="body-lg text-gray-600 max-w-3xl mx-auto">
-              We offer comprehensive web development solutions tailored to your business needs
+              Complete business solutions from company registration to digital marketing at competitive prices
             </p>
           </motion.div>
 

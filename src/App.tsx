@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Services from './pages/Services'
-
 import Packages from './pages/Packages'
 import FAQ from './pages/FAQ'
 import Contact from './pages/Contact'
