@@ -3,6 +3,23 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Globe, Smartphone, Database, Palette, Zap, Users, Shield, CheckCircle, Clock, Target } from 'lucide-react'
 
 const Services = () => {
+  // Function to get the form path for each service
+  const getServiceFormPath = (serviceTitle: string) => {
+    const formPaths: Record<string, string> = {
+      'Company Registration': '/forms/company-registration',
+      'Logo Design': '/forms/logo-design',
+      'Trademark': '/forms/trademark',
+      'Small Apps': '/forms/small-apps',
+      'Landing Page Websites': '/forms/landing-page',
+      'Shopify Stores': '/forms/shopify',
+      'Digital Advertising': '/forms/digital-advertising',
+      'Business Emails': '/forms/business-emails',
+      'Domain Registration': '/forms/domain-registration',
+      'Payment Methods': '/forms/payment-methods'
+    }
+    return formPaths[serviceTitle] || '/contact'
+  }
+
   const services = [
     {
       title: 'Company Registration',
@@ -165,9 +182,8 @@ const Services = () => {
                   {/* CTA Button */}
                   <div className="flex justify-start">
                     <Link 
-                      to="/contact" 
+                      to={getServiceFormPath(service.title)} 
                       className="btn-primary"
-                      state={{ service: service.title }}
                     >
                       Get Started
                       <ArrowRight className="w-4 h-4 ml-2" />
