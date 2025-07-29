@@ -213,65 +213,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
-      <section className="section-padding-compact bg-gray-50">
-        <div className="container-custom">
-          <div className="grid-responsive-2 gap-responsive-lg">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="flex items-center space-x-2 mb-4">
-                <Code className="w-8 h-8 text-black" />
-                <span className="text-xl font-bold text-black">BROCODEDEVS</span>
-              </div>
-              <p className="body-md text-gray-600 mb-6">
-                Creating exceptional digital experiences that drive business growth and user engagement.
-              </p>
-              <div className="flex space-x-4">
-                <a href="https://github.com" className="text-gray-600 hover:text-black transition-colors duration-300">
-                  <Users className="w-5 h-5" />
-                </a>
-                <a href="https://linkedin.com" className="text-gray-600 hover:text-black transition-colors duration-300">
-                  <Target className="w-5 h-5" />
-                </a>
-                <a href="https://twitter.com" className="text-gray-600 hover:text-black transition-colors duration-300">
-                  <Award className="w-5 h-5" />
-                </a>
-              </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-4"
-            >
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-gray-600" />
-                <a href="mailto:info@brocodedevs.co.za" className="body-md text-gray-600 hover:text-black transition-colors duration-300">
-                  info@brocodedevs.co.za
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-gray-600" />
-                <a href="tel:+27123456789" className="body-md text-gray-600 hover:text-black transition-colors duration-300">
-                  +27 123 456 789
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-gray-600" />
-                <span className="body-md text-gray-600">Johannesburg, South Africa</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Clock className="w-5 h-5 text-gray-600" />
-                <span className="body-md text-gray-600">Mon - Fri: 9AM - 6PM</span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }
