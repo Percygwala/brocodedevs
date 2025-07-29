@@ -46,7 +46,7 @@ const Navbar = () => {
                               <img 
                   src="/logo.png" 
                   alt="BROCODEDEVS Logo" 
-                  className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain"
+                  className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
                 />
               <motion.div
                 className="absolute inset-0 bg-black rounded-full opacity-0 group-hover:opacity-10"
