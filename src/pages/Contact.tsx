@@ -284,7 +284,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Office</h3>
                     <p className="text-gray-600">
-                      Johannesburg, South Africa
+                      Durban, South Africa
                     </p>
                     <p className="text-sm text-gray-500 mt-1">
                       We work with clients worldwide
@@ -347,7 +347,7 @@ const Contact = () => {
           >
             <h2 className="heading-lg mb-6">Find Us</h2>
             <p className="body-lg text-gray-600">
-              Based in Johannesburg, South Africa. We work with clients worldwide through remote collaboration.
+              Based in Durban, South Africa. We work with clients worldwide through remote collaboration.
             </p>
           </motion.div>
           
@@ -359,7 +359,7 @@ const Contact = () => {
                   Google Maps integration can be added here
                 </p>
                 <p className="text-sm text-gray-500 mt-2">
-                  Johannesburg, South Africa
+                  Durban, South Africa
                 </p>
               </div>
             </div>

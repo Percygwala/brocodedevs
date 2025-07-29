@@ -217,7 +217,7 @@ brocodedevs-website/
 
 - **Email**: info@brocodedevs.co.za
 - **Phone**: +27 63 156 3253
-- **Location**: Johannesburg, South Africa
+- **Location**: Durban, South Africa
 - **Business Hours**: Mon-Fri 9AM-6PM, Sat 9AM-2PM
 
 ## 🤝 Contributing
