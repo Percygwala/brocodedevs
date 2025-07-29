@@ -42,7 +42,7 @@ const Footer = () => {
                 <img 
                   src="/logo-white.png" 
                   alt="BROCODEDEVS Logo" 
-                  className="w-8 h-8 object-contain"
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain"
                 />
 
               </Link>

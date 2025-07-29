@@ -43,11 +43,11 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center group touch-target">
             <div className="relative">
-              <img 
-                src="/logo.png" 
-                alt="BROCODEDEVS Logo" 
-                className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
-              />
+                              <img 
+                  src="/logo.png" 
+                  alt="BROCODEDEVS Logo" 
+                  className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain"
+                />
               <motion.div
                 className="absolute inset-0 bg-black rounded-full opacity-0 group-hover:opacity-10"
                 initial={{ scale: 0 }}
