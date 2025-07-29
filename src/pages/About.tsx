@@ -4,22 +4,16 @@ import { Users, Award, Target, Heart, ArrowRight, Star, CheckCircle } from 'luci
 const About = () => {
   const teamMembers = [
     {
-      name: 'Percy',
-      role: 'Lead Developer & Co-Founder',
-      description: 'Full-stack developer with expertise in modern web technologies and mobile app development.',
-      skills: ['React', 'Node.js', 'Python', 'Mobile Development']
+      name: 'Percival Gwala',
+      role: 'Founder',
+      description: 'Expert in AI, coding, design, web & app development, and Shopify stores. Leading the technical vision and innovation at BROCODEDEVS.',
+      skills: ['AI Development', 'Web Development', 'App Development', 'Shopify Stores', 'Design']
     },
     {
-      name: 'Xolani',
-      role: 'UI/UX Designer & Co-Founder',
-      description: 'Creative designer focused on creating beautiful, user-centered digital experiences.',
-      skills: ['UI/UX Design', 'Figma', 'Adobe Creative Suite', 'Prototyping']
-    },
-    {
-      name: 'Mle',
-      role: 'Business Development & Co-Founder',
-      description: 'Strategic business development expert with a passion for growing digital businesses.',
-      skills: ['Business Strategy', 'Client Relations', 'Project Management', 'Marketing']
+      name: 'Xolani Mweli',
+      role: 'Co-Founder',
+      description: 'Specializes in admin & registrations, domains, payment methods, and company setup. Managing business operations and client services.',
+      skills: ['Company Registration', 'Domain Management', 'Payment Methods', 'Business Setup', 'Admin']
     }
   ]
 
@@ -85,7 +79,7 @@ const About = () => {
                 </div>
                 <div className="flex items-center text-sm text-gray-300">
                   <Users className="w-4 h-4 text-blue-400 mr-2" />
-                  3 Team Members
+                  2 Team Members
                 </div>
               </div>
             </motion.div>
@@ -103,7 +97,7 @@ const About = () => {
                     Team Photo
                   </p>
                   <p className="text-gray-500 text-sm mt-2">
-                    Percy, Xolani & Mle
+                    Percival & Xolani
                   </p>
                 </div>
               </div>
@@ -127,11 +121,11 @@ const About = () => {
           >
             <h2 className="heading-lg mb-6">Our Story</h2>
             <p className="body-lg text-gray-600">
-              BROCODEDEVS was founded by three passionate individuals who shared a common vision: to create exceptional digital solutions while representing and empowering the Black tech community. What started as a small team has grown into a respected digital agency known for quality, innovation, and commitment to excellence.
+              BROCODEDEVS was founded by two passionate individuals who shared a common vision: to create exceptional digital solutions while representing and empowering the Black tech community. What started as a small team has grown into a respected digital agency known for quality, innovation, and commitment to excellence.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.name}
