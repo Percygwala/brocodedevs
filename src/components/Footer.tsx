@@ -26,7 +26,7 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/brocodedevs' },
+    { name: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/brocodedevs.co.za/profilecard/?igsh=aW1mczdnNzJoOGo3' },
     { name: 'Facebook', icon: Facebook, url: 'https://www.facebook.com/share/198LxFBKZx/?mibextid=wwXIfr' },
     { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/27631563253' },
   ]
