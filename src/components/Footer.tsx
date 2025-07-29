@@ -28,7 +28,7 @@ const Footer = () => {
   const socialLinks = [
     { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/brocodedevs' },
     { name: 'Facebook', icon: Facebook, url: 'https://facebook.com/brocodedevs' },
-    { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/27123456789' },
+    { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/27631563253' },
   ]
 
   return (
@@ -112,7 +112,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-400 text-sm">+27 123 456 789</span>
+                  <span className="text-gray-400 text-sm">+27 63 156 3253</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-4 h-4 text-gray-400" />
