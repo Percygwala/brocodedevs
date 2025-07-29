@@ -39,12 +39,9 @@ const Footer = () => {
             {/* Company Info */}
             <div className="space-y-4">
               <Link to="/" className="flex items-center group">
-                <img 
-                  src="/logo-white.png" 
-                  alt="BROCODEDEVS Logo" 
-                  className="w-40 h-40 md:w-48 md:h-48 object-contain"
-                />
-
+                <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-gray-300 transition-colors duration-300">
+                  BroCodeDevs
+                </span>
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed">
                 100% Black Owned digital agency providing complete business solutions from company registration to digital marketing.
