@@ -27,7 +27,7 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/brocodedevs' },
-    { name: 'Facebook', icon: Facebook, url: 'https://facebook.com/brocodedevs' },
+    { name: 'Facebook', icon: Facebook, url: 'https://www.facebook.com/share/198LxFBKZx/?mibextid=wwXIfr' },
     { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/27631563253' },
   ]
 
