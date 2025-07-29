@@ -13,6 +13,14 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
+        <div className="pt-16 md:pt-20">
+          <h1 className="text-4xl font-bold text-center text-black p-8">
+            BROCODEDEVS - Website is Loading!
+          </h1>
+          <p className="text-center text-gray-600">
+            If you can see this, React is working properly.
+          </p>
+        </div>
         <Navbar />
         <AnimatePresence mode="wait">
           <Routes>
@@ -36,7 +44,6 @@ function App() {
                 <Services />
               </motion.div>
             } />
-
             <Route path="/packages" element={
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
