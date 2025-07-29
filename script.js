@@ -122,50 +122,23 @@ class NavbarController {
     }
 }
 
-// Initialize navbar controller
-document.addEventListener('DOMContentLoaded', () => {
-    new NavbarController();
-    
-    // Initialize mobile navigation
-    initializeMobileNavigation();
-    
-    // Initialize collapsible service cards
-    initializeServiceCards();
-    
-    // Add scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all sections and elements that should animate
-    document.querySelectorAll('section, .service-item, .bundle-card, .process-step, .faq-item').forEach(el => {
-        el.classList.add('animate-on-scroll');
-        observer.observe(el);
-    });
-});
+
 
 // Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+function initializeSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
-});
+}
 
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
@@ -681,6 +654,20 @@ function initializeModalEvents() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Prevent any unwanted scrolling on page load
+    if (window.location.hash) {
+        // Clear the hash to prevent jumping to sections on page load
+        setTimeout(() => {
+            window.history.replaceState(null, null, window.location.pathname);
+        }, 100);
+    }
+    
+    new NavbarController();
+    initializeMobileNavigation();
+    initializeSmoothScrolling();
     initializeServiceCards();
     initializeModalEvents();
+    
+    // Initialize scroll animations
+    new ScrollAnimations();
 });
