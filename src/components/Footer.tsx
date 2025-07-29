@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Globe } from 'lucide-react'
+import { Mail, Phone, MapPin, Instagram, Facebook, MessageCircle, Globe } from 'lucide-react'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -26,9 +26,9 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { name: 'GitHub', icon: Github, url: 'https://github.com/Percygwala/brocodedevs' },
-    { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com/company/brocodedevs' },
-    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/brocodedevs' },
+    { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/brocodedevs' },
+    { name: 'Facebook', icon: Facebook, url: 'https://facebook.com/brocodedevs' },
+    { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/27123456789' },
   ]
 
   return (
