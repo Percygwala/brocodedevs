@@ -1,67 +1,133 @@
-# BROCODEDEVS - Modern Website
+# BROCODEDEVS Website
 
-A modern, responsive website for BROCODEDEVS web development agency built with React, TypeScript, and Tailwind CSS.
+A modern, responsive website for BROCODEDEVS - a 100% Black Owned Digital Agency specializing in web development, mobile apps, and e-commerce solutions.
 
-## 🚀 Features
+## 🚀 Live Demo
+
+**Website**: [https://brocodedevs-website.netlify.app](https://brocodedevs-website.netlify.app)
+
+## 🎯 Features
 
 - **Modern Design**: Clean, minimal black-and-white design inspired by awwwards.com
 - **Fully Responsive**: Perfect on desktop, tablet, and mobile devices
-- **Smooth Animations**: Framer Motion animations and hover effects
-- **TypeScript**: Full type safety and better development experience
-- **Tailwind CSS**: Utility-first CSS framework for rapid development
-- **React Router**: Client-side routing for seamless navigation
-- **Lucide Icons**: Beautiful, customizable icons
+- **Fast Performance**: Optimized with lazy loading and modern build tools
+- **SEO Optimized**: Meta tags, structured data, and performance optimizations
+- **Accessibility**: WCAG compliant with proper ARIA labels and keyboard navigation
 
 ## 📱 Pages
 
-1. **Home** - Hero section, services overview, portfolio preview, and call-to-action
-2. **Services** - Detailed service offerings, process, and technologies
-3. **Portfolio** - Project showcase with filtering and detailed information
-4. **Packages** - Pricing tiers and business packages
-5. **FAQ** - Expandable questions and answers organized by categories
-6. **Contact** - Contact form and company information
-7. **About** - Company story, team, mission, and values
+1. **Home** - Hero section, services preview, portfolio highlights, business packages
+2. **Services** - Detailed service offerings with pricing
+3. **Portfolio** - Project showcase with filtering
+4. **Packages** - Business package pricing and features
+5. **FAQ** - Frequently asked questions with accordion
+6. **Contact** - Contact form with file upload and business details
+7. **About** - Company story, team, and 100% Black Owned emphasis
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
-- **Frontend**: React 18, TypeScript
-- **Styling**: Tailwind CSS
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS + PostCSS
+- **Build Tool**: Vite
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 - **Routing**: React Router DOM
-- **Build Tool**: Vite
-- **Package Manager**: npm
+- **Deployment**: Netlify
 
-## 📦 Installation
+## 🚀 Quick Start
 
-1. **Clone the repository**
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/brocodedevs-website.git
+cd brocodedevs-website
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+
+## 🌐 Deployment
+
+### Option 1: Netlify (Recommended)
+
+1. **Push to GitHub**:
    ```bash
-   git clone <repository-url>
-   cd brocodedevs_official
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
    ```
 
-2. **Install dependencies**
+2. **Deploy to Netlify**:
+   - Go to [netlify.com](https://netlify.com)
+   - Sign up/Login with GitHub
+   - Click "New site from Git"
+   - Select your repository
+   - Build settings: `npm run build`
+   - Publish directory: `dist`
+   - Click "Deploy site"
+
+### Option 2: Vercel
+
+1. **Install Vercel CLI**:
    ```bash
-   npm install
+   npm i -g vercel
    ```
 
-3. **Start the development server**
+2. **Deploy**:
    ```bash
-   npm run dev
+   vercel
    ```
 
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
+### Option 3: GitHub Pages
 
-## 🏗️ Project Structure
+1. **Add GitHub Pages action**:
+   Create `.github/workflows/deploy.yml`:
+   ```yaml
+   name: Deploy to GitHub Pages
+   on:
+     push:
+       branches: [ main ]
+   jobs:
+     build-and-deploy:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - uses: actions/setup-node@v2
+           with:
+             node-version: '18'
+         - run: npm install
+         - run: npm run build
+         - uses: peaceiris/actions-gh-pages@v3
+           with:
+             github_token: ${{ secrets.GITHUB_TOKEN }}
+             publish_dir: ./dist
+   ```
+
+## 📁 Project Structure
 
 ```
-brocodedevs_official/
+brocodedevs-website/
 ├── public/                 # Static assets
 ├── src/
 │   ├── components/         # Reusable components
 │   │   ├── Navbar.tsx     # Navigation component
-│   │   └── Footer.tsx     # Footer component
+│   │   ├── Footer.tsx     # Footer component
+│   │   └── LazyImage.tsx  # Optimized image component
 │   ├── pages/             # Page components
 │   │   ├── Home.tsx       # Home page
 │   │   ├── Services.tsx   # Services page
@@ -76,6 +142,7 @@ brocodedevs_official/
 ├── package.json           # Dependencies and scripts
 ├── tailwind.config.js     # Tailwind configuration
 ├── vite.config.ts         # Vite configuration
+├── netlify.toml           # Netlify deployment config
 └── README.md              # Project documentation
 ```
 
@@ -96,12 +163,6 @@ brocodedevs_official/
 - **Cards**: Consistent card design with hover effects
 - **Forms**: Styled form inputs and validation
 - **Navigation**: Responsive navbar with mobile menu
-
-## 🚀 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
 
 ## 📱 Responsive Breakpoints
 
@@ -126,70 +187,58 @@ brocodedevs_official/
 ### Forms
 - Contact form with validation
 - Form submission feedback
-- Responsive form layout
+- File upload support (up to 10MB)
+- Integration with formsubmit.co
 
-### Portfolio
-- Project filtering by category
-- Detailed project information
-- Technology tags
-- Live demo and code links
+### Performance
+- Lazy loading images
+- Code splitting
+- Optimized bundle size
+- Fast loading times
 
 ## 🔧 Customization
 
 ### Adding New Pages
-1. Create a new component in `src/pages/`
-2. Add the route in `src/App.tsx`
+1. Create new component in `src/pages/`
+2. Add route in `src/App.tsx`
 3. Add navigation link in `src/components/Navbar.tsx`
 
 ### Styling
-- Modify `src/index.css` for global styles
-- Update `tailwind.config.js` for design system changes
-- Use Tailwind utility classes for component styling
+- Use Tailwind CSS classes
+- Follow the design system in `src/index.css`
+- Maintain responsive design principles
 
-### Content
+### Content Updates
 - Update content in respective page components
-- Replace placeholder images with actual project images
-- Update contact information and company details
+- Modify data arrays for services, projects, etc.
+- Update contact information and business details
 
-## 🌐 Deployment
+## 📞 Contact
 
-### Build for Production
-```bash
-npm run build
-```
-
-### Deploy Options
-- **Vercel**: Connect GitHub repository for automatic deployment
-- **Netlify**: Drag and drop the `dist` folder
-- **GitHub Pages**: Use GitHub Actions for deployment
-- **Traditional Hosting**: Upload `dist` folder to web server
-
-## 📞 Contact Information
-
-- **Email**: hello@brocodedevs.co.za
+- **Email**: info@brocodedevs.co.za
 - **Phone**: +27 123 456 789
-- **Location**: Cape Town, South Africa
-- **Business Hours**: Mon - Fri: 9AM - 6PM (SAST)
+- **Location**: Johannesburg, South Africa
+- **Business Hours**: Mon-Fri 9AM-6PM, Sat 9AM-2PM
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- Design inspiration from awwwards.com
-- Icons from Lucide React
-- Fonts from Google Fonts
-- Animation library Framer Motion
+- **Design Inspiration**: awwwards.com
+- **Icons**: Lucide React
+- **Fonts**: Google Fonts (Inter, JetBrains Mono)
+- **Deployment**: Netlify
 
 ---
 
-**BROCODEDEVS** - Professional Web Development Services 
+**BROCODEDEVS** - 100% Black Owned Digital Agency 🚀 
