@@ -2187,6 +2187,7 @@ section {
         padding: 12px 8px;
         border-radius: 8px;
         transition: all 0.3s ease;
+        z-index: 1001;
     }
     
     .hamburger:hover {
@@ -2220,6 +2221,8 @@ section {
         padding: 1.5rem 0;
         border-top: 1px solid rgba(0, 255, 0, 0.1);
         z-index: 999;
+        display: flex;
+        visibility: hidden;
     }
     
     .nav-item {
@@ -2249,6 +2252,7 @@ section {
 
     .nav-menu.active {
         left: 0;
+        visibility: visible;
     }
 
     .hero-container {
