@@ -306,19 +306,12 @@ const About = () => {
             <p className="body-lg text-gray-300 mb-8">
               Ready to bring your digital vision to life? Our team is here to help you create something amazing. Get in touch with us today and let's start building the future together.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a
                 href="/contact"
                 className="btn-primary btn-large"
               >
                 Start Your Project
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
-              <a
-                href="/portfolio"
-                className="btn-secondary btn-large"
-              >
-                View Our Work
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </div>
