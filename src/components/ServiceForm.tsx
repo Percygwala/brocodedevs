@@ -75,16 +75,27 @@ const ServiceForm = ({ serviceName, serviceDescription, fields }: ServiceFormPro
     setIsSubmitting(true)
     try {
       const formDataToSend = new FormData()
+      
+      // Add form data
       Object.keys(formData).forEach(key => {
         formDataToSend.append(key, formData[key])
       })
+      
+      // Add files
       Object.keys(files).forEach(key => {
         if (files[key]) {
           formDataToSend.append(key, files[key]!)
         }
       })
+      
+      // Add service information
       formDataToSend.append('service', serviceName)
       formDataToSend.append('_subject', `New ${serviceName} Request`)
+      
+      // Add formsubmit.co configuration
+      formDataToSend.append('_captcha', 'false')
+      formDataToSend.append('_template', 'table')
+      formDataToSend.append('_next', 'https://brocodedevs.co.za/thank-you.html')
       
       const response = await fetch('https://formsubmit.co/info@brocodedevs.co.za', {
         method: 'POST',
@@ -93,12 +104,15 @@ const ServiceForm = ({ serviceName, serviceDescription, fields }: ServiceFormPro
       
       if (response.ok) {
         setIsSubmitted(true)
-        setTimeout(() => navigate('/services'), 3000)
+        // Redirect to thank you page after 2 seconds
+        setTimeout(() => {
+          window.location.href = 'https://brocodedevs.co.za/thank-you.html'
+        }, 2000)
       } else {
         throw new Error('Submission failed')
       }
     } catch (error) {
-      setErrors({ submit: 'Failed to submit form. Please try again.' })
+      setErrors({ submit: 'Failed to submit form. Please try again. Please check your internet connection and try again.' })
     } finally {
       setIsSubmitting(false)
     }
@@ -119,7 +133,10 @@ const ServiceForm = ({ serviceName, serviceDescription, fields }: ServiceFormPro
               <p className="body-lg text-gray-600 mb-6">
                 Your {serviceName} request has been submitted successfully. We'll get back to you within 24 hours.
               </p>
-              <Link to="/services" className="btn-primary">
+              <p className="text-sm text-gray-500 mb-6">
+                You will be redirected to our thank you page shortly...
+              </p>
+              <Link to="/services" className="btn-primary btn-full-mobile">
                 Back to Services
               </Link>
             </motion.div>
@@ -203,9 +220,9 @@ const ServiceForm = ({ serviceName, serviceDescription, fields }: ServiceFormPro
                       <input
                         type="file"
                         id={field.name}
-                        name={field.name}
+                        name="file"
                         onChange={(e) => handleFileChange(field.name, e.target.files?.[0] || null)}
-                        accept={field.accept}
+                        accept=".jpg,.jpeg,.png,.pdf,.docx"
                         required={field.required}
                         className="hidden"
                       />
@@ -248,7 +265,7 @@ const ServiceForm = ({ serviceName, serviceDescription, fields }: ServiceFormPro
 
             {errors.submit && (
               <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-sm text-red-600">{errors.submit}</p>
+                <p className="text-sm text-red-600 font-medium">{errors.submit}</p>
               </div>
             )}
 

@@ -160,7 +160,7 @@ const ShopifyForm = () => {
       type: 'file' as const,
       label: 'Branding Materials (Optional)',
       required: false,
-      accept: '.pdf,.jpg,.jpeg,.png,.ai,.eps'
+
     },
     {
       name: 'referenceStores',

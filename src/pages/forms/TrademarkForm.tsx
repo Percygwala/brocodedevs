@@ -135,8 +135,7 @@ const TrademarkForm = () => {
       name: 'logoFile',
       type: 'file' as const,
       label: 'Logo File (if applicable)',
-      required: false,
-      accept: '.jpg,.jpeg,.png,.pdf,.ai,.eps'
+      required: false
     },
     {
       name: 'specialRequirements',

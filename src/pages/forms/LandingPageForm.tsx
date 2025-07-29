@@ -168,7 +168,7 @@ const LandingPageForm = () => {
       type: 'file' as const,
       label: 'Existing Branding Materials (Optional)',
       required: false,
-      accept: '.pdf,.jpg,.jpeg,.png,.ai,.eps'
+
     },
     {
       name: 'referenceWebsites',

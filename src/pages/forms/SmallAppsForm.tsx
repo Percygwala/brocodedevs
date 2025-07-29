@@ -136,8 +136,7 @@ const SmallAppsForm = () => {
       name: 'existingBranding',
       type: 'file' as const,
       label: 'Existing Branding Materials (Optional)',
-      required: false,
-      accept: '.pdf,.jpg,.jpeg,.png,.ai,.eps'
+      required: false
     },
     {
       name: 'referenceApps',

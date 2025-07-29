@@ -68,22 +68,19 @@ const CompanyRegistrationForm = () => {
       name: 'idDocument',
       type: 'file' as const,
       label: 'ID Document (PDF/Image)',
-      required: true,
-      accept: '.pdf,.jpg,.jpeg,.png'
+      required: true
     },
     {
       name: 'proofOfAddress',
       type: 'file' as const,
       label: 'Proof of Address (PDF/Image)',
-      required: true,
-      accept: '.pdf,.jpg,.jpeg,.png'
+      required: true
     },
     {
       name: 'additionalDocuments',
       type: 'file' as const,
       label: 'Additional Documents (Optional)',
-      required: false,
-      accept: '.pdf,.jpg,.jpeg,.png,.doc,.docx'
+      required: false
     },
     {
       name: 'specialRequirements',

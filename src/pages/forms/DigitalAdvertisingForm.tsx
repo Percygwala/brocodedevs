@@ -98,7 +98,7 @@ const DigitalAdvertisingForm = () => {
       type: 'file' as const,
       label: 'Ad Media (Images/Video, Optional)',
       required: false,
-      accept: '.jpg,.jpeg,.png,.mp4,.mov,.avi,.pdf'
+
     },
     {
       name: 'websiteOrLanding',
