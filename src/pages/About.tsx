@@ -63,7 +63,7 @@ const About = () => {
                 About BROCODEDEVS
               </h1>
               <p className="body-lg text-gray-300 mb-8">
-                We are a 100% Black-owned digital agency providing complete business solutions from company registration to digital marketing. Our passionate team of developers, designers, and business strategists is dedicated to helping South African businesses grow and succeed in the digital world.
+                We are a digital agency providing complete business solutions from company registration to digital marketing. Our passionate team of developers, designers, and business strategists is dedicated to helping South African businesses grow and succeed in the digital world.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center text-sm text-gray-300">
