@@ -93,7 +93,7 @@ const About = () => {
           >
             <h2 className="heading-lg mb-6">Our Story</h2>
             <p className="body-lg text-gray-600">
-              BROCODEDEVS was founded by two passionate individuals who shared a common vision: to create exceptional digital solutions while representing and empowering the Black tech community. What started as a small team has grown into a respected digital agency known for quality, innovation, and commitment to excellence.
+              BROCODEDEVS was founded by two passionate individuals with a shared vision: to create exceptional digital solutions that empower businesses to thrive online. What started as a small team has grown into a respected digital agency known for creativity, innovation, and a commitment to excellence.
             </p>
           </motion.div>
 
