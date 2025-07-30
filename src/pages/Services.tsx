@@ -245,8 +245,13 @@ const Services = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 h-96 flex items-center justify-center">
-                <Code className="w-32 h-32 text-gray-400" />
+              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 h-96 flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/image.png" 
+                  alt="BROCODEDEVS Digital Solutions Portfolio - Web Development and Design Projects" 
+                  className="w-full h-full object-cover rounded-xl"
+                  loading="lazy"
+                />
               </div>
               <motion.div
                 className="absolute -top-4 -right-4 bg-black text-white p-4 rounded-xl"

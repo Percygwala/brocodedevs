@@ -368,39 +368,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Portfolio Showcase */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="heading-lg mb-6">Our Work</h2>
-            <p className="body-lg text-gray-600 max-w-3xl mx-auto">
-              Explore our portfolio of digital solutions and see how we help businesses thrive online
-            </p>
-          </motion.div>
-          
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <img 
-                src="/image.png" 
-                alt="BROCODEDEVS Portfolio Showcase - Digital Solutions and Web Development Projects" 
-                className="w-full h-auto rounded-2xl shadow-2xl"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl pointer-events-none"></div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="section-padding bg-black text-white">
