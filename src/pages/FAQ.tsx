@@ -41,7 +41,7 @@ const FAQ = () => {
       items: [
         {
           question: 'What are your package prices?',
-          answer: 'Our packages start from R15,000 for the Starter package, R35,000 for the Growth package, and R65,000 for the Premium package. All packages include hosting, domain registration, SSL certificate, and ongoing support. We also offer additional services like maintenance (R2,500/month), SEO services (R5,000/month), and content creation (R3,000/page).'
+          answer: 'Our packages start from R6,000 for the Starter package, R12,000 for the Growth package, and R20,000 for the Premium package. All packages include hosting, domain registration, SSL certificate, and ongoing support. We also offer additional services like maintenance (R2,500/month), SEO services (R5,000/month), and content creation (R3,000/page).'
         },
         {
           question: 'Can I customize a package to fit my specific needs?',
@@ -50,6 +50,10 @@ const FAQ = () => {
         {
           question: 'What payment terms do you offer?',
           answer: 'We require a 50% deposit to start work, with the remaining balance due upon project completion. For larger projects, we can arrange milestone-based payments. We accept bank transfers and major credit cards.'
+        },
+        {
+          question: 'What\'s included in each package?',
+          answer: '• Starter Package – From R6,000: Includes Company Registration, Logo Design, Domain Registration, Business Email. • Growth Package – From R12,000: Includes Starter + Landing Page Website or Shopify Store, Payment Gateway Setup, Basic Digital Advertising. • Premium Package – From R20,000: Includes Growth + Small Apps (Web/Android/iOS), Trademark Registration, Advanced Digital Advertising, Ongoing Support.'
         },
         {
           question: 'Do you offer maintenance plans?',

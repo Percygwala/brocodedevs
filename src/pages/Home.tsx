@@ -53,21 +53,21 @@ const Home = () => {
   const packages = [
     {
       name: 'Starter',
-      price: 'R2,500',
+      price: 'R6,000',
       description: 'Perfect for new businesses and startups',
-      features: ['Company Registration', 'Logo Design', 'Basic Website', 'Business Email']
+      features: ['Company Registration', 'Logo Design', 'Domain Registration', 'Business Email']
     },
     {
       name: 'Growth',
-      price: 'R5,000',
+      price: 'R12,000',
       description: 'Ideal for growing businesses',
-      features: ['All Starter Features', 'Shopify Store', 'Digital Advertising', 'Payment Methods']
+      features: ['All Starter Features', 'Landing Page Website or Shopify Store', 'Payment Gateway Setup', 'Basic Digital Advertising']
     },
     {
       name: 'Premium',
-      price: 'R8,000',
+      price: 'R20,000',
       description: 'Complete business solution',
-      features: ['All Growth Features', 'Trademark Registration', 'Small App Development', 'Priority Support']
+      features: ['All Growth Features', 'Small Apps (Web/Android/iOS)', 'Trademark Registration', 'Advanced Digital Advertising']
     }
   ]
 

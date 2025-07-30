@@ -6,16 +6,15 @@ const Packages = () => {
   const packages = [
     {
       name: 'Starter',
-      price: 'R2,500',
+      price: 'R6,000',
       period: 'one-time',
       description: 'Perfect for new businesses and startups',
       recommended: false,
       features: [
-        'Company Registration (R550)',
-        'Logo Design (R750)',
-        'Landing Page Website (R1,200)',
-        'Business Email Setup (R350)',
-        'Domain Registration (R250)',
+        'Company Registration',
+        'Logo Design',
+        'Domain Registration',
+        'Business Email Setup',
         'Basic SEO Setup',
         'Mobile Responsive Design',
         'Contact Form Integration',
@@ -25,15 +24,15 @@ const Packages = () => {
     },
     {
       name: 'Growth',
-      price: 'R5,000',
+      price: 'R12,000',
       period: 'one-time',
       description: 'Ideal for growing businesses',
       recommended: true,
       features: [
         'All Starter Package Features',
-        'Shopify Store Setup (R2,500)',
-        'Digital Advertising Setup (R800)',
-        'Payment Methods Integration (R450)',
+        'Landing Page Website or Shopify Store',
+        'Payment Gateway Setup',
+        'Basic Digital Advertising',
         'Advanced SEO Optimization',
         'Social Media Integration',
         'Analytics Dashboard',
@@ -44,20 +43,20 @@ const Packages = () => {
     },
     {
       name: 'Premium',
-      price: 'R8,000',
+      price: 'R20,000',
       period: 'one-time',
       description: 'Complete business solution',
       recommended: false,
       features: [
         'All Growth Package Features',
-        'Trademark Registration (R1,500)',
-        'Small App Development (R2,000)',
+        'Small Apps (Web/Android/iOS)',
+        'Trademark Registration',
+        'Advanced Digital Advertising',
         'Priority Support (6 months)',
         'Custom Functionality',
         'Advanced Analytics',
         'Security Implementation',
-        'Training & Documentation',
-        'Performance Optimization'
+        'Training & Documentation'
       ],
       icon: Star
     }
