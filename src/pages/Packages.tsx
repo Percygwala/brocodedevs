@@ -124,7 +124,7 @@ const Packages = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto pt-4">
             {packages.map((pkg, index) => (
               <motion.div
                 key={pkg.name}
@@ -135,18 +135,18 @@ const Packages = () => {
                   pkg.recommended 
                     ? 'border-2 border-black shadow-xl scale-105' 
                     : 'border border-gray-200'
-                } bg-white rounded-2xl overflow-hidden`}
+                } bg-white rounded-2xl`}
               >
                 {/* Recommended Badge */}
                 {pkg.recommended && (
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
                       Recommended
                     </div>
                   </div>
                 )}
 
-                <div className="p-8">
+                <div className={`p-8 ${pkg.recommended ? 'pt-12' : ''}`}>
                   {/* Package Header */}
                   <div className="text-center mb-8">
                     <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
