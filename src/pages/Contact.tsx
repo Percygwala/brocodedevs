@@ -368,36 +368,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Google Maps */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-8"
-          >
-            <h2 className="heading-lg mb-6">Find Us</h2>
-            <p className="body-lg text-gray-600">
-              Based in Durban, South Africa. We work with clients worldwide through remote collaboration.
-            </p>
-          </motion.div>
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600">
-                  Google Maps integration can be added here
-                </p>
-                <p className="text-sm text-gray-500 mt-2">
-                  Durban, South Africa
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="section-padding bg-black text-white">
