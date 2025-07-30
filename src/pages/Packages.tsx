@@ -124,7 +124,7 @@ const Packages = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {packages.map((pkg, index) => (
               <motion.div
                 key={pkg.name}
@@ -176,7 +176,7 @@ const Packages = () => {
                   <div className="text-center">
                     <Link 
                       to="/contact" 
-                      className={`w-full py-4 px-6 rounded-xl font-medium transition-all duration-300 inline-flex items-center justify-center ${
+                      className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-medium transition-all duration-300 inline-flex items-center justify-center text-sm sm:text-base ${
                         pkg.recommended
                           ? 'bg-black text-white hover:bg-gray-800'
                           : 'bg-white text-black border-2 border-black hover:bg-black hover:text-white'

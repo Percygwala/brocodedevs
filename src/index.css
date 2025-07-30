@@ -217,6 +217,37 @@
     @apply w-full sm:w-auto;
   }
 
+  /* Mobile optimization improvements */
+  @media (max-width: 640px) {
+    .card {
+      @apply p-4;
+    }
+    
+    .section-padding {
+      @apply py-12;
+    }
+    
+    .heading-xl {
+      @apply text-3xl;
+    }
+    
+    .heading-lg {
+      @apply text-2xl;
+    }
+    
+    .heading-md {
+      @apply text-xl;
+    }
+    
+    .body-lg {
+      @apply text-base;
+    }
+    
+    .body-md {
+      @apply text-sm;
+    }
+  }
+
   /* Card System - Enhanced for Responsiveness */
   .card {
     @apply bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300;

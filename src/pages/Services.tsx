@@ -127,26 +127,20 @@ const Services = () => {
       {/* Services List */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative ${
-                  index % 2 === 0 && index !== services.length - 1 ? 'lg:border-r lg:border-gray-200' : ''
-                } ${
-                  index < services.length - 2 ? 'border-b border-gray-200' : ''
-                } ${
-                  index === services.length - 2 && services.length % 2 === 0 ? 'lg:border-b-0' : ''
-                }`}
+                className="card hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="p-8 lg:p-12">
+                <div className="p-6 lg:p-8">
                   {/* Service Header */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
+                    <div className="flex items-center space-x-4 mb-4 sm:mb-0">
+                      <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center flex-shrink-0">
                         <service.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -154,7 +148,7 @@ const Services = () => {
                         <p className="text-gray-500 text-sm">{service.shortDescription}</p>
                       </div>
                     </div>
-                    <div className="text-right">
+                    <div className="text-left sm:text-right">
                       <div className="text-2xl font-bold text-black">{service.price}</div>
                     </div>
                   </div>
@@ -173,7 +167,7 @@ const Services = () => {
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center text-sm text-gray-600">
                           <CheckCircle className="w-4 h-4 text-black mr-3 flex-shrink-0" />
-                          <span>{feature}</span>
+                          <span className="text-overflow-safe">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -183,7 +177,7 @@ const Services = () => {
                   <div className="flex justify-start">
                     <Link 
                       to={getServiceFormPath(service.title)} 
-                      className="btn-primary"
+                      className="btn-primary btn-full-mobile w-full sm:w-auto"
                     >
                       Get Started
                       <ArrowRight className="w-4 h-4 ml-2" />

@@ -7,20 +7,44 @@ const Home = () => {
     {
       title: 'Company Registration',
       description: 'CIPC registration, name reservation, MOI, and BO updates',
+      price: 'From R550',
       icon: Shield,
-      link: '/services'
+      link: '/forms/company-registration'
     },
     {
       title: 'Logo Design',
       description: 'Professional logo design with Illustrator and Photoshop',
+      price: 'From R750',
       icon: Palette,
-      link: '/services'
+      link: '/forms/logo-design'
     },
     {
-      title: 'Landing Pages',
+      title: 'Landing Page Websites',
       description: 'Business websites with custom domains and SEO optimization',
+      price: 'From R1,200',
       icon: Globe,
-      link: '/services'
+      link: '/forms/landing-page'
+    },
+    {
+      title: 'Shopify Stores',
+      description: 'Complete e-commerce solutions with payment integration',
+      price: 'From R2,500',
+      icon: Database,
+      link: '/forms/shopify'
+    },
+    {
+      title: 'Digital Advertising',
+      description: 'Social media and digital marketing campaigns',
+      price: 'From R800',
+      icon: Target,
+      link: '/forms/digital-advertising'
+    },
+    {
+      title: 'Business Emails',
+      description: 'Professional Gmail business email setup',
+      price: 'From R350',
+      icon: Mail,
+      link: '/forms/business-emails'
     }
   ]
 
@@ -101,22 +125,24 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid-responsive-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card text-center"
+                className="card text-center hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="w-14 h-14 sm:w-16 sm:h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                   <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <h3 className="heading-sm mb-3 sm:mb-4">{service.title}</h3>
-                <p className="body-md text-gray-600 mb-4 sm:mb-6">{service.description}</p>
-                <Link to={service.link} className="text-black font-medium hover:text-gray-600 transition-colors duration-300">
-                  Learn More →
+                <h3 className="heading-sm mb-2">{service.title}</h3>
+                <div className="text-lg font-bold text-black mb-3">{service.price}</div>
+                <p className="body-md text-gray-600 mb-6">{service.description}</p>
+                <Link to={service.link} className="btn-primary btn-full-mobile w-full">
+                  Get Started
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </motion.div>
             ))}

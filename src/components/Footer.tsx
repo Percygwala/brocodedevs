@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Instagram, Facebook, MessageCircle, Globe } from 'lucide-react'
+import { Mail, Phone, MapPin, Instagram, Facebook, MessageCircle, Globe, Award } from 'lucide-react'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const footerLinks = {
     services: [
-      { name: 'Company Registration', path: '/services' },
-      { name: 'Logo Design', path: '/services' },
-      { name: 'Landing Pages', path: '/services' },
-      { name: 'Shopify Stores', path: '/services' },
+      { name: 'Company Registration', path: '/forms/company-registration' },
+      { name: 'Logo Design', path: '/forms/logo-design' },
+      { name: 'Landing Page Websites', path: '/forms/landing-page' },
+      { name: 'Shopify Stores', path: '/forms/shopify' },
     ],
     company: [
       { name: 'About Us', path: '/about' },
@@ -46,8 +46,9 @@ const Footer = () => {
               <p className="text-gray-400 text-sm leading-relaxed">
                 100% Black Owned digital agency providing complete business solutions from company registration to digital marketing.
               </p>
-              <div className="flex items-center space-x-2">
-                <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold">
+              <div className="flex items-center space-x-2 mb-4">
+                <span className="bg-yellow-500 text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                  <Award className="w-4 h-4 inline mr-2" />
                   100% Black Owned
                 </span>
               </div>
