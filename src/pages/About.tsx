@@ -232,7 +232,7 @@ const About = () => {
             >
               <h2 className="heading-lg mb-6">Our Vision</h2>
               <p className="body-lg text-gray-600 mb-6">
-                To become the leading Black-owned digital agency in South Africa, known for innovation, quality, and commitment to community development. We envision a future where diversity in tech is the norm, not the exception.
+                To become one of South Africa's leading digital agencies, known for innovation, quality, and a strong commitment to community development. We envision a future where technology is accessible to all and drives lasting impact.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start">
