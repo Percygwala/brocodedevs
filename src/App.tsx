@@ -1,7 +1,9 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useScrollToTop } from './hooks/useScrollToTop'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import Packages from './pages/Packages'
@@ -20,9 +22,12 @@ import DomainRegistrationForm from './pages/forms/DomainRegistrationForm'
 import PaymentMethodsForm from './pages/forms/PaymentMethodsForm'
 
 function App() {
+  // Use the scroll to top hook
+  useScrollToTop()
   return (
     <Router>
       <div className="min-h-screen bg-white">
+        <ScrollToTop />
         <Navbar />
         <AnimatePresence mode="wait">
           <Routes>
