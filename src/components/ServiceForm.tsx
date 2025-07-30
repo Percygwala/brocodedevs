@@ -220,7 +220,7 @@ const ServiceForm = ({ serviceName, serviceDescription, fields }: ServiceFormPro
                       <input
                         type="file"
                         id={field.name}
-                        name="file"
+                        name="attachment"
                         onChange={(e) => handleFileChange(field.name, e.target.files?.[0] || null)}
                         accept=".jpg,.jpeg,.png,.pdf,.docx"
                         required={field.required}

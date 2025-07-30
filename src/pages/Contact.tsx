@@ -80,8 +80,40 @@ const Contact = () => {
                 <form
                   action="https://formsubmit.co/info@brocodedevs.co.za"
                   method="POST"
+                  encType="multipart/form-data"
                   className="space-y-6"
-                  onSubmit={() => setIsSubmitting(true)}
+                  onSubmit={async (e) => {
+                    e.preventDefault()
+                    setIsSubmitting(true)
+                    
+                    try {
+                      const formData = new FormData(e.currentTarget)
+                      
+                      // Add formsubmit.co configuration
+                      formData.append('_captcha', 'false')
+                      formData.append('_template', 'table')
+                      formData.append('_next', 'https://brocodedevs.co.za/thank-you.html')
+                      
+                      const response = await fetch('https://formsubmit.co/info@brocodedevs.co.za', {
+                        method: 'POST',
+                        body: formData
+                      })
+                      
+                      if (response.ok) {
+                        setIsSubmitted(true)
+                        // Redirect to thank you page after 2 seconds
+                        setTimeout(() => {
+                          window.location.href = 'https://brocodedevs.co.za/thank-you.html'
+                        }, 2000)
+                      } else {
+                        throw new Error('Submission failed')
+                      }
+                    } catch (error) {
+                      alert('Failed to submit form. Please try again.')
+                    } finally {
+                      setIsSubmitting(false)
+                    }
+                  }}
                 >
                   {/* Name */}
                   <div>
@@ -188,7 +220,7 @@ const Contact = () => {
                         name="attachment"
                         onChange={handleFileChange}
                         className="hidden"
-                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.zip,.rar"
+                        accept=".jpg,.jpeg,.png,.pdf,.docx"
                       />
                       <label
                         htmlFor="file"
