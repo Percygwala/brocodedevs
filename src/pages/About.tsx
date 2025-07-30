@@ -65,7 +65,7 @@ const About = () => {
               <p className="body-lg text-gray-300 mb-8">
                 We are a digital agency providing complete business solutions from company registration to digital marketing. Our passionate team of developers, designers, and business strategists is dedicated to helping South African businesses grow and succeed in the digital world.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 justify-center">
                 <div className="flex items-center text-sm text-gray-300">
                   <Star className="w-4 h-4 text-yellow-400 mr-2" />
                   5-Star Rated
