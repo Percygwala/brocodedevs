@@ -1,6 +1,6 @@
 # BROCODEDEVS Website
 
-A modern, responsive website for BROCODEDEVS - a 100% Black Owned Digital Agency specializing in web development, mobile apps, and e-commerce solutions.
+A modern, responsive website for BROCODEDEVS - a Digital Agency specializing in web development, mobile apps, and e-commerce solutions.
 
 ## 🚀 Live Demo
 
@@ -22,7 +22,7 @@ A modern, responsive website for BROCODEDEVS - a 100% Black Owned Digital Agency
 4. **Packages** - Business package pricing and features
 5. **FAQ** - Frequently asked questions with accordion
 6. **Contact** - Contact form with file upload and business details
-7. **About** - Company story, team, and 100% Black Owned emphasis
+7. **About** - Company story, team, and commitment to diversity
 
 ## 🛠 Tech Stack
 
@@ -241,4 +241,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**BROCODEDEVS** - 100% Black Owned Digital Agency 🚀 
+**BROCODEDEVS** - Digital Agency 🚀 

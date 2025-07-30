@@ -86,7 +86,7 @@ const Home = () => {
               BROCODEDEVS
             </h1>
             <p className="body-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
-              100% Black Owned digital agency providing complete business solutions from company registration to digital marketing
+              Digital agency providing complete business solutions from company registration to digital marketing
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

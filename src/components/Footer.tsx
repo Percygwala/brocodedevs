@@ -44,14 +44,8 @@ const Footer = () => {
                 </span>
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed">
-                100% Black Owned digital agency providing complete business solutions from company registration to digital marketing.
+                Digital agency providing complete business solutions from company registration to digital marketing.
               </p>
-              <div className="flex items-center space-x-2 mb-4">
-                <span className="bg-yellow-500 text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                  <Award className="w-4 h-4 inline mr-2" />
-                  100% Black Owned
-                </span>
-              </div>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                   <motion.a

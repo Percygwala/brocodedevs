@@ -58,10 +58,7 @@ const About = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center px-6 py-3 bg-yellow-500 text-black rounded-full text-lg font-bold mb-6 shadow-lg">
-                <Award className="w-5 h-5 mr-2" />
-                100% Black Owned
-              </div>
+
               <h1 className="heading-xl mb-6">
                 About BROCODEDEVS
               </h1>
@@ -101,10 +98,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-white text-black px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                <Award className="w-4 h-4 inline mr-1" />
-                100% Black Owned
-              </div>
+
             </motion.div>
           </div>
         </div>
@@ -165,13 +159,9 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center px-6 py-3 bg-black text-white rounded-full text-lg font-semibold mb-6">
-              <Award className="w-6 h-6 mr-3" />
-              100% Black Owned & Operated
-            </div>
-            <h2 className="heading-lg mb-6">Proudly Black Owned</h2>
+            <h2 className="heading-lg mb-6">Our Commitment</h2>
             <p className="body-lg text-gray-600 mb-8">
-              As a 100% Black-owned company, we're committed to breaking barriers in the tech industry and creating opportunities for underrepresented communities. Our diverse team brings unique perspectives and innovative solutions to every project.
+              We're committed to breaking barriers in the tech industry and creating opportunities for underrepresented communities. Our diverse team brings unique perspectives and innovative solutions to every project.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
               {achievements.map((achievement, index) => (
