@@ -52,10 +52,10 @@ const About = () => {
       {/* Hero Section */}
       <section className="section-padding bg-black text-white">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="max-w-4xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
 
@@ -74,32 +74,10 @@ const About = () => {
                   <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
                   50+ Projects
                 </div>
-                <div className="flex items-center text-sm text-gray-300">
-                  <Users className="w-4 h-4 text-blue-400 mr-2" />
-                  2 Team Members
-                </div>
               </div>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="bg-gray-800 rounded-2xl h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <Users className="w-24 h-24 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-400 text-lg font-medium">
-                    Team Photo
-                  </p>
-                  <p className="text-gray-500 text-sm mt-2">
-                    Percival & Xolani
-                  </p>
-                </div>
-              </div>
 
-            </motion.div>
           </div>
         </div>
       </section>
