@@ -285,9 +285,14 @@ const FAQ = () => {
             >
               <h3 className="heading-sm mb-4">Our Portfolio</h3>
               <p className="text-gray-600 mb-6">See examples of our work and client projects</p>
-              <Link to="/portfolio" className="text-black font-medium hover:text-gray-600 transition-colors duration-300">
+              <a 
+                href="https://pin.it/2gKss3B41" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-black font-medium hover:text-gray-600 transition-colors duration-300"
+              >
                 View Portfolio →
-              </Link>
+              </a>
             </motion.div>
           </div>
         </div>
