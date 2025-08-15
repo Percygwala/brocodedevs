@@ -140,7 +140,12 @@ const Services = () => {
                   {/* Service Header */}
                   <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4 sm:gap-6 mb-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <div 
+                        className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                        style={{
+                          backgroundColor: ['#00AEEF', '#ABD037', '#E63B95'][index % 3]
+                        }}
+                      >
                         <service.icon className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">

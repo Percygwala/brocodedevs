@@ -44,7 +44,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center group touch-target">
             <div className="relative">
                               <img 
-                  src="/logo.png" 
+                  src="/pink.png" 
                   alt="BROCODEDEVS Logo" 
                   className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
                 />
@@ -60,27 +60,37 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`relative font-medium transition-colors duration-300 touch-target ${
-                  location.pathname === item.path
-                    ? 'text-black'
-                    : 'text-gray-600 hover:text-black'
-                }`}
-              >
-                {item.name}
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-black"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </Link>
-            ))}
+            {navItems.map((item, index) => {
+              const colors = ['#00AEEF', '#ABD037', '#E63B95']
+              const colorIndex = index % colors.length
+              const textColor = colors[colorIndex]
+              
+              return (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`relative font-medium transition-colors duration-300 touch-target ${
+                    location.pathname === item.path
+                      ? 'text-black'
+                      : ''
+                  }`}
+                  style={{
+                    color: location.pathname === item.path ? '#000000' : textColor
+                  }}
+                >
+                  {item.name}
+                  {location.pathname === item.path && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5"
+                      style={{ backgroundColor: textColor }}
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              )
+            })}
           </div>
 
           {/* CTA Button */}
@@ -118,20 +128,29 @@ const Navbar = () => {
               className="md:hidden overflow-hidden border-t border-gray-200"
             >
               <div className="py-4 space-y-2">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`block py-3 px-4 font-medium transition-colors duration-300 rounded-lg touch-target ${
-                      location.pathname === item.path
-                        ? 'text-black bg-gray-50'
-                        : 'text-gray-600 hover:text-black hover:bg-gray-50'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {navItems.map((item, index) => {
+                  const colors = ['#00AEEF', '#ABD037', '#E63B95']
+                  const colorIndex = index % colors.length
+                  const textColor = colors[colorIndex]
+                  
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`block py-3 px-4 font-medium transition-colors duration-300 rounded-lg touch-target ${
+                        location.pathname === item.path
+                          ? 'text-black bg-gray-50'
+                          : 'hover:bg-gray-50'
+                      }`}
+                      style={{
+                        color: location.pathname === item.path ? '#000000' : textColor
+                      }}
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                })}
                 <div className="pt-4 px-4">
                   <Link
                     to="/contact"

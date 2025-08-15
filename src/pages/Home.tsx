@@ -134,7 +134,12 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="card text-center hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <div 
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6"
+                  style={{
+                    backgroundColor: ['#00AEEF', '#ABD037', '#E63B95'][index % 3]
+                  }}
+                >
                   <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <h3 className="heading-sm mb-2">{service.title}</h3>
