@@ -143,7 +143,7 @@ const Services = () => {
                       <div 
                         className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
                         style={{
-                          backgroundColor: ['#00AEEF', '#ABD037', '#E63B95'][index % 3]
+                          backgroundColor: '#E63B95'
                         }}
                       >
                         <service.icon className="w-6 h-6 text-white" />

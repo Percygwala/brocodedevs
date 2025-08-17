@@ -53,7 +53,7 @@ const Footer = () => {
             <div className="space-y-4">
               <Link to="/" className="flex items-center group">
                 <img 
-                  src="/green.png" 
+                  src="/final logo small.png" 
                   alt="BROCODEDEVS Logo" 
                   className="h-12 w-auto object-contain"
                 />

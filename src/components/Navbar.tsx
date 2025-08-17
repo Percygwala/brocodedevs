@@ -44,7 +44,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center group touch-target">
             <div className="relative">
                               <img 
-                  src="/pink.png" 
+                  src="/final logo small.png" 
                   alt="BROCODEDEVS Logo" 
                   className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
                 />
@@ -60,10 +60,8 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {navItems.map((item, index) => {
-              const colors = ['#00AEEF', '#ABD037', '#E63B95']
-              const colorIndex = index % colors.length
-              const textColor = colors[colorIndex]
+            {navItems.map((item) => {
+              const pinkColor = '#E63B95'
               
               return (
                 <Link
@@ -75,7 +73,7 @@ const Navbar = () => {
                       : ''
                   }`}
                   style={{
-                    color: location.pathname === item.path ? '#000000' : textColor
+                    color: location.pathname === item.path ? '#000000' : pinkColor
                   }}
                 >
                   {item.name}
@@ -83,7 +81,7 @@ const Navbar = () => {
                     <motion.div
                       layoutId="activeTab"
                       className="absolute -bottom-1 left-0 right-0 h-0.5"
-                      style={{ backgroundColor: textColor }}
+                      style={{ backgroundColor: pinkColor }}
                       initial={false}
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
@@ -128,10 +126,8 @@ const Navbar = () => {
               className="md:hidden overflow-hidden border-t border-gray-200"
             >
               <div className="py-4 space-y-2">
-                {navItems.map((item, index) => {
-                  const colors = ['#00AEEF', '#ABD037', '#E63B95']
-                  const colorIndex = index % colors.length
-                  const textColor = colors[colorIndex]
+                {navItems.map((item) => {
+                  const pinkColor = '#E63B95'
                   
                   return (
                     <Link
@@ -144,7 +140,7 @@ const Navbar = () => {
                           : 'hover:bg-gray-50'
                       }`}
                       style={{
-                        color: location.pathname === item.path ? '#000000' : textColor
+                        color: location.pathname === item.path ? '#000000' : pinkColor
                       }}
                     >
                       {item.name}
