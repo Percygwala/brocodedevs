@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Instagram, Facebook, MessageCircle, Globe, Award } from 'lucide-react'
 
@@ -16,6 +16,10 @@ const PinterestIcon = ({ className }: { className?: string }) => (
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const location = useLocation()
+  
+  // Check if current page is Privacy Policy or Terms of Service
+  const isLegalPage = location.pathname === '/privacy' || location.pathname === '/terms'
 
   const footerLinks = {
     services: [
@@ -45,7 +49,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-black text-white">
+    <footer className={`bg-black text-white ${isLegalPage ? 'pt-16' : ''}`}>
       <div className="container-custom">
         <div className="py-0">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
