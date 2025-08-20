@@ -19,6 +19,8 @@ import DigitalAdvertisingForm from '../pages/forms/DigitalAdvertisingForm'
 import BusinessEmailsForm from '../pages/forms/BusinessEmailsForm'
 import DomainRegistrationForm from '../pages/forms/DomainRegistrationForm'
 import PaymentMethodsForm from '../pages/forms/PaymentMethodsForm'
+import Privacy from '../pages/Privacy'
+import Terms from '../pages/Terms'
 import { Routes, Route } from 'react-router-dom'
 
 const AppContent = () => {
@@ -190,6 +192,26 @@ const AppContent = () => {
               transition={{ duration: 0.5 }}
             >
               <PaymentMethodsForm />
+            </motion.div>
+          } />
+          <Route path="/privacy" element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Privacy />
+            </motion.div>
+          } />
+          <Route path="/terms" element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Terms />
             </motion.div>
           } />
         </Routes>

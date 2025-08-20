@@ -47,17 +47,10 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white">
       <div className="container-custom">
-        <div className="py-16">
+        <div className="py-0">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="space-y-4">
-              <Link to="/" className="flex items-center group">
-                <img 
-                  src="/final logo small.png" 
-                  alt="BROCODEDEVS Logo" 
-                  className="h-12 w-auto object-contain"
-                />
-              </Link>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Digital agency providing complete business solutions from company registration to digital marketing.
               </p>
@@ -136,8 +129,19 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom Bar */}
-          <div className="border-t border-gray-800 mt-12 pt-8">
+                     {/* Huge Logo */}
+           <div className="mt-0 mb-0">
+             <Link to="/" className="block">
+               <img 
+                 src="/logobt.png" 
+                 alt="BROCODEDEVS Logo" 
+                 className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[24rem] object-contain"
+               />
+             </Link>
+           </div>
+
+                     {/* Bottom Bar */}
+           <div className="border-t border-gray-800 mt-12 pt-8 pb-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-400 text-sm">
                 © {currentYear} BROCODEDEVS. All rights reserved.
