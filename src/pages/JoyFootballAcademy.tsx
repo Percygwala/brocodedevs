@@ -81,6 +81,17 @@ const JoyFootballAcademy = () => {
                 Professional website design and development for a leading football academy
               </p>
             </div>
+
+            {/* Huge Logo Display */}
+            <div className="mb-16">
+              <div className="w-full h-96 bg-[#0B2239] rounded-lg flex items-center justify-center p-8">
+                <img 
+                  src="/JF Academy/JFlogow.png" 
+                  alt="Joy Football Academy Logo" 
+                  className="w-[90%] h-[90%] object-contain"
+                />
+              </div>
+            </div>
           </motion.div>
 
           {/* Project Content */}

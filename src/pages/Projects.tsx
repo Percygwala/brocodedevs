@@ -50,16 +50,6 @@ const Projects = () => {
                     <p className="text-sm text-gray-600 mb-4 leading-relaxed">
                       Professional website design and development for a leading football academy
                     </p>
-                    
-                    {/* Project Logo */}
-                    <div className="w-full h-32 bg-[#0B2239] rounded-lg flex items-center justify-center mb-4">
-                      <img 
-                        src="/JF Academy/JFlogow.png" 
-                        alt="Joy Football Academy Logo" 
-                        className="w-[90%] h-[90%] object-contain"
-                      />
-                    </div>
-                    
                     <div className="flex items-center text-[#D7263D] font-medium group-hover:text-[#0B2239] transition-colors duration-300 text-sm">
                       View Project
                       <ExternalLink className="w-4 h-4 ml-2" />
