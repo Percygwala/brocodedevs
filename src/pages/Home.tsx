@@ -240,14 +240,7 @@ const Home = () => {
             >
               <Link to="/projects/joy-football-academy" className="block">
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02]">
-                  {/* Project Logo */}
-                  <div className="aspect-[4/3] bg-[#0B2239] flex items-center justify-center relative overflow-hidden">
-                    <img 
-                      src="/JF Academy/JFlogow.png" 
-                      alt="Joy Football Academy Logo" 
-                      className="w-[90%] h-[90%] object-contain p-6"
-                    />
-                  </div>
+
                   
                   {/* Project Info */}
                   <div className="p-6">

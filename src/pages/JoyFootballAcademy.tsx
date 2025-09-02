@@ -72,15 +72,8 @@ const JoyFootballAcademy = () => {
               Back to Projects
             </Link>
             
-            {/* Project Logo */}
+            {/* Project Header */}
             <div className="text-center mb-8 sm:mb-12">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-[#D7263D] to-[#FFD23F] rounded-lg mx-auto mb-6 flex items-center justify-center p-4">
-                <img 
-                  src="/JF Academy/JFlogow.png" 
-                  alt="Joy Football Academy Logo" 
-                  className="w-[90%] h-[90%] object-contain"
-                />
-              </div>
               <h1 className="heading-xl mb-4">
                 Joy Football Academy
               </h1>
@@ -132,14 +125,8 @@ const JoyFootballAcademy = () => {
                   >
                                          <div className={`${variation.background} rounded-lg p-6 aspect-square flex items-center justify-center transition-all duration-300 group-hover:scale-105`}>
                        <div className="text-center">
-                         <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-                           <img 
-                             src="/JF Academy/JFlogow.png" 
-                             alt="Joy Football Academy Logo" 
-                             className="w-[90%] h-[90%] object-contain"
-                           />
-                         </div>
-                         <p className={`text-sm font-medium ${variation.textColor}`}>Joy Football Academy</p>
+                         <h3 className={`text-lg font-semibold ${variation.textColor} mb-2`}>Joy Football Academy</h3>
+                         <p className={`text-sm ${variation.textColor} opacity-80`}>Professional website design and development</p>
                        </div>
                      </div>
                     <div className="mt-4 text-center">
