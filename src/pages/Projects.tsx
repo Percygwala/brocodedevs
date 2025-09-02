@@ -41,29 +41,23 @@ const Projects = () => {
               <Link to="/projects/joy-football-academy" className="block">
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02] border border-gray-100">
                   {/* Project Logo */}
-                  <div className="aspect-[4/3] bg-gradient-to-br from-[#D7263D] to-[#FFD23F] flex items-center justify-center relative overflow-hidden">
+                  <div className="aspect-[4/3] bg-[#0B2239] flex items-center justify-center relative overflow-hidden">
                     <img 
                       src="/JF Academy/JFlogo1.png" 
                       alt="Joy Football Academy Logo" 
-                      className="w-full h-full object-contain p-4"
+                      className="w-full h-full object-contain p-6"
                     />
-                    {/* Background Pattern */}
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-4 left-4 w-16 h-16 border-2 border-white rounded-full"></div>
-                      <div className="absolute bottom-4 right-4 w-12 h-12 border-2 border-white rounded-full"></div>
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 border-2 border-white rounded-full"></div>
-                    </div>
                   </div>
                   
                   {/* Project Info */}
                   <div className="p-6">
-                    <h3 className="heading-md mb-2 group-hover:text-[#D7263D] transition-colors duration-300">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-[#D7263D] transition-colors duration-300">
                       Joy Football Academy
                     </h3>
-                    <p className="body-md text-gray-600 mb-4">
+                    <p className="text-sm text-gray-600 mb-4 leading-relaxed">
                       Professional website design and development for a leading football academy
                     </p>
-                    <div className="flex items-center text-[#D7263D] font-medium group-hover:text-[#0B2239] transition-colors duration-300">
+                    <div className="flex items-center text-[#D7263D] font-medium group-hover:text-[#0B2239] transition-colors duration-300 text-sm">
                       View Project
                       <ExternalLink className="w-4 h-4 ml-2" />
                     </div>
