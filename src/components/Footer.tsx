@@ -18,8 +18,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
   const location = useLocation()
   
-  // Check if current page is Privacy Policy or Terms of Service
+  // Check if current page is Privacy Policy, Terms of Service, or Project pages
   const isLegalPage = location.pathname === '/privacy' || location.pathname === '/terms'
+  const isProjectPage = location.pathname.startsWith('/projects/')
+  const needsTopPadding = isLegalPage || isProjectPage
 
   const footerLinks = {
     services: [
@@ -49,7 +51,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className={`bg-black text-white ${isLegalPage ? 'pt-16' : ''}`}>
+    <footer className={`bg-black text-white ${needsTopPadding ? 'pt-16' : ''}`}>
       <div className="container-custom">
         <div className="py-0">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
