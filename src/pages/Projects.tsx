@@ -38,32 +38,28 @@ const Projects = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="group cursor-pointer"
             >
-              <Link to="/projects/joy-football-academy" className="block">
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02] border border-gray-100">
+                            <Link to="/projects/joy-football-academy" className="block">
+                {/* Project Logo */}
+                <div className="w-full aspect-[4/3] bg-[#0B2239] flex items-center justify-center mb-4">
+                  <img 
+                    src="/JF Academy/JFlogow.png" 
+                    alt="Joy Football Academy Logo" 
+                    className="w-[80%] h-[80%] object-contain"
+                  />
+                </div>
+                
+                {/* Project Info */}
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-[#D7263D] transition-colors duration-300">
+                    Joy Football Academy
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                    Professional website design and development for a leading football academy
+                  </p>
                   
-                  
-                  {/* Project Info */}
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-[#D7263D] transition-colors duration-300">
-                      Joy Football Academy
-                    </h3>
-                                          <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                        Professional website design and development for a leading football academy
-                      </p>
-                      
-                      {/* Project Logo */}
-                      <div className="w-full aspect-[4/3] bg-[#0B2239] flex items-center justify-center mb-4">
-                        <img 
-                          src="/JF Academy/JFlogow.png" 
-                          alt="Joy Football Academy Logo" 
-                          className="w-[80%] h-[80%] object-contain"
-                        />
-                      </div>
-                      
-                      <div className="flex items-center text-[#D7263D] font-medium group-hover:text-[#0B2239] transition-colors duration-300 text-sm">
-                        View Project
-                        <ExternalLink className="w-4 h-4 ml-2" />
-                      </div>
+                  <div className="flex items-center text-[#D7263D] font-medium group-hover:text-[#0B2239] transition-colors duration-300 text-sm">
+                    View Project
+                    <ExternalLink className="w-4 h-4 ml-2" />
                   </div>
                 </div>
               </Link>

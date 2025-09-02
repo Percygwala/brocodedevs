@@ -238,9 +238,15 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="group cursor-pointer"
             >
-              <Link to="/projects/joy-football-academy" className="block">
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02]">
-
+                              <Link to="/projects/joy-football-academy" className="block">
+                  {/* Project Logo */}
+                  <div className="w-full aspect-[4/3] bg-[#0B2239] flex items-center justify-center mb-4">
+                    <img 
+                      src="/JF Academy/JFlogow.png" 
+                      alt="Joy Football Academy Logo" 
+                      className="w-[80%] h-[80%] object-contain"
+                    />
+                  </div>
                   
                   {/* Project Info */}
                   <div className="p-6">
@@ -251,22 +257,12 @@ const Home = () => {
                       Professional website design and development for a leading football academy
                     </p>
                     
-                    {/* Project Logo */}
-                    <div className="w-full aspect-[4/3] bg-[#0B2239] flex items-center justify-center mb-4">
-                      <img 
-                        src="/JF Academy/JFlogow.png" 
-                        alt="Joy Football Academy Logo" 
-                        className="w-[80%] h-[80%] object-contain"
-                      />
-                    </div>
-                    
                     <div className="flex items-center text-[#D7263D] font-medium group-hover:text-[#0B2239] transition-colors duration-300 text-sm">
                       View Project
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
             </motion.div>
 
             {/* Future Project Placeholder */}
