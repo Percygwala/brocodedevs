@@ -52,11 +52,13 @@ const Projects = () => {
                       </p>
                       
                       {/* Project Logo */}
-                      <img 
-                        src="/JF Academy/JFlogow.png" 
-                        alt="Joy Football Academy Logo" 
-                        className="w-full aspect-[4/3] object-cover mb-4"
-                      />
+                      <div className="w-full aspect-[4/3] bg-[#0B2239] flex items-center justify-center mb-4">
+                        <img 
+                          src="/JF Academy/JFlogow.png" 
+                          alt="Joy Football Academy Logo" 
+                          className="w-[80%] h-[80%] object-contain"
+                        />
+                      </div>
                       
                       <div className="flex items-center text-[#D7263D] font-medium group-hover:text-[#0B2239] transition-colors duration-300 text-sm">
                         View Project
