@@ -256,7 +256,7 @@ const Home = () => {
                       <img 
                         src="/JF Academy/JFlogow.png" 
                         alt="Joy Football Academy Logo" 
-                        className="w-[90%] h-[90%] object-contain"
+                        className="w-[80%] h-[80%] object-contain"
                       />
                     </div>
                     
