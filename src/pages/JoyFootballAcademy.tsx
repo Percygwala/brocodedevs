@@ -76,7 +76,7 @@ const JoyFootballAcademy = () => {
             <div className="text-center mb-8 sm:mb-12">
               <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-[#D7263D] to-[#FFD23F] rounded-lg mx-auto mb-6 flex items-center justify-center p-4">
                 <img 
-                  src="/JF Academy/JFlogo1.png" 
+                  src="/JF Academy/JFlogow.png" 
                   alt="Joy Football Academy Logo" 
                   className="w-full h-full object-contain"
                 />
@@ -134,7 +134,7 @@ const JoyFootballAcademy = () => {
                        <div className="text-center">
                          <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
                            <img 
-                             src="/JF Academy/JFlogo1.png" 
+                             src="/JF Academy/JFlogow.png" 
                              alt="Joy Football Academy Logo" 
                              className="w-full h-full object-contain"
                            />

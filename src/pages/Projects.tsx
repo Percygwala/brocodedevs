@@ -42,11 +42,11 @@ const Projects = () => {
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02] border border-gray-100">
                   {/* Project Logo */}
                   <div className="aspect-[4/3] bg-[#0B2239] flex items-center justify-center relative overflow-hidden">
-                    <img 
-                      src="/JF Academy/JFlogo1.png" 
-                      alt="Joy Football Academy Logo" 
-                      className="w-full h-full object-contain p-6"
-                    />
+                                          <img 
+                        src="/JF Academy/JFlogow.png" 
+                        alt="Joy Football Academy Logo" 
+                        className="w-full h-full object-contain p-6"
+                      />
                   </div>
                   
                   {/* Project Info */}

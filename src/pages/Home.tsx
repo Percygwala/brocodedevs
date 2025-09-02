@@ -243,7 +243,7 @@ const Home = () => {
                   {/* Project Logo */}
                   <div className="aspect-[4/3] bg-[#0B2239] flex items-center justify-center relative overflow-hidden">
                     <img 
-                      src="/JF Academy/JFlogo1.png" 
+                      src="/JF Academy/JFlogow.png" 
                       alt="Joy Football Academy Logo" 
                       className="w-full h-full object-contain p-6"
                     />
