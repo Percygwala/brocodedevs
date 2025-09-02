@@ -74,13 +74,17 @@ const JoyFootballAcademy = () => {
             
             {/* Project Logo */}
             <div className="text-center mb-8 sm:mb-12">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-[#D7263D] to-[#FFD23F] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white text-3xl sm:text-4xl font-bold">JFA</span>
+              <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-[#D7263D] to-[#FFD23F] rounded-lg mx-auto mb-6 flex items-center justify-center p-4">
+                <img 
+                  src="/JF Academy/JFlogo1.png" 
+                  alt="Joy Football Academy Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h1 className="heading-xl mb-4">
                 Joy Football Academy
               </h1>
-              <p className="body-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-gray-600 max-w-2xl mx-auto">
                 Professional website design and development for a leading football academy
               </p>
             </div>
@@ -126,14 +130,18 @@ const JoyFootballAcademy = () => {
                     transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
                     className="group"
                   >
-                    <div className={`${variation.background} rounded-lg p-6 aspect-square flex items-center justify-center transition-all duration-300 group-hover:scale-105`}>
-                      <div className="text-center">
-                        <div className="w-20 h-20 bg-gradient-to-br from-[#D7263D] to-[#FFD23F] rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <span className="text-white text-xl font-bold">JFA</span>
-                        </div>
-                        <p className={`text-sm font-medium ${variation.textColor}`}>Joy Football Academy</p>
-                      </div>
-                    </div>
+                                         <div className={`${variation.background} rounded-lg p-6 aspect-square flex items-center justify-center transition-all duration-300 group-hover:scale-105`}>
+                       <div className="text-center">
+                         <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                           <img 
+                             src="/JF Academy/JFlogo1.png" 
+                             alt="Joy Football Academy Logo" 
+                             className="w-full h-full object-contain"
+                           />
+                         </div>
+                         <p className={`text-sm font-medium ${variation.textColor}`}>Joy Football Academy</p>
+                       </div>
+                     </div>
                     <div className="mt-4 text-center">
                       <h3 className="font-semibold text-gray-800 mb-1">{variation.name}</h3>
                       <p className="text-sm text-gray-600">{variation.description}</p>
