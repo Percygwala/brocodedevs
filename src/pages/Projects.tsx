@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ExternalLink } from 'lucide-react'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 
 const Projects = () => {
   return (
@@ -18,7 +18,7 @@ const Projects = () => {
               to="/"
               className="inline-flex items-center text-gray-600 hover:text-black transition-colors duration-300 mb-6"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
               Back to Home
             </Link>
             <h1 className="heading-xl mb-4 sm:mb-6">
@@ -39,26 +39,32 @@ const Projects = () => {
               className="group cursor-pointer"
             >
               <Link to="/projects/joy-football-academy" className="block">
-                <div className="bg-gray-50 rounded-lg overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02]">
+                <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02] border border-gray-100">
                   {/* Project Image Placeholder */}
-                  <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span className="text-gray-600 text-2xl font-bold">JFA</span>
+                  <div className="aspect-[4/3] bg-gradient-to-br from-[#D7263D] to-[#FFD23F] flex items-center justify-center relative overflow-hidden">
+                    <div className="text-center z-10">
+                      <div className="w-24 h-24 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center backdrop-blur-sm">
+                        <span className="text-white text-2xl font-bold">JFA</span>
                       </div>
-                      <p className="text-gray-500 text-sm">Joy Football Academy Logo</p>
+                      <p className="text-white text-sm font-medium">Joy Football Academy</p>
+                    </div>
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="absolute top-4 left-4 w-16 h-16 border-2 border-white rounded-full"></div>
+                      <div className="absolute bottom-4 right-4 w-12 h-12 border-2 border-white rounded-full"></div>
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 border-2 border-white rounded-full"></div>
                     </div>
                   </div>
                   
                   {/* Project Info */}
                   <div className="p-6">
-                    <h3 className="heading-md mb-2 group-hover:text-black transition-colors duration-300">
+                    <h3 className="heading-md mb-2 group-hover:text-[#D7263D] transition-colors duration-300">
                       Joy Football Academy
                     </h3>
                     <p className="body-md text-gray-600 mb-4">
                       Professional website design and development for a leading football academy
                     </p>
-                    <div className="flex items-center text-black font-medium group-hover:text-gray-600 transition-colors duration-300">
+                    <div className="flex items-center text-[#D7263D] font-medium group-hover:text-[#0B2239] transition-colors duration-300">
                       View Project
                       <ExternalLink className="w-4 h-4 ml-2" />
                     </div>
@@ -74,7 +80,7 @@ const Projects = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="group cursor-pointer opacity-60"
             >
-              <div className="bg-gray-50 rounded-lg overflow-hidden border-2 border-dashed border-gray-300">
+              <div className="bg-white rounded-lg overflow-hidden border-2 border-dashed border-gray-300 shadow-sm">
                 <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">

@@ -241,18 +241,24 @@ const Home = () => {
               <Link to="/projects/joy-football-academy" className="block">
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02]">
                   {/* Project Image Placeholder */}
-                  <div className="aspect-[4/3] bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-24 h-24 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-[#D7263D] to-[#FFD23F] flex items-center justify-center relative overflow-hidden">
+                    <div className="text-center z-10">
+                      <div className="w-24 h-24 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center backdrop-blur-sm">
                         <span className="text-white text-2xl font-bold">JFA</span>
                       </div>
                       <p className="text-white text-sm font-medium">Joy Football Academy</p>
+                    </div>
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="absolute top-4 left-4 w-16 h-16 border-2 border-white rounded-full"></div>
+                      <div className="absolute bottom-4 right-4 w-12 h-12 border-2 border-white rounded-full"></div>
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 border-2 border-white rounded-full"></div>
                     </div>
                   </div>
                   
                   {/* Project Info */}
                   <div className="p-6">
-                    <h3 className="heading-md mb-2 group-hover:text-black transition-colors duration-300">
+                    <h3 className="heading-md mb-2 group-hover:text-[#D7263D] transition-colors duration-300">
                       Joy Football Academy
                     </h3>
                     <p className="body-md text-gray-600 mb-4">

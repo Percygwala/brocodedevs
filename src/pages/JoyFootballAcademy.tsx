@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ExternalLink } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Palette, Eye, Download } from 'lucide-react'
 
 const JoyFootballAcademy = () => {
   const techniques = [
@@ -10,6 +10,47 @@ const JoyFootballAcademy = () => {
     'SEO Optimization',
     'Performance Optimization',
     'Cross-browser Compatibility'
+  ]
+
+  const colorPalette = [
+    { name: 'White (Humility)', hex: '#FFFFFF', description: 'Clean backgrounds and text contrast' },
+    { name: 'Light Blue (Education)', hex: '#A7D8F5', description: 'Accent elements and highlights' },
+    { name: 'Red (Football/Fighters)', hex: '#D7263D', description: 'Primary brand color and CTAs' },
+    { name: 'Yellow (Joy)', hex: '#FFD23F', description: 'Energy and positive messaging' },
+    { name: 'Dark Navy (Neutral/Base)', hex: '#0B2239', description: 'Text and structural elements' }
+  ]
+
+  const logoVariations = [
+    {
+      name: 'Primary Logo',
+      description: 'Main logo for digital and print applications',
+      background: 'bg-white',
+      textColor: 'text-[#0B2239]'
+    },
+    {
+      name: 'Logo on Red',
+      description: 'Logo displayed on football/fighters red background',
+      background: 'bg-[#D7263D]',
+      textColor: 'text-white'
+    },
+    {
+      name: 'Logo on Navy',
+      description: 'Logo on dark navy for contrast applications',
+      background: 'bg-[#0B2239]',
+      textColor: 'text-white'
+    },
+    {
+      name: 'Logo on Yellow',
+      description: 'Logo on joy yellow for energetic applications',
+      background: 'bg-[#FFD23F]',
+      textColor: 'text-[#0B2239]'
+    },
+    {
+      name: 'Logo on Light Blue',
+      description: 'Logo on education blue for academic contexts',
+      background: 'bg-[#A7D8F5]',
+      textColor: 'text-[#0B2239]'
+    }
   ]
 
   return (
@@ -33,7 +74,7 @@ const JoyFootballAcademy = () => {
             
             {/* Project Logo */}
             <div className="text-center mb-8 sm:mb-12">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-[#D7263D] to-[#FFD23F] rounded-full mx-auto mb-6 flex items-center justify-center">
                 <span className="text-white text-3xl sm:text-4xl font-bold">JFA</span>
               </div>
               <h1 className="heading-xl mb-4">
@@ -46,13 +87,13 @@ const JoyFootballAcademy = () => {
           </motion.div>
 
           {/* Project Content */}
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             {/* Introduction */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="mb-12 sm:mb-16"
+              className="mb-16"
             >
               <h2 className="heading-lg mb-6">Project Overview</h2>
               <div className="prose prose-lg max-w-none">
@@ -63,12 +104,97 @@ const JoyFootballAcademy = () => {
               </div>
             </motion.div>
 
-            {/* Techniques & Tools */}
+            {/* Logo Showcase */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-12 sm:mb-16"
+              className="mb-16"
+            >
+              <h2 className="heading-lg mb-6">Logo Identity</h2>
+              <p className="body-lg text-gray-600 mb-8 max-w-3xl">
+                The Joy Football Academy logo represents the spirit of football, education, and joy. 
+                Multiple variations ensure the logo works effectively across all applications and backgrounds.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {logoVariations.map((variation, index) => (
+                  <motion.div
+                    key={variation.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                    className="group"
+                  >
+                    <div className={`${variation.background} rounded-lg p-6 aspect-square flex items-center justify-center transition-all duration-300 group-hover:scale-105`}>
+                      <div className="text-center">
+                        <div className="w-20 h-20 bg-gradient-to-br from-[#D7263D] to-[#FFD23F] rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <span className="text-white text-xl font-bold">JFA</span>
+                        </div>
+                        <p className={`text-sm font-medium ${variation.textColor}`}>Joy Football Academy</p>
+                      </div>
+                    </div>
+                    <div className="mt-4 text-center">
+                      <h3 className="font-semibold text-gray-800 mb-1">{variation.name}</h3>
+                      <p className="text-sm text-gray-600">{variation.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Color Palette */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mb-16"
+            >
+              <h2 className="heading-lg mb-6">Color Palette</h2>
+              <p className="body-lg text-gray-600 mb-8 max-w-3xl">
+                A carefully crafted color system that reflects the academy's values: humility, education, 
+                football spirit, joy, and professionalism.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {colorPalette.map((color, index) => (
+                  <motion.div
+                    key={color.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                    className="group"
+                  >
+                    <div className="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 group-hover:shadow-lg">
+                      <div 
+                        className="h-24 w-full"
+                        style={{ backgroundColor: color.hex }}
+                      ></div>
+                      <div className="p-4">
+                        <h3 className="font-semibold text-gray-800 mb-1">{color.name}</h3>
+                        <p className="text-sm text-gray-600 mb-2">{color.description}</p>
+                        <div className="flex items-center justify-between">
+                          <code className="text-xs bg-gray-100 px-2 py-1 rounded">{color.hex}</code>
+                          <button 
+                            className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                            onClick={() => navigator.clipboard.writeText(color.hex)}
+                          >
+                            Copy
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Techniques & Tools */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mb-16"
             >
               <h2 className="heading-lg mb-6">Techniques & Tools</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -77,7 +203,7 @@ const JoyFootballAcademy = () => {
                     key={index}
                     className="flex items-center p-4 bg-gray-50 rounded-lg"
                   >
-                    <div className="w-2 h-2 bg-black rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-[#D7263D] rounded-full mr-3"></div>
                     <span className="body-md text-gray-700">{technique}</span>
                   </div>
                 ))}
@@ -88,8 +214,8 @@ const JoyFootballAcademy = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="mb-12 sm:mb-16"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mb-16"
             >
               <h2 className="heading-lg mb-6">Project Screenshots</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -136,7 +262,7 @@ const JoyFootballAcademy = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               className="text-center"
             >
               <Link
