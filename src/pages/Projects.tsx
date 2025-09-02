@@ -45,7 +45,7 @@ const Projects = () => {
                                           <img 
                         src="/JF Academy/JFlogow.png" 
                         alt="Joy Football Academy Logo" 
-                        className="w-full h-full object-contain p-6"
+                        className="w-[90%] h-[90%] object-contain p-6"
                       />
                   </div>
                   

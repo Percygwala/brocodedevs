@@ -78,7 +78,7 @@ const JoyFootballAcademy = () => {
                 <img 
                   src="/JF Academy/JFlogow.png" 
                   alt="Joy Football Academy Logo" 
-                  className="w-full h-full object-contain"
+                  className="w-[90%] h-[90%] object-contain"
                 />
               </div>
               <h1 className="heading-xl mb-4">
@@ -136,7 +136,7 @@ const JoyFootballAcademy = () => {
                            <img 
                              src="/JF Academy/JFlogow.png" 
                              alt="Joy Football Academy Logo" 
-                             className="w-full h-full object-contain"
+                             className="w-[90%] h-[90%] object-contain"
                            />
                          </div>
                          <p className={`text-sm font-medium ${variation.textColor}`}>Joy Football Academy</p>
