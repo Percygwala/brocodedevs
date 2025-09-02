@@ -42,14 +42,11 @@ const Projects = () => {
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02] border border-gray-100">
                   {/* Project Logo */}
                   <div className="aspect-[4/3] bg-gradient-to-br from-[#D7263D] to-[#FFD23F] flex items-center justify-center relative overflow-hidden">
-                    <div className="text-center z-10">
-                      <img 
-                        src="/JF Academy/JFlogo1.png" 
-                        alt="Joy Football Academy Logo" 
-                        className="w-32 h-32 sm:w-36 sm:h-36 object-contain mx-auto mb-4"
-                      />
-                      <p className="text-white text-sm font-medium">Joy Football Academy</p>
-                    </div>
+                    <img 
+                      src="/JF Academy/JFlogo1.png" 
+                      alt="Joy Football Academy Logo" 
+                      className="w-full h-full object-contain p-4"
+                    />
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-10">
                       <div className="absolute top-4 left-4 w-16 h-16 border-2 border-white rounded-full"></div>
