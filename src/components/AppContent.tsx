@@ -21,6 +21,8 @@ import DomainRegistrationForm from '../pages/forms/DomainRegistrationForm'
 import PaymentMethodsForm from '../pages/forms/PaymentMethodsForm'
 import Privacy from '../pages/Privacy'
 import Terms from '../pages/Terms'
+import Projects from '../pages/Projects'
+import JoyFootballAcademy from '../pages/JoyFootballAcademy'
 import { Routes, Route } from 'react-router-dom'
 
 const AppContent = () => {
@@ -202,6 +204,26 @@ const AppContent = () => {
               transition={{ duration: 0.5 }}
             >
               <Privacy />
+            </motion.div>
+          } />
+          <Route path="/projects" element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Projects />
+            </motion.div>
+          } />
+          <Route path="/projects/joy-football-academy" element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <JoyFootballAcademy />
             </motion.div>
           } />
           <Route path="/terms" element={
