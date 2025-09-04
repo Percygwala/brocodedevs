@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Method Integration Request - BROCODEDEVS</title>
+    <meta name="description" content="Submit your payment method integration request and start accepting payments online with PayFast, PayPal, and Yoco">
+    
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="stylesheet" href="styles.css?v=3.2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .form-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .form-header p {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .form-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .form-section h3 {
+            color: #00ff88;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            padding-right: 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .form-group::after {
+            content: '';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #ffffff;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .form-group select:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+        }
+        
+        .form-group select:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .form-group select option {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 0.5rem;
+        }
+        
+        .form-group select:invalid {
+            color: #888888;
+        }
+        
+        .form-group select:valid {
+            color: #ffffff;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #888888;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .checkbox-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .checkbox-option input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            accent-color: #00ff88;
+        }
+        
+        .checkbox-option label {
+            margin: 0;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+            accent-color: #00ff88;
+        }
+        
+        .radio-option label {
+            margin: 0;
+            cursor: pointer;
+        }
+        
+        .required {
+            color: #ff6b6b;
+        }
+        
+        .conditional-field {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 10px;
+        }
+        
+        .conditional-field.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-back {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #000000;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+        }
+        
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #ff6b6b;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .success-message {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .form-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .form-header h1 {
+                font-size: 2rem;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .btn-back,
+            .btn-submit {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Payment Method Integration</h1>
+                <p>Start accepting payments online! We'll integrate PayFast, PayPal, and Yoco into your platform for secure, reliable payment processing.</p>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <strong>Thank you!</strong> Your payment method integration request has been submitted successfully. We'll review your requirements and contact you within 24 hours with setup details and pricing.
+            </div>
+            
+            <form id="paymentMethodForm" method="POST" action="https://formsubmit.co/info@brocodedevs.co.za" enctype="multipart/form-data">
+                <!-- Hidden fields for FormSubmit.co -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Payment Method Integration Request!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://percygwala.github.io/brocodedevs-website/thank-you.html">
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <div class="error-message">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                
+                <!-- Business Information -->
+                <div class="form-section">
+                    <h3>Business Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="businessName">Business or Company Name <span class="required">*</span></label>
+                        <input type="text" id="businessName" name="businessName" required>
+                        <div class="error-message">Please enter your business or company name</div>
+                    </div>
+                </div>
+                
+                <!-- Platform Information -->
+                <div class="form-section">
+                    <h3>Platform Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="platform">Platform to integrate payment on <span class="required">*</span></label>
+                        <select id="platform" name="platform" required>
+                            <option value="">Select platform</option>
+                            <option value="shopify">Shopify Store</option>
+                            <option value="mobile-app">Android/iOS App</option>
+                            <option value="website">Website</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="error-message">Please select your platform</div>
+                    </div>
+                    
+                    <div class="conditional-field" id="otherPlatformField">
+                        <div class="form-group">
+                            <label for="otherPlatform">Specify other platform</label>
+                            <input type="text" id="otherPlatform" name="otherPlatform" placeholder="e.g., WooCommerce, custom platform, etc.">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment Methods -->
+                <div class="form-section">
+                    <h3>Payment Methods</h3>
+                    
+                    <div class="form-group">
+                        <label>Payment Methods to integrate</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="payment-payfast" name="paymentMethods[]" value="payfast">
+                                <label for="payment-payfast">PayFast</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="payment-paypal" name="paymentMethods[]" value="paypal">
+                                <label for="payment-paypal">PayPal</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="payment-yoco" name="paymentMethods[]" value="yoco">
+                                <label for="payment-yoco">Yoco</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="payment-other" name="paymentMethods[]" value="other">
+                                <label for="payment-other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conditional-field" id="otherPaymentField">
+                        <div class="form-group">
+                            <label for="otherPayment">Specify other payment method</label>
+                            <input type="text" id="otherPayment" name="otherPayment" placeholder="e.g., Stripe, Square, etc.">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Existing Accounts -->
+                <div class="form-section">
+                    <h3>Existing Accounts</h3>
+                    
+                    <div class="form-group">
+                        <label>Do you already have accounts for any of these gateways?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="accounts-yes" name="hasAccounts" value="yes">
+                                <label for="accounts-yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="accounts-no" name="hasAccounts" value="no" checked>
+                                <label for="accounts-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conditional-field" id="credentialsField">
+                        <div class="form-group">
+                            <label for="credentials">Provide login or API credentials (securely)</label>
+                            <textarea id="credentials" name="credentials" placeholder="Please provide your account details, API keys, or login information for the payment gateways you want to integrate"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Details -->
+                <div class="form-section">
+                    <h3>Business Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="country">Country of Business Operation <span class="required">*</span></label>
+                        <input type="text" id="country" name="country" placeholder="e.g., South Africa, United States, etc." required>
+                        <div class="error-message">Please enter your country of business operation</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Should we test the payment system after setup?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="test-yes" name="testPayment" value="yes" checked>
+                                <label for="test-yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="test-no" name="testPayment" value="no">
+                                <label for="test-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h3>Additional Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="additionalNotes">Additional Notes</label>
+                        <textarea id="additionalNotes" name="additionalNotes" placeholder="Any specific requirements, preferences, or additional information about your payment integration"></textarea>
+                    </div>
+                </div>
+                
+                <!-- File Upload Section -->
+                <div class="form-section">
+                    <h3>Additional Files</h3>
+                    <div class="form-group">
+                        <label for="attachment">Upload Image (Max size: 10MB):</label>
+                        <input type="file" name="attachment" accept="image/*" required onchange="validateFileSize(this)">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <a href="index.html#services" class="btn-back">← Back to Services</a>
+                    <button type="submit" class="btn-submit" id="submitBtn">Submit Payment Setup Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // File size validation function
+        function validateFileSize(input) {
+            const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+            const file = input.files[0];
+            
+            if (file && file.size > maxSize) {
+                alert('File size must be less than 10MB. Please choose a smaller file.');
+                input.value = '';
+                return false;
+            }
+            return true;
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('paymentMethodForm');
+            const successMessage = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const otherPlatformField = document.getElementById('otherPlatformField');
+            const otherPaymentField = document.getElementById('otherPaymentField');
+            const credentialsField = document.getElementById('credentialsField');
+            
+            // Handle conditional field for other platform
+            const platformSelect = document.getElementById('platform');
+            platformSelect.addEventListener('change', function() {
+                if (this.value === 'other') {
+                    otherPlatformField.classList.add('show');
+                } else {
+                    otherPlatformField.classList.remove('show');
+                }
+            });
+            
+            // Handle conditional field for other payment method
+            const otherPaymentCheckbox = document.getElementById('payment-other');
+            otherPaymentCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    otherPaymentField.classList.add('show');
+                } else {
+                    otherPaymentField.classList.remove('show');
+                }
+            });
+            
+            // Handle conditional field for existing accounts
+            const hasAccountsRadios = document.querySelectorAll('input[name="hasAccounts"]');
+            hasAccountsRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'yes') {
+                        credentialsField.classList.add('show');
+                    } else {
+                        credentialsField.classList.remove('show');
+                    }
+                });
+            });
+            
+            // Form validation
+            function validateField(field) {
+                const formGroup = field.closest('.form-group');
+                const errorMessage = formGroup.querySelector('.error-message');
+                
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    formGroup.classList.add('error');
+                    return false;
+                }
+                
+                if (field.type === 'email' && field.value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value)) {
+                        formGroup.classList.add('error');
+                        return false;
+                    }
+                }
+                
+                formGroup.classList.remove('error');
+                return true;
+            }
+            
+            // Real-time validation
+            const inputs = form.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', () => validateField(input));
+                input.addEventListener('input', () => {
+                    if (input.classList.contains('error')) {
+                        validateField(input);
+                    }
+                });
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                // Validate all fields
+                let isValid = true;
+                inputs.forEach(input => {
+                    if (!validateField(input)) {
+                        isValid = false;
+                    }
+                });
+                
+                if (!isValid) {
+                    e.preventDefault();
+                    return;
+                }
+                
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+                
+                // Let the form submit to FormSubmit.co
+                // The form will redirect to thank-you.html after successful submission
+            });
+        });
+    </script>
+</body>
+</html> 
