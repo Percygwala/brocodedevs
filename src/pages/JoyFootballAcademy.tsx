@@ -101,7 +101,39 @@ const JoyFootballAcademy = () => {
         </div>
       </div>
 
-
+      {/* Logo Inspiration - Soccer Ball & JF Monogram */}
+      <div className="mb-16">
+        <div className="w-full">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Logo Inspiration</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Soccer Ball Inspiration */}
+            <div className="text-center">
+              <img
+                src="/JF Academy/56209-O8I7TZ-289.png"
+                alt="Soccer Ball Design Inspiration"
+                className="w-full h-auto max-w-md mx-auto rounded-lg"
+              />
+              <h3 className="text-xl font-semibold text-gray-800 mt-4 mb-2">Soccer Ball Pattern</h3>
+              <p className="text-gray-600">
+                The geometric shapes and sharp angles of traditional soccer balls inspired the logo's design language
+              </p>
+            </div>
+            
+            {/* JF Monogram */}
+            <div className="text-center">
+              <img
+                src="/JF Academy/sign b.png"
+                alt="JF Monogram Logo"
+                className="w-full h-auto max-w-md mx-auto rounded-lg"
+              />
+              <h3 className="text-xl font-semibold text-gray-800 mt-4 mb-2">JF Monogram</h3>
+              <p className="text-gray-600">
+                The stylized "JF" monogram incorporates the geometric precision and angular design inspired by soccer ball patterns
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Logo Design Concept */}
       <div className="mb-16">
