@@ -230,13 +230,13 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid-responsive-2 gap-8 sm:gap-12">
+          <div className="flex justify-center">
             {/* Joy Football Academy Project */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer max-w-md w-full"
             >
                               <Link to="/projects/joy-football-academy" className="block">
                   {/* Project Logo */}
@@ -265,33 +265,7 @@ const Home = () => {
                 </Link>
             </motion.div>
 
-            {/* Future Project Placeholder */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="group cursor-pointer opacity-60"
-            >
-              <div className="bg-white rounded-lg overflow-hidden border-2 border-dashed border-gray-300 shadow-sm">
-                <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-gray-600 text-2xl font-bold">+</span>
-                    </div>
-                    <p className="text-gray-500 text-sm">More Projects Coming Soon</p>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="heading-md mb-2 text-gray-400">
-                    Future Project
-                  </h3>
-                  <p className="body-md text-gray-400 mb-4">
-                    Stay tuned for more amazing projects
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+
           </div>
 
           <motion.div

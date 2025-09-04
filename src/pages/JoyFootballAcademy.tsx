@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ExternalLink, Palette, Eye, Download } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Palette, Eye, Download, X, Maximize2 } from 'lucide-react'
+import { useState } from 'react'
 
 const JoyFootballAcademy = () => {
+  const [selectedScreenshot, setSelectedScreenshot] = useState<string | null>(null)
+
   const techniques = [
     'React.js Development',
     'Responsive Web Design',
@@ -25,31 +28,36 @@ const JoyFootballAcademy = () => {
       name: 'Primary Logo',
       description: 'Main logo for digital and print applications',
       background: 'bg-white',
-      textColor: 'text-[#0B2239]'
+      textColor: 'text-[#0B2239]',
+      logo: '/JF Academy/JFlogob.png'
     },
     {
       name: 'Logo on Red',
       description: 'Logo displayed on football/fighters red background',
       background: 'bg-[#D7263D]',
-      textColor: 'text-white'
+      textColor: 'text-white',
+      logo: '/JF Academy/JFlogow.png'
     },
     {
       name: 'Logo on Navy',
       description: 'Logo on dark navy for contrast applications',
       background: 'bg-[#0B2239]',
-      textColor: 'text-white'
+      textColor: 'text-white',
+      logo: '/JF Academy/JFlogow.png'
     },
     {
       name: 'Logo on Yellow',
       description: 'Logo on joy yellow for energetic applications',
       background: 'bg-[#FFD23F]',
-      textColor: 'text-[#0B2239]'
+      textColor: 'text-[#0B2239]',
+      logo: '/JF Academy/JFlogob.png'
     },
     {
       name: 'Logo on Light Blue',
       description: 'Logo on education blue for academic contexts',
       background: 'bg-[#A7D8F5]',
-      textColor: 'text-[#0B2239]'
+      textColor: 'text-[#0B2239]',
+      logo: '/JF Academy/JFlogob.png'
     }
   ]
 
@@ -82,16 +90,37 @@ const JoyFootballAcademy = () => {
               </p>
             </div>
 
-            {/* Huge Logo Display */}
-            <div className="mb-16">
-              <div className="w-full h-96 bg-[#0B2239] rounded-lg flex items-center justify-center p-8">
-                <img 
-                  src="/JF Academy/JFlogow.png" 
-                  alt="Joy Football Academy Logo" 
-                  className="w-[90%] h-[90%] object-contain"
-                />
-              </div>
-            </div>
+                  {/* Huge Logo Display */}
+      <div className="mb-16">
+        <div className="w-full h-[32rem] bg-[#0B2239] rounded-lg flex items-center justify-center p-8">
+          <img
+            src="/JF Academy/JFlogow.png"
+            alt="Joy Football Academy Logo"
+            className="w-[72%] h-[72%] object-contain"
+          />
+        </div>
+      </div>
+
+
+
+      {/* Logo Design Concept */}
+      <div className="mb-16">
+        <div className="w-full">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8">Logo Design Concept</h2>
+          <div className="prose prose-lg text-gray-600 leading-relaxed max-w-none">
+            <p className="mb-6">
+              The Joy Football Academy logo was designed with inspiration drawn directly from the game itself. The sharp, geometric lines are modeled after the classic shapes found in a traditional soccer ball, creating a strong visual link to football.
+            </p>
+            <p className="mb-6">
+              The bold, angular style gives the logo a modern and professional look, while also symbolizing structure, teamwork, and precision—the core values of the academy. The interlocking shapes represent connection and unity, reflecting how the academy brings players together to grow, learn, and thrive.
+            </p>
+            <p>
+              By keeping the design minimal and striking, the logo works seamlessly across digital platforms, merchandise, and print while remaining instantly recognizable.
+            </p>
+          </div>
+        </div>
+      </div>
+
           </motion.div>
 
           {/* Project Content */}
@@ -105,9 +134,11 @@ const JoyFootballAcademy = () => {
             >
               <h2 className="heading-lg mb-6">Project Overview</h2>
               <div className="prose prose-lg max-w-none">
+                <p className="body-lg text-gray-700 leading-relaxed mb-6">
+                  Joy Football Academy approached us to create a digital presence that reflects their commitment to developing young talent both on and off the field. We designed and built a modern website that highlights the academy's values, programs, and community spirit while making it easy for parents and players to access important information.
+                </p>
                 <p className="body-lg text-gray-700 leading-relaxed">
-                  [Project introduction placeholder - You can edit this text later with details about the Joy Football Academy project, 
-                  including the client's requirements, goals, and the overall vision for the website.]
+                  The project included designing a bold new logo inspired by the geometric shapes of a soccer ball, symbolizing unity, structure, and the energy of the sport. Combined with a clean, responsive website layout, the brand now has a professional and engaging platform that supports their mission of nurturing future football stars.
                 </p>
               </div>
             </motion.div>
@@ -134,12 +165,13 @@ const JoyFootballAcademy = () => {
                     transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
                     className="group"
                   >
-                                         <div className={`${variation.background} rounded-lg p-6 aspect-square flex items-center justify-center transition-all duration-300 group-hover:scale-105`}>
-                       <div className="text-center">
-                         <h3 className={`text-lg font-semibold ${variation.textColor} mb-2`}>Joy Football Academy</h3>
-                         <p className={`text-sm ${variation.textColor} opacity-80`}>Professional website design and development</p>
-                       </div>
-                     </div>
+                                                             <div className={`${variation.background} rounded-lg p-6 aspect-square flex items-center justify-center transition-all duration-300 group-hover:scale-105`}>
+                      <img
+                        src={variation.logo}
+                        alt="Joy Football Academy Logo"
+                        className="w-96 h-96 object-contain"
+                      />
+                    </div>
                     <div className="mt-4 text-center">
                       <h3 className="font-semibold text-gray-800 mb-1">{variation.name}</h3>
                       <p className="text-sm text-gray-600">{variation.description}</p>
@@ -224,43 +256,60 @@ const JoyFootballAcademy = () => {
               className="mb-16"
             >
               <h2 className="heading-lg mb-6">Project Screenshots</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Screenshot Placeholders */}
-                <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gray-300 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-gray-600 text-lg">📱</span>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Screenshot 1 - Home Page */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="group"
+                >
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="relative cursor-pointer" onClick={() => setSelectedScreenshot("/JF Academy/Screenshot 1.png")}>
+                      <img
+                        src="/JF Academy/Screenshot 1.png"
+                        alt="Joy Football Academy Home Page - Mission, Vision, and Core Values"
+                        className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                        <Maximize2 className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
                     </div>
-                    <p className="text-gray-500 text-sm">Mobile View</p>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-gray-800 mb-2">Home Page</h3>
+                      <p className="text-sm text-gray-600">
+                        Mission, Vision, and Core Values showcase with dynamic hero section and 5 pillars
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gray-300 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-gray-600 text-lg">💻</span>
+                {/* Screenshot 2 - Programs Page */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="group"
+                >
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="relative cursor-pointer" onClick={() => setSelectedScreenshot("/JF Academy/Screenshot 2.png")}>
+                      <img
+                        src="/JF Academy/Screenshot 2.png"
+                        alt="Joy Football Academy Programs & Fees Page"
+                        className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <Maximize2 className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
                     </div>
-                    <p className="text-gray-500 text-sm">Desktop View</p>
-                  </div>
-                </div>
-                
-                <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gray-300 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-gray-600 text-lg">🎨</span>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-gray-800 mb-2">Programs & Fees</h3>
+                      <p className="text-sm text-gray-600">
+                        Age-group training programs with pricing and detailed descriptions
+                      </p>
                     </div>
-                    <p className="text-gray-500 text-sm">Design Elements</p>
                   </div>
-                </div>
-                
-                <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gray-300 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-gray-600 text-lg">⚡</span>
-                    </div>
-                    <p className="text-gray-500 text-sm">Performance</p>
-                  </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
 
@@ -282,6 +331,32 @@ const JoyFootballAcademy = () => {
           </div>
         </div>
       </section>
+
+      {/* Full Screen Screenshot Modal */}
+      {selectedScreenshot && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedScreenshot(null)}
+        >
+          <div className="relative max-w-7xl max-h-full">
+            <button
+              onClick={() => setSelectedScreenshot(null)}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-300 z-10"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <img
+              src={selectedScreenshot}
+              alt="Full Screen Screenshot"
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </motion.div>
+      )}
     </div>
   )
 }
