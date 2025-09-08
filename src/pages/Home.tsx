@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Globe, Smartphone, Database, Mail, Phone, MapPin, Clock, CheckCircle, Users, Target, Award, Shield, Palette } from 'lucide-react'
+import ScrollStack from '../components/ScrollStack'
 
 const Home = () => {
   const services = [
@@ -108,47 +109,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <h2 className="heading-lg mb-4 sm:mb-6">
-              Our Services
-            </h2>
-            <p className="body-lg text-gray-600 max-w-3xl mx-auto">
-              Complete business solutions from company registration to digital marketing at competitive prices
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card text-center hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                  <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <h3 className="heading-sm mb-2">{service.title}</h3>
-                <div className="text-lg font-bold text-black mb-3">{service.price}</div>
-                <p className="body-md text-gray-600 mb-6">{service.description}</p>
-                <Link to={service.link} className="btn-primary btn-full-mobile w-full">
-                  Get Started
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Services Preview with Scroll Stack */}
+      <ScrollStack
+        items={services}
+        title="Our Services"
+        subtitle="Complete business solutions from company registration to digital marketing at competitive prices"
+      />
 
 
 
