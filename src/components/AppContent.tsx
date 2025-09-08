@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollToTop } from '../hooks/useScrollToTop'
-import Navbar from './Navbar'
+import StaggeredMenu from './StaggeredMenu'
 import Footer from './Footer'
 import ScrollToTop from './ScrollToTop'
 import Home from '../pages/Home'
@@ -32,7 +32,7 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-white">
       <ScrollToTop />
-      <Navbar />
+      <StaggeredMenu />
       <AnimatePresence mode="wait">
         <Routes>
           <Route path="/" element={
