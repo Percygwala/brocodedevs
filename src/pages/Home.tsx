@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Globe, Smartphone, Database, Mail, Phone, MapPin, Clock, CheckCircle, Users, Target, Award, Shield, Palette } from 'lucide-react'
+import TiltedCard from '../components/TiltedCard'
 
 const Home = () => {
   const services = [
@@ -127,37 +128,15 @@ const Home = () => {
 
           <div className="grid-responsive">
             {services.map((service, index) => (
-              <motion.div
+              <TiltedCard
                 key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card group cursor-pointer"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center flex-shrink-0">
-                    <service.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="text-lg font-bold text-black">
-                    {service.price}
-                  </div>
-                </div>
-                
-                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-black transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  {service.description}
-                </p>
-                
-                <Link
-                  to={service.link}
-                  className="inline-flex items-center text-black font-medium hover:text-gray-600 transition-colors duration-300"
-                >
-                  Get Started
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </motion.div>
+                title={service.title}
+                description={service.description}
+                price={service.price}
+                icon={service.icon}
+                link={service.link}
+                delay={index * 0.1}
+              />
             ))}
           </div>
 

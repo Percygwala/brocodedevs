@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Globe, Smartphone, Database, Palette, Zap, Users, Shield, CheckCircle, Clock, Target } from 'lucide-react'
+import TiltedCard from '../components/TiltedCard'
 
 const Services = () => {
   // Function to get the form path for each service
@@ -129,62 +130,15 @@ const Services = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {services.map((service, index) => (
-              <motion.div
+              <TiltedCard
                 key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="p-4 sm:p-6 lg:p-8">
-                  {/* Service Header */}
-                  <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4 sm:gap-6 mb-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <service.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h2 className="heading-md leading-tight">{service.title}</h2>
-                        <p className="text-gray-500 text-sm mt-1">{service.shortDescription}</p>
-                      </div>
-                    </div>
-                    <div className="text-left sm:text-right">
-                      <div className="text-2xl font-bold text-black whitespace-nowrap">{service.price}</div>
-                    </div>
-                  </div>
-
-                  {/* Service Description */}
-                  <div className="mb-8">
-                    <p className="body-md text-gray-600 leading-relaxed">
-                      {service.longDescription}
-                    </p>
-                  </div>
-
-                  {/* Service Features */}
-                  <div className="mb-8">
-                    <h3 className="text-sm font-semibold text-gray-900 mb-4">What's Included:</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center text-sm text-gray-600">
-                          <CheckCircle className="w-4 h-4 text-black mr-3 flex-shrink-0" />
-                          <span className="text-overflow-safe">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  <div className="flex justify-start">
-                    <Link 
-                      to={getServiceFormPath(service.title)} 
-                      className="btn-primary btn-full-mobile w-full sm:w-auto"
-                    >
-                      Get Started
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
+                title={service.title}
+                description={service.longDescription}
+                price={service.price}
+                icon={service.icon}
+                link={getServiceFormPath(service.title)}
+                delay={index * 0.1}
+              />
             ))}
           </div>
         </div>
