@@ -20,7 +20,7 @@ const Footer = () => {
   
   // Check if current page is Privacy Policy, Terms of Service, or Project pages
   const isLegalPage = location.pathname === '/privacy' || location.pathname === '/terms'
-  const isProjectPage = location.pathname.startsWith('/projects/')
+  const isProjectPage = location.pathname === '/projects' || location.pathname.startsWith('/projects/')
   const needsTopPadding = isLegalPage || isProjectPage
 
   const footerLinks = {
