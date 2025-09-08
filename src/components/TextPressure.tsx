@@ -50,6 +50,7 @@ const TextPressure = ({ text, className = '', delay = 0 }: TextPressureProps) =>
     <div
       ref={textRef}
       className={`relative inline-block ${className}`}
+      style={{ whiteSpace: 'nowrap' }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false)
@@ -73,7 +74,7 @@ const TextPressure = ({ text, className = '', delay = 0 }: TextPressureProps) =>
         return (
           <motion.span
             key={index}
-            className="inline-block origin-center"
+            className="inline origin-center"
             initial={{ 
               opacity: 0, 
               y: 20,
@@ -97,7 +98,8 @@ const TextPressure = ({ text, className = '', delay = 0 }: TextPressureProps) =>
               scale: isHovered ? letterScale : 1,
               rotate: isHovered ? letterRotate : 0,
               fontWeight: isHovered ? 900 : 300,
-              transition: 'font-weight 0.3s ease'
+              transition: 'font-weight 0.3s ease',
+              whiteSpace: 'nowrap'
             }}
           >
             {letter === ' ' ? '\u00A0' : letter}
