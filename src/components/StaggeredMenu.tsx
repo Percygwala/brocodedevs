@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useCycle } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const StaggeredMenu = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, toggleOpen] = useCycle(false, true)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
@@ -18,7 +18,7 @@ const StaggeredMenu = () => {
 
   // Close mobile menu when route changes
   useEffect(() => {
-    setIsOpen(false)
+    if (isOpen) toggleOpen()
   }, [location.pathname])
 
   // Prevent body scroll when mobile menu is open
@@ -54,48 +54,32 @@ const StaggeredMenu = () => {
     { name: 'About', path: '/about' },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
-    exit: {
+  const itemVariants = {
+    closed: {
       opacity: 0,
-      transition: {
-        staggerChildren: 0.05,
-        staggerDirection: -1,
-      },
+      y: 20,
+      transition: { type: "spring", stiffness: 300, damping: 24 }
     },
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 }
+    }
   }
 
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20,
-      scale: 0.8,
-    },
-    show: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
+  const sideVariants = {
+    closed: {
       transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 24,
-      },
+        staggerChildren: 0.05,
+        staggerDirection: -1
+      }
     },
-    exit: { 
-      opacity: 0, 
-      y: -20,
-      scale: 0.8,
+    open: {
       transition: {
-        duration: 0.2,
-      },
-    },
+        staggerChildren: 0.07,
+        delayChildren: 0.2
+      }
+    }
   }
 
   return (
@@ -112,22 +96,22 @@ const StaggeredMenu = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8, x: -20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 300, 
+            transition={{
+              type: "spring",
+              stiffness: 300,
               damping: 24,
-              delay: 0.1 
+              delay: 0.1
             }}
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               transition: { type: "spring", stiffness: 400, damping: 25 }
             }}
           >
             <Link to="/" className="flex items-center group touch-target">
               <div className="relative">
-                <img 
-                  src="/logowt.png" 
-                  alt="BROCODEDEVS Logo" 
+                <img
+                  src="/logowt.png"
+                  alt="BROCODEDEVS Logo"
                   className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
                 />
                 <motion.div
@@ -141,7 +125,7 @@ const StaggeredMenu = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <motion.div 
+          <motion.div
             className="hidden md:flex items-center space-x-6 lg:space-x-8"
             initial="hidden"
             animate="show"
@@ -160,13 +144,13 @@ const StaggeredMenu = () => {
               <motion.div
                 key={item.name}
                 variants={{
-                  hidden: { 
-                    opacity: 0, 
+                  hidden: {
+                    opacity: 0,
                     y: -20,
                     scale: 0.8,
                   },
-                  show: { 
-                    opacity: 1, 
+                  show: {
+                    opacity: 1,
                     y: 0,
                     scale: 1,
                     transition: {
@@ -176,7 +160,7 @@ const StaggeredMenu = () => {
                     },
                   },
                 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   transition: { type: "spring", stiffness: 400, damping: 25 }
                 }}
@@ -210,17 +194,17 @@ const StaggeredMenu = () => {
           </motion.div>
 
           {/* CTA Button */}
-          <motion.div 
+          <motion.div
             className="hidden md:block"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 300, 
+            transition={{
+              type: "spring",
+              stiffness: 300,
               damping: 24,
-              delay: 0.8 
+              delay: 0.8
             }}
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               transition: { type: "spring", stiffness: 400, damping: 25 }
             }}
@@ -236,119 +220,69 @@ const StaggeredMenu = () => {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => toggleOpen()}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 touch-target relative z-50"
             aria-label="Toggle mobile menu"
           >
-            <motion.div
-              animate={{ rotate: isOpen ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {isOpen ? (
-                <X className="w-6 h-6 text-black" />
-              ) : (
-                <Menu className="w-6 h-6 text-black" />
-              )}
-            </motion.div>
+            {isOpen ? (
+              <X className="w-6 h-6 text-black" />
+            ) : (
+              <Menu className="w-6 h-6 text-black" />
+            )}
           </button>
         </div>
 
-        {/* Staggered Mobile Menu Overlay */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
-            <>
-              {/* Backdrop */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed inset-0 top-16 bg-white/95 backdrop-blur-md md:hidden overflow-y-auto z-40"
+            >
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="fixed inset-0 bg-black/60 backdrop-blur-md md:hidden z-30"
-                onClick={() => setIsOpen(false)}
-              />
-              
-              {/* Menu Content */}
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="show"
-                exit="exit"
-                className="fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl md:hidden z-40 overflow-hidden"
+                variants={sideVariants}
+                initial="closed"
+                animate="open"
+                exit="closed"
+                className="py-8 px-6 space-y-4"
               >
-                <div 
-                  className="flex flex-col h-full"
-                  onTouchMove={(e) => e.preventDefault()}
-                >
-                  {/* Header */}
-                  <div className="flex items-center justify-between p-6 border-b border-gray-200">
-                    <h2 className="text-xl font-semibold text-gray-900">Menu</h2>
-                    <button
-                      onClick={() => setIsOpen(false)}
-                      className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
-                    >
-                      <X className="w-5 h-5 text-gray-600" />
-                    </button>
-                  </div>
-
-                  {/* Navigation Items */}
-                  <div className="flex-1 px-6 py-8">
-                    <motion.div
-                      variants={containerVariants}
-                      className="space-y-2"
-                    >
-                      {navItems.map((item, index) => (
-                        <motion.div
-                          key={item.name}
-                          variants={itemVariants}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <Link
-                            to={item.path}
-                            onClick={() => setIsOpen(false)}
-                            className={`block py-4 px-4 font-medium transition-all duration-300 rounded-xl touch-target ${
-                              location.pathname === item.path
-                                ? 'text-black bg-gray-100 shadow-sm'
-                                : 'text-gray-600 hover:text-black hover:bg-gray-50'
-                            }`}
-                          >
-                            <motion.span
-                              className="relative"
-                              whileHover={{ x: 5 }}
-                              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                            >
-                              {item.name}
-                            </motion.span>
-                            {location.pathname === item.path && (
-                              <motion.div
-                                layoutId="mobileActiveTab"
-                                className="absolute right-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-black rounded-full"
-                                initial={false}
-                                transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                              />
-                            )}
-                          </Link>
-                        </motion.div>
-                      ))}
-                    </motion.div>
-                  </div>
-
-                  {/* Footer CTA */}
-                  <motion.div
-                    variants={itemVariants}
-                    className="p-6 border-t border-gray-200"
-                  >
+                {navItems.map((item) => (
+                  <motion.div variants={itemVariants} key={item.name}>
                     <Link
-                      to="/contact"
-                      onClick={() => setIsOpen(false)}
-                      className="btn-primary btn-full-mobile text-center touch-target block"
+                      to={item.path}
+                      onClick={() => toggleOpen()}
+                      className={`block py-3 px-4 text-2xl font-semibold transition-colors duration-300 rounded-lg touch-target relative ${
+                        location.pathname === item.path
+                          ? 'text-black bg-gray-50'
+                          : 'text-gray-600 hover:text-black hover:bg-gray-50'
+                      }`}
                     >
-                      Get Started
+                      {item.name}
+                      {location.pathname === item.path && (
+                        <motion.span
+                          layoutId="activeDot"
+                          className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-black rounded-full"
+                          initial={false}
+                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        />
+                      )}
                     </Link>
                   </motion.div>
-                </div>
+                ))}
+                <motion.div variants={itemVariants} className="pt-8">
+                  <Link
+                    to="/contact"
+                    onClick={() => toggleOpen()}
+                    className="btn-primary btn-large btn-full-mobile text-center touch-target"
+                  >
+                    Get Started
+                  </Link>
+                </motion.div>
               </motion.div>
-            </>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
