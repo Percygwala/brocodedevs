@@ -1,36 +1,35 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import TextPressure from '../components/TextPressure'
 
 const Projects = () => {
   return (
-    <div className="min-h-screen pt-16 sm:pt-18 md:pt-20">
-      {/* Header */}
-      <section className="section-padding dotted-bg">
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-black text-white py-20 sm:py-24 md:py-32">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12 sm:mb-16"
+            className="text-center max-w-4xl mx-auto"
           >
-            <Link
-              to="/"
-              className="inline-flex items-center text-gray-600 hover:text-black transition-colors duration-300 mb-6"
-            >
-              <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
-              Back to Home
-            </Link>
             <TextPressure 
               text="Our Projects" 
-              className="heading-xl mb-4 sm:mb-6"
+              className="heading-xl mb-4 sm:mb-6 text-white"
               delay={0.2}
             />
-            <p className="body-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="body-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
               Showcasing our work and the digital solutions we've created for our clients
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="section-padding dotted-bg">
+        <div className="container-custom">
 
           {/* Projects Grid */}
           <div className="flex justify-center">

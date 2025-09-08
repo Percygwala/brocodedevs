@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
 
 interface TextPressureProps {
@@ -12,13 +12,26 @@ const TextPressure = ({ text, className = '', delay = 0 }: TextPressureProps) =>
   const [isHovered, setIsHovered] = useState(false)
   const textRef = useRef<HTMLDivElement>(null)
 
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const springConfig = { stiffness: 150, damping: 15 }
+  const x = useSpring(mouseX, springConfig)
+  const y = useSpring(mouseY, springConfig)
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (textRef.current) {
         const rect = textRef.current.getBoundingClientRect()
-        const x = e.clientX - rect.left - rect.width / 2
-        const y = e.clientY - rect.top - rect.height / 2
-        setMousePosition({ x, y })
+        const centerX = rect.left + rect.width / 2
+        const centerY = rect.top + rect.height / 2
+        
+        const distanceX = e.clientX - centerX
+        const distanceY = e.clientY - centerY
+        
+        setMousePosition({ x: distanceX, y: distanceY })
+        mouseX.set(distanceX)
+        mouseY.set(distanceY)
       }
     }
 
@@ -29,7 +42,7 @@ const TextPressure = ({ text, className = '', delay = 0 }: TextPressureProps) =>
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [isHovered])
+  }, [isHovered, mouseX, mouseY])
 
   const letters = text.split('')
 
@@ -41,19 +54,21 @@ const TextPressure = ({ text, className = '', delay = 0 }: TextPressureProps) =>
       onMouseLeave={() => {
         setIsHovered(false)
         setMousePosition({ x: 0, y: 0 })
+        mouseX.set(0)
+        mouseY.set(0)
       }}
     >
       {letters.map((letter, index) => {
         const distance = Math.sqrt(
           Math.pow(mousePosition.x, 2) + Math.pow(mousePosition.y, 2)
         )
-        const maxDistance = 200
+        const maxDistance = 150
         const pressure = Math.max(0, 1 - distance / maxDistance)
         
-        const letterX = (mousePosition.x / maxDistance) * 20 * pressure
-        const letterY = (mousePosition.y / maxDistance) * 20 * pressure
-        const letterScale = 1 + pressure * 0.3
-        const letterRotate = (mousePosition.x / maxDistance) * 5 * pressure
+        const letterX = useTransform(x, [-200, 200], [-5 * pressure, 5 * pressure])
+        const letterY = useTransform(y, [-200, 200], [-5 * pressure, 5 * pressure])
+        const letterScale = useTransform(x, [-200, 200], [1 - 0.05 * pressure, 1 + 0.05 * pressure])
+        const letterRotate = useTransform(x, [-200, 200], [-1 * pressure, 1 * pressure])
 
         return (
           <motion.span
@@ -61,53 +76,34 @@ const TextPressure = ({ text, className = '', delay = 0 }: TextPressureProps) =>
             className="inline-block origin-center"
             initial={{ 
               opacity: 0, 
-              y: 50,
-              scale: 0.8,
-              rotateX: -90
+              y: 20,
+              scale: 0.9
             }}
             animate={{ 
               opacity: 1, 
               y: 0,
-              scale: 1,
-              rotateX: 0,
-              x: isHovered ? letterX : 0,
-              y: isHovered ? letterY : 0,
-              scale: isHovered ? letterScale : 1,
-              rotate: isHovered ? letterRotate : 0
+              scale: 1
             }}
             transition={{
-              duration: 0.6,
-              delay: delay + index * 0.05,
+              duration: 0.4,
+              delay: delay + index * 0.02,
               type: "spring",
-              stiffness: 300,
+              stiffness: 200,
               damping: 20
             }}
             style={{
-              transformStyle: 'preserve-3d',
-              textShadow: isHovered 
-                ? `0 0 ${20 * pressure}px rgba(0, 0, 0, ${0.3 * pressure})`
-                : 'none'
+              x: isHovered ? letterX : 0,
+              y: isHovered ? letterY : 0,
+              scale: isHovered ? letterScale : 1,
+              rotate: isHovered ? letterRotate : 0,
+              fontWeight: isHovered ? 900 : 300,
+              transition: 'font-weight 0.3s ease'
             }}
           >
             {letter === ' ' ? '\u00A0' : letter}
           </motion.span>
         )
       })}
-      
-      {/* Pressure Glow Effect */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: isHovered ? 0.1 : 0,
-          scale: isHovered ? 1.2 : 1
-        }}
-        transition={{ duration: 0.3 }}
-        style={{
-          background: `radial-gradient(circle at ${mousePosition.x + 100}px ${mousePosition.y + 100}px, rgba(0, 0, 0, 0.1) 0%, transparent 50%)`,
-          filter: 'blur(20px)'
-        }}
-      />
     </div>
   )
 }
