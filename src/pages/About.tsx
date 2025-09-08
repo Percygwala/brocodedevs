@@ -92,7 +92,7 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -156,7 +156,7 @@ const About = () => {
       </section>
 
       {/* Our Values */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

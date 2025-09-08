@@ -96,7 +96,7 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen pt-16 sm:pt-18 md:pt-20">
       {/* Hero Section */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -141,7 +141,7 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <AnimatePresence mode="wait">
             <motion.div
@@ -301,7 +301,7 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

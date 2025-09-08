@@ -107,7 +107,7 @@ const Packages = () => {
       </section>
 
       {/* Pricing Table */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -229,7 +229,7 @@ const Packages = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

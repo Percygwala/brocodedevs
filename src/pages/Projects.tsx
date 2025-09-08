@@ -6,7 +6,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen pt-16 sm:pt-18 md:pt-20">
       {/* Header */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

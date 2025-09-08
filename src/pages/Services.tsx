@@ -125,7 +125,7 @@ const Services = () => {
       </section>
 
       {/* Services List */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {services.map((service, index) => (
