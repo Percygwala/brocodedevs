@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Users, Award, Target, Heart, ArrowRight, Star, CheckCircle } from 'lucide-react'
+import ProfileCard from '../components/ProfileCard'
 
 const About = () => {
   const teamMembers = [
@@ -7,13 +8,21 @@ const About = () => {
       name: 'Percival Gwala',
       role: 'Founder',
       description: 'Expert in AI, coding, design, web & app development, and Shopify stores. Leading the technical vision and innovation at BROCODEDEVS.',
-      skills: ['AI Development', 'Web Development', 'App Development', 'Shopify Stores', 'Design']
+      skills: ['AI Development', 'Web Development', 'App Development', 'Shopify Stores', 'Design'],
+      socialLinks: {
+        linkedin: 'https://linkedin.com/in/percygwala',
+        email: 'percy@brocodedevs.co.za'
+      }
     },
     {
       name: 'Xolani Mweli',
       role: 'Co-Founder',
       description: 'Specializes in admin & registrations, domains, payment methods, and company setup. Managing business operations and client services.',
-      skills: ['Company Registration', 'Domain Management', 'Payment Methods', 'Business Setup', 'Admin']
+      skills: ['Company Registration', 'Domain Management', 'Payment Methods', 'Business Setup', 'Admin'],
+      socialLinks: {
+        linkedin: 'https://linkedin.com/in/xolanimweli',
+        email: 'xolani@brocodedevs.co.za'
+      }
     }
   ]
 
@@ -97,32 +106,17 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
             {teamMembers.map((member, index) => (
-              <motion.div
+              <ProfileCard
                 key={member.name}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="card card-hover text-center"
-              >
-                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <p className="text-gray-600 font-medium mb-4">{member.role}</p>
-                <p className="text-gray-600 mb-6">{member.description}</p>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {member.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+                name={member.name}
+                role={member.role}
+                description={member.description}
+                skills={member.skills}
+                socialLinks={member.socialLinks}
+                delay={index * 0.2}
+              />
             ))}
           </div>
         </div>
