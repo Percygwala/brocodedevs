@@ -18,10 +18,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
   const location = useLocation()
   
-  // Check if current page is Privacy Policy, Terms of Service, or Project pages
+  // Check if current page is Privacy Policy, Terms of Service, Project pages, or Service Form pages
   const isLegalPage = location.pathname === '/privacy' || location.pathname === '/terms'
   const isProjectPage = location.pathname === '/projects' || location.pathname.startsWith('/projects/')
-  const needsTopPadding = isLegalPage || isProjectPage
+  const isServiceFormPage = location.pathname.startsWith('/forms/')
+  const needsTopPadding = isLegalPage || isProjectPage || isServiceFormPage
 
   const footerLinks = {
     services: [
