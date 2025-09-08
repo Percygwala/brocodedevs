@@ -21,6 +21,29 @@ const StaggeredMenu = () => {
     setIsOpen(false)
   }, [location.pathname])
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      // Store current scroll position
+      const scrollY = window.scrollY
+      
+      // Prevent scrolling
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.width = '100%'
+      document.body.style.overflow = 'hidden'
+      
+      return () => {
+        // Restore scrolling
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.width = ''
+        document.body.style.overflow = ''
+        window.scrollTo(0, scrollY)
+      }
+    }
+  }, [isOpen])
+
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
@@ -240,7 +263,7 @@ const StaggeredMenu = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden"
+                className="fixed inset-0 bg-black/60 backdrop-blur-md md:hidden z-30"
                 onClick={() => setIsOpen(false)}
               />
               
@@ -250,9 +273,12 @@ const StaggeredMenu = () => {
                 initial="hidden"
                 animate="show"
                 exit="exit"
-                className="fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl md:hidden z-40"
+                className="fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl md:hidden z-40 overflow-hidden"
               >
-                <div className="flex flex-col h-full">
+                <div 
+                  className="flex flex-col h-full"
+                  onTouchMove={(e) => e.preventDefault()}
+                >
                   {/* Header */}
                   <div className="flex items-center justify-between p-6 border-b border-gray-200">
                     <h2 className="text-xl font-semibold text-gray-900">Menu</h2>
