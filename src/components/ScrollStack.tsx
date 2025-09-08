@@ -24,7 +24,7 @@ const ScrollStack = ({ items, title, subtitle }: ScrollStackProps) => {
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start 0.8", "end 0.2"]
   })
 
   // Calculate which card should be active based on scroll progress
@@ -47,23 +47,34 @@ const ScrollStack = ({ items, title, subtitle }: ScrollStackProps) => {
           </p>
         </motion.div>
 
-        <div className="relative min-h-[600px]">
+        <div className="relative min-h-[1200px]">
           {/* Stack Container */}
           <div className="relative max-w-4xl mx-auto" ref={stackRef}>
             {items.map((item, index) => {
               const isEven = index % 2 === 0
               
-              // Calculate card position and visibility based on scroll
+              // Calculate when this card should start appearing
+              const cardStart = index / items.length
+              const cardEnd = (index + 1) / items.length
+              
+              // Card visibility based on scroll progress
               const cardProgress = useTransform(
                 scrollYProgress, 
-                [index / items.length, (index + 1) / items.length], 
+                [cardStart, cardEnd], 
                 [0, 1]
               )
               
-              const cardY = useTransform(cardProgress, [0, 1], [100, 0])
-              const cardOpacity = useTransform(cardProgress, [0, 0.3, 0.7, 1], [0, 0.3, 1, 1])
-              const cardScale = useTransform(cardProgress, [0, 0.3, 0.7, 1], [0.8, 0.9, 1, 1])
-              const cardRotate = useTransform(cardProgress, [0, 1], [isEven ? -5 : 5, 0])
+              // Card position - starts below and moves up
+              const cardY = useTransform(cardProgress, [0, 1], [150, 0])
+              
+              // Card opacity - fades in as it appears
+              const cardOpacity = useTransform(cardProgress, [0, 0.2, 0.8, 1], [0, 0.5, 1, 1])
+              
+              // Card scale - grows as it appears
+              const cardScale = useTransform(cardProgress, [0, 0.2, 0.8, 1], [0.7, 0.9, 1, 1])
+              
+              // Card rotation - straightens as it appears
+              const cardRotate = useTransform(cardProgress, [0, 1], [isEven ? -8 : 8, 0])
               
               // Determine if this card is the active (top) card
               const isActive = useTransform(
