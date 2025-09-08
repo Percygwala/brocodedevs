@@ -109,7 +109,7 @@ const Home = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -181,7 +181,7 @@ const Home = () => {
 
 
       {/* Business Packages Overview */}
-      <section className="section-padding">
+      <section className="section-padding dotted-bg">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
