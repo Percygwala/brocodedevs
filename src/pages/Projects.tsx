@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ExternalLink } from 'lucide-react'
+import TextPressure from '../components/TextPressure'
 
 const Projects = () => {
   return (
@@ -21,9 +22,11 @@ const Projects = () => {
               <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
               Back to Home
             </Link>
-            <h1 className="heading-xl mb-4 sm:mb-6">
-              Our Projects
-            </h1>
+            <TextPressure 
+              text="Our Projects" 
+              className="heading-xl mb-4 sm:mb-6"
+              delay={0.2}
+            />
             <p className="body-lg text-gray-600 max-w-3xl mx-auto">
               Showcasing our work and the digital solutions we've created for our clients
             </p>

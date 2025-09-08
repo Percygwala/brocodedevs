@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Users, Award, Target, Heart, ArrowRight, Star, CheckCircle } from 'lucide-react'
 import ProfileCard from '../components/ProfileCard'
+import TextPressure from '../components/TextPressure'
 
 const About = () => {
   const teamMembers = [
@@ -68,9 +69,11 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
 
-              <h1 className="heading-xl mb-6">
-                About BROCODEDEVS
-              </h1>
+              <TextPressure 
+                text="About BROCODEDEVS" 
+                className="heading-xl mb-6 text-white"
+                delay={0.2}
+              />
               <p className="body-lg text-gray-300 mb-8">
                 We are a digital agency providing complete business solutions from company registration to digital marketing. Our passionate team of developers, designers, and business strategists is dedicated to helping South African businesses grow and succeed in the digital world.
               </p>

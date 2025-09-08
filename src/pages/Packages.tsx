@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Star, Zap, Shield, Users, Globe, Smartphone, Database, Palette, Code } from 'lucide-react'
+import TextPressure from '../components/TextPressure'
 
 const Packages = () => {
   const packages = [
@@ -96,9 +97,11 @@ const Packages = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="heading-xl mb-6">
-              Business Packages
-            </h1>
+            <TextPressure 
+              text="Business Packages" 
+              className="heading-xl mb-6 text-white"
+              delay={0.2}
+            />
             <p className="body-lg text-gray-300">
               Choose the perfect package for your business needs. From startup to enterprise, we have solutions that scale with your growth.
             </p>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ExternalLink, Palette, Eye, Download, X, Maximize2 } from 'lucide-react'
 import { useState } from 'react'
+import TextPressure from '../components/TextPressure'
 
 const JoyFootballAcademy = () => {
   const [selectedScreenshot, setSelectedScreenshot] = useState<string | null>(null)
@@ -82,9 +83,11 @@ const JoyFootballAcademy = () => {
             
             {/* Project Header */}
             <div className="text-center mb-8 sm:mb-12">
-              <h1 className="heading-xl mb-4">
-                Joy Football Academy
-              </h1>
+              <TextPressure 
+                text="Joy Football Academy" 
+                className="heading-xl mb-4"
+                delay={0.2}
+              />
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Professional website design and development for a leading football academy
               </p>

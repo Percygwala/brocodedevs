@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Clock, Send, Upload, CheckCircle } from 'lucide-react'
+import TextPressure from '../components/TextPressure'
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -42,9 +43,11 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="heading-xl mb-6">
-              Get In Touch
-            </h1>
+            <TextPressure 
+              text="Get In Touch" 
+              className="heading-xl mb-6 text-white"
+              delay={0.2}
+            />
             <p className="body-lg text-gray-300">
               Ready to start your project? Contact us today and let's discuss how we can help bring your digital vision to life.
             </p>
