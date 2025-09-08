@@ -86,56 +86,130 @@ const StaggeredMenu = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group touch-target">
-            <div className="relative">
-              <img 
-                src="/logowt.png" 
-                alt="BROCODEDEVS Logo" 
-                className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
-              />
-              <motion.div
-                className="absolute inset-0 bg-black rounded-full opacity-0 group-hover:opacity-10"
-                initial={{ scale: 0 }}
-                whileHover={{ scale: 1 }}
-                transition={{ duration: 0.2 }}
-              />
-            </div>
-          </Link>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, x: -20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 300, 
+              damping: 24,
+              delay: 0.1 
+            }}
+            whileHover={{ 
+              scale: 1.05,
+              transition: { type: "spring", stiffness: 400, damping: 25 }
+            }}
+          >
+            <Link to="/" className="flex items-center group touch-target">
+              <div className="relative">
+                <img 
+                  src="/logowt.png" 
+                  alt="BROCODEDEVS Logo" 
+                  className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
+                />
+                <motion.div
+                  className="absolute inset-0 bg-black rounded-full opacity-0 group-hover:opacity-10"
+                  initial={{ scale: 0 }}
+                  whileHover={{ scale: 1 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </div>
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {navItems.map((item) => (
-              <Link
+          <motion.div 
+            className="hidden md:flex items-center space-x-6 lg:space-x-8"
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.2,
+                },
+              },
+            }}
+          >
+            {navItems.map((item, index) => (
+              <motion.div
                 key={item.name}
-                to={item.path}
-                className={`relative font-medium transition-colors duration-300 touch-target ${
-                  location.pathname === item.path
-                    ? 'text-black'
-                    : 'text-gray-600 hover:text-black'
-                }`}
+                variants={{
+                  hidden: { 
+                    opacity: 0, 
+                    y: -20,
+                    scale: 0.8,
+                  },
+                  show: { 
+                    opacity: 1, 
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 24,
+                    },
+                  },
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { type: "spring", stiffness: 400, damping: 25 }
+                }}
+                whileTap={{ scale: 0.95 }}
               >
-                {item.name}
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-black"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </Link>
+                <Link
+                  to={item.path}
+                  className={`relative font-medium transition-colors duration-300 touch-target ${
+                    location.pathname === item.path
+                      ? 'text-black'
+                      : 'text-gray-600 hover:text-black'
+                  }`}
+                >
+                  <motion.span
+                    whileHover={{ x: 2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  >
+                    {item.name}
+                  </motion.span>
+                  {location.pathname === item.path && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-black"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <motion.div 
+            className="hidden md:block"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 300, 
+              damping: 24,
+              delay: 0.8 
+            }}
+            whileHover={{ 
+              scale: 1.05,
+              transition: { type: "spring", stiffness: 400, damping: 25 }
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
             <Link
               to="/contact"
               className="btn-primary btn-small"
             >
               Get Started
             </Link>
-          </div>
+          </motion.div>
 
           {/* Mobile Menu Button */}
           <button
