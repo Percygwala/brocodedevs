@@ -47,12 +47,6 @@
     border: 2px solid #000000;
   }
 
-  /* Writing mode for vertical text */
-  .writing-mode-vertical {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-  }
-
   /* Responsive text sizing */
   .text-responsive-xs {
     @apply text-xs sm:text-sm;
