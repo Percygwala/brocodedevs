@@ -16,10 +16,19 @@ const StaggeredMenu = () => {
         const state = JSON.parse(savedState)
         // Only restore if the state is recent (within 5 minutes)
         if (Date.now() - state.timestamp < 300000) {
-          // Restore scroll position smoothly
-          requestAnimationFrame(() => {
+          // Use multiple attempts to restore scroll position
+          const restoreScroll = () => {
             window.scrollTo(state.scrollX || 0, state.scrollY || 0)
-          })
+          }
+          
+          // Try immediate restoration
+          restoreScroll()
+          
+          // Try again after a short delay to ensure it sticks
+          setTimeout(restoreScroll, 100)
+          
+          // Try again after DOM is fully ready
+          setTimeout(restoreScroll, 500)
         }
         // Clean up old state
         sessionStorage.removeItem('menuPageState')
@@ -99,10 +108,30 @@ const StaggeredMenu = () => {
         // Remove refresh prevention
         window.removeEventListener('beforeunload', preventRefresh)
         
-        // Restore scroll position smoothly without forcing it
+        // Restore scroll position immediately and persistently
+        const restoreScrollPosition = () => {
+          const savedState = sessionStorage.getItem('menuPageState')
+          if (savedState) {
+            try {
+              const state = JSON.parse(savedState)
+              if (state.scrollY !== undefined) {
+                window.scrollTo(state.scrollX || 0, state.scrollY)
+              }
+            } catch (error) {
+              console.warn('Failed to restore scroll position:', error)
+            }
+          }
+        }
+        
+        // Restore immediately
+        restoreScrollPosition()
+        
+        // Restore again after a short delay to ensure it sticks
+        setTimeout(restoreScrollPosition, 50)
+        
+        // Restore again after DOM updates
         requestAnimationFrame(() => {
-          // The page will naturally return to its previous scroll position
-          // since we're not forcing any scroll behavior
+          restoreScrollPosition()
         })
       }
     }
