@@ -16,7 +16,13 @@
     background-image: radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
-    background-attachment: fixed;
+  }
+
+  /* Use fixed attachment for desktop browsers that support it well */
+  @media (min-width: 768px) and (hover: hover) {
+    body {
+      background-attachment: fixed;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -56,7 +62,13 @@
     background-image: radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
-    background-attachment: fixed;
+  }
+
+  /* Use fixed attachment for desktop browsers that support it well */
+  @media (min-width: 768px) and (hover: hover) {
+    .dotted-bg {
+      background-attachment: fixed;
+    }
   }
 
   /* Responsive text sizing */
