@@ -27,14 +27,22 @@ function initParallaxDots() {
     let ticking = false;
     let lastScrollY = 0;
     let isInitialized = false;
+    let parallaxActive = true;
     
     // Ensure body has the correct background setup for JavaScript manipulation
     const body = document.body;
-    body.style.backgroundAttachment = 'scroll';
-    body.style.backgroundRepeat = 'repeat';
-    body.style.backgroundSize = '20px 20px';
+    
+    // Add mobile parallax class for CSS control
+    body.classList.add('mobile-parallax-active');
+    
+    // Force the background setup with multiple approaches
+    body.style.setProperty('background-attachment', 'scroll', 'important');
+    body.style.setProperty('background-repeat', 'repeat', 'important');
+    body.style.setProperty('background-size', '20px 20px', 'important');
     
     function updateParallax() {
+      if (!parallaxActive) return;
+      
       const scrollY = window.scrollY;
       
       // Always update on mobile for more responsive effect
@@ -45,17 +53,30 @@ function initParallaxDots() {
         const yPos = -(scrollY * parallaxSpeed);
         
         // Apply the parallax effect with more precise positioning
-        body.style.backgroundPosition = `0px ${yPos}px, 10px ${yPos + 10}px`;
+        const newPosition = `0px ${yPos}px, 10px ${yPos + 10}px`;
+        body.style.setProperty('background-position', newPosition, 'important');
         
         lastScrollY = scrollY;
         isInitialized = true;
+        
+        // Debug log every 50px of scroll for better visibility
+        if (Math.floor(scrollY / 50) !== Math.floor((lastScrollY - 0.1) / 50)) {
+          console.log('Parallax updated:', { 
+            scrollY, 
+            yPos, 
+            parallaxSpeed,
+            newPosition,
+            currentPosition: body.style.backgroundPosition,
+            bodyClasses: body.className
+          });
+        }
       }
       
       ticking = false;
     }
     
     function requestTick() {
-      if (!ticking) {
+      if (!ticking && parallaxActive) {
         requestAnimationFrame(updateParallax);
         ticking = true;
       }
@@ -75,12 +96,24 @@ function initParallaxDots() {
     
     // Debug log for mobile devices
     console.log('Mobile parallax effect initialized for device:', navigator.userAgent);
+    console.log('Body background styles:', {
+      backgroundAttachment: body.style.backgroundAttachment,
+      backgroundRepeat: body.style.backgroundRepeat,
+      backgroundSize: body.style.backgroundSize,
+      backgroundPosition: body.style.backgroundPosition
+    });
     
     // Also try to initialize after a short delay to ensure DOM is ready
     setTimeout(() => {
       updateParallax();
       console.log('Mobile parallax effect re-initialized after delay');
     }, 100);
+    
+    // Try again after a longer delay to ensure everything is loaded
+    setTimeout(() => {
+      updateParallax();
+      console.log('Mobile parallax effect final initialization');
+    }, 1000);
   }
 }
 

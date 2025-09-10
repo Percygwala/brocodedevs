@@ -27,6 +27,13 @@
     }
   }
 
+  /* Mobile parallax class for JavaScript control */
+  .mobile-parallax-active {
+    background-attachment: scroll !important;
+    background-repeat: repeat !important;
+    background-size: 20px 20px !important;
+  }
+
   /* Use fixed attachment for desktop browsers that support it well */
   @media (min-width: 768px) and (hover: hover) {
     body {
