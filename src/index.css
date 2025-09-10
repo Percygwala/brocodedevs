@@ -20,6 +20,13 @@
     background-attachment: scroll; /* Default to scroll for mobile compatibility */
   }
 
+  /* Force scroll attachment on mobile devices */
+  @media (max-width: 767px) {
+    body {
+      background-attachment: scroll !important;
+    }
+  }
+
   /* Use fixed attachment for desktop browsers that support it well */
   @media (min-width: 768px) and (hover: hover) {
     body {
