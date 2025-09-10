@@ -34,12 +34,12 @@ const StaggeredMenu = () => {
       document.body.style.overflow = 'hidden'
       
       return () => {
-        // Restore scrolling
+        // Restore scrolling without forcing scroll position
         document.body.style.position = ''
         document.body.style.top = ''
         document.body.style.width = ''
         document.body.style.overflow = ''
-        window.scrollTo(0, scrollY)
+        // Remove the window.scrollTo call to prevent auto scrolling
       }
     }
   }, [isOpen])
