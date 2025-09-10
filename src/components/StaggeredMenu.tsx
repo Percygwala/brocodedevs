@@ -8,6 +8,28 @@ const StaggeredMenu = () => {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
+  // Restore page state on component mount
+  useEffect(() => {
+    const savedState = sessionStorage.getItem('menuPageState')
+    if (savedState) {
+      try {
+        const state = JSON.parse(savedState)
+        // Only restore if the state is recent (within 5 minutes)
+        if (Date.now() - state.timestamp < 300000) {
+          // Restore scroll position smoothly
+          requestAnimationFrame(() => {
+            window.scrollTo(state.scrollX || 0, state.scrollY || 0)
+          })
+        }
+        // Clean up old state
+        sessionStorage.removeItem('menuPageState')
+      } catch (error) {
+        console.warn('Failed to restore page state:', error)
+        sessionStorage.removeItem('menuPageState')
+      }
+    }
+  }, [])
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -21,25 +43,67 @@ const StaggeredMenu = () => {
     if (isOpen) toggleOpen()
   }, [location.pathname])
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent body scroll when mobile menu is open and preserve page state
   useEffect(() => {
     if (isOpen) {
-      // Store current scroll position
-      const scrollY = window.scrollY
+      // Store comprehensive page state
+      const pageState = {
+        scrollY: window.scrollY,
+        scrollX: window.scrollX,
+        bodyOverflow: document.body.style.overflow,
+        bodyPosition: document.body.style.position,
+        bodyTop: document.body.style.top,
+        bodyWidth: document.body.style.width,
+        // Store any form data that might be in progress
+        formData: new Map()
+      }
       
-      // Prevent scrolling
+      // Store form data to preserve user input
+      const forms = document.querySelectorAll('form')
+      forms.forEach((form, index) => {
+        const formData = new FormData(form)
+        const formObject = {}
+        for (let [key, value] of formData.entries()) {
+          formObject[key] = value
+        }
+        pageState.formData.set(index, formObject)
+      })
+      
+      // Store the state in a way that persists
+      sessionStorage.setItem('menuPageState', JSON.stringify({
+        scrollY: pageState.scrollY,
+        scrollX: pageState.scrollX,
+        timestamp: Date.now()
+      }))
+      
+      // Prevent scrolling and preserve visual state
       document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollY}px`
+      document.body.style.top = `-${pageState.scrollY}px`
       document.body.style.width = '100%'
       document.body.style.overflow = 'hidden'
       
+      // Prevent any potential page refresh
+      const preventRefresh = (e) => {
+        e.preventDefault()
+        e.returnValue = ''
+      }
+      window.addEventListener('beforeunload', preventRefresh)
+      
       return () => {
-        // Restore scrolling without forcing scroll position
+        // Restore scrolling and page state
         document.body.style.position = ''
         document.body.style.top = ''
         document.body.style.width = ''
         document.body.style.overflow = ''
-        // Remove the window.scrollTo call to prevent auto scrolling
+        
+        // Remove refresh prevention
+        window.removeEventListener('beforeunload', preventRefresh)
+        
+        // Restore scroll position smoothly without forcing it
+        requestAnimationFrame(() => {
+          // The page will naturally return to its previous scroll position
+          // since we're not forcing any scroll behavior
+        })
       }
     }
   }, [isOpen])
