@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
-import { ArrowLeft, Upload, CheckCircle } from 'lucide-react'
+import { ArrowLeft, Upload, CheckCircle, ChevronDown } from 'lucide-react'
 
 interface ServiceFormProps {
   serviceName: string
@@ -23,6 +23,7 @@ const ServiceForm = ({ serviceName, serviceDescription, fields }: ServiceFormPro
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>({})
   const navigate = useNavigate()
 
   const handleInputChange = (name: string, value: string) => {
@@ -31,6 +32,28 @@ const ServiceForm = ({ serviceName, serviceDescription, fields }: ServiceFormPro
       setErrors(prev => ({ ...prev, [name]: '' }))
     }
   }
+
+  const toggleDropdown = (name: string) => {
+    setOpenDropdowns(prev => ({ ...prev, [name]: !prev[name] }))
+  }
+
+  const selectOption = (name: string, value: string) => {
+    handleInputChange(name, value)
+    setOpenDropdowns(prev => ({ ...prev, [name]: false }))
+  }
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement
+      if (!target.closest('.dropdown-container')) {
+        setOpenDropdowns({})
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   const handleFileChange = (name: string, file: File | null) => {
     if (file && file.size > 10 * 1024 * 1024) {
@@ -199,21 +222,43 @@ const ServiceForm = ({ serviceName, serviceDescription, fields }: ServiceFormPro
                     rows={4}
                   />
                 ) : field.type === 'select' ? (
-                  <select
-                    id={field.name}
-                    name={field.name}
-                    value={formData[field.name] || ''}
-                    onChange={(e) => handleInputChange(field.name, e.target.value)}
-                    required={field.required}
-                    className={`form-select ${errors[field.name] ? 'border-red-500' : ''}`}
-                  >
-                    <option value="">Select an option</option>
-                    {field.options?.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="relative dropdown-container">
+                    <button
+                      type="button"
+                      onClick={() => toggleDropdown(field.name)}
+                      className={`form-select flex items-center justify-between cursor-pointer ${errors[field.name] ? 'border-red-500' : ''}`}
+                    >
+                      <span className={formData[field.name] ? 'text-gray-900' : 'text-gray-500'}>
+                        {formData[field.name] || 'Select an option'}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${openDropdowns[field.name] ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {openDropdowns[field.name] && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+                      >
+                        {field.options?.map((option) => (
+                          <button
+                            key={option}
+                            type="button"
+                            onClick={() => selectOption(field.name, option)}
+                            className={`w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors duration-150 ${
+                              formData[field.name] === option ? 'bg-gray-100 text-black' : 'text-gray-700'
+                            } ${field.options?.indexOf(option) === 0 ? 'rounded-t-lg' : ''} ${
+                              field.options?.indexOf(option) === field.options.length - 1 ? 'rounded-b-lg' : ''
+                            }`}
+                          >
+                            {option}
+                          </button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </div>
                 ) : field.type === 'file' ? (
                   <div className="space-y-2">
                     <div className="relative">
