@@ -237,13 +237,16 @@ const StaggeredMenu = () => {
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ 
+                duration: 0.15,
+                ease: "easeOut"
+              }}
               className="md:hidden bg-white border-t border-gray-200 shadow-lg"
             >
               <div className="px-4 py-6 space-y-2">
@@ -251,7 +254,9 @@ const StaggeredMenu = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setTimeout(() => setIsMobileMenuOpen(false), 100)
+                    }}
                     className={`block py-3 px-4 text-lg font-medium rounded-lg transition-colors ${
                       location.pathname === item.path
                         ? 'text-black bg-gray-100'
@@ -264,7 +269,9 @@ const StaggeredMenu = () => {
                 <div className="pt-4 border-t border-gray-200">
                   <Link
                     to="/contact"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setTimeout(() => setIsMobileMenuOpen(false), 100)
+                    }}
                     className="block w-full py-3 px-4 text-center bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
                   >
                     Get Started
