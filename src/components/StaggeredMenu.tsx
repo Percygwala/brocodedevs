@@ -185,7 +185,7 @@ const StaggeredMenu = () => {
           : 'bg-white/90 backdrop-blur-sm shadow-lg border-b border-white/10'
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
         <div className="flex items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
           <motion.div
@@ -331,7 +331,10 @@ const StaggeredMenu = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            onClick={() => toggleOpen()}
+            onClick={() => {
+              console.log('Mobile menu button clicked, current state:', isOpen);
+              toggleOpen();
+            }}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 touch-target relative z-50 bg-white/20 backdrop-blur-sm"
             aria-label="Toggle mobile menu"
             whileHover={{ scale: 1.05 }}
@@ -351,12 +354,13 @@ const StaggeredMenu = () => {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
+            console.log('Rendering mobile menu, isOpen:', isOpen),
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-0 top-16 bg-white/95 backdrop-blur-md md:hidden overflow-y-auto z-40"
+              className="fixed inset-0 top-20 bg-white/95 backdrop-blur-md md:hidden overflow-y-auto z-40"
             >
               <motion.div
                 variants={sideVariants}
