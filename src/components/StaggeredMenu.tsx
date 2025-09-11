@@ -52,10 +52,6 @@ const StaggeredMenu = () => {
     if (isOpen) toggleOpen()
   }, [location.pathname])
 
-  // Debug mobile menu state
-  useEffect(() => {
-    console.log('Mobile menu state changed:', isOpen)
-  }, [isOpen])
 
   // Prevent body scroll when mobile menu is open and preserve page state
   useEffect(() => {
@@ -152,33 +148,6 @@ const StaggeredMenu = () => {
     { name: 'About', path: '/about' },
   ]
 
-  const itemVariants = {
-    closed: {
-      opacity: 0,
-      y: 20,
-      transition: { type: "spring", stiffness: 300, damping: 24 }
-    },
-    open: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 }
-    }
-  }
-
-  const sideVariants = {
-    closed: {
-      transition: {
-        staggerChildren: 0.05,
-        staggerDirection: -1
-      }
-    },
-    open: {
-      transition: {
-        staggerChildren: 0.07,
-        delayChildren: 0.2
-      }
-    }
-  }
 
   return (
     <motion.nav
@@ -336,10 +305,7 @@ const StaggeredMenu = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            onClick={() => {
-              console.log('Mobile menu button clicked, current state:', isOpen);
-              toggleOpen();
-            }}
+            onClick={() => toggleOpen()}
             className="md:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 touch-target relative z-[70] bg-white/30 backdrop-blur-sm border border-gray-200"
             aria-label="Toggle mobile menu"
             whileHover={{ scale: 1.05 }}
@@ -356,63 +322,39 @@ const StaggeredMenu = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-20 left-0 right-0 bottom-0 bg-white backdrop-blur-md md:hidden overflow-y-auto z-[60]"
-            >
-              <motion.div
-                variants={sideVariants}
-                initial="closed"
-                animate="open"
-                exit="closed"
-                className="py-8 px-6 space-y-4"
-              >
-                {/* Test element to verify menu is rendering */}
-                <div className="text-center text-red-500 font-bold text-lg mb-4">
-                  MENU IS OPEN - {navItems.length} ITEMS
-                </div>
-                {navItems.map((item) => (
-                  <motion.div variants={itemVariants} key={item.name}>
-                    <Link
-                      to={item.path}
-                      onClick={() => toggleOpen()}
-                      className={`block py-3 px-4 text-2xl font-semibold transition-colors duration-300 rounded-lg touch-target relative ${
-                        location.pathname === item.path
-                          ? 'text-black bg-gray-50'
-                          : 'text-gray-600 hover:text-black hover:bg-gray-50'
-                      }`}
-                    >
-                      {item.name}
-                      {location.pathname === item.path && (
-                        <motion.span
-                          layoutId="activeDot"
-                          className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-black rounded-full"
-                          initial={false}
-                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                        />
-                      )}
-                    </Link>
-                  </motion.div>
-                ))}
-                <motion.div variants={itemVariants} className="pt-8">
-                  <Link
-                    to="/contact"
-                    onClick={() => toggleOpen()}
-                    className="btn-primary btn-large btn-full-mobile text-center touch-target"
-                  >
-                    Get Started
-                  </Link>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Mobile Menu - Simple Implementation */}
+        {isOpen && (
+          <div className="fixed inset-0 top-20 bg-white md:hidden z-50 overflow-y-auto">
+            <div className="p-6 space-y-4">
+              <div className="text-center text-gray-500 text-sm mb-6">
+                Navigation Menu
+              </div>
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => toggleOpen()}
+                  className={`block py-4 px-4 text-xl font-medium rounded-lg transition-colors ${
+                    location.pathname === item.path
+                      ? 'text-black bg-gray-100'
+                      : 'text-gray-700 hover:text-black hover:bg-gray-50'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="pt-6 border-t border-gray-200">
+                <Link
+                  to="/contact"
+                  onClick={() => toggleOpen()}
+                  className="block w-full py-4 px-4 text-center bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </motion.nav>
   )
