@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Globe, Smartphone, Database, Mail, Phone, MapPin, Clock, CheckCircle, Users, Target, Award, Shield, Palette } from 'lucide-react'
 import TiltedCard from '../components/TiltedCard'
-import TextPressure from '../components/TextPressure'
 
 const Home = () => {
   const services = [
@@ -74,7 +73,7 @@ const Home = () => {
   ]
 
   return (
-    <div className="min-h-screen pt-16 sm:pt-18 md:pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="section-padding bg-black text-white">
         <div className="container-custom">
@@ -84,11 +83,9 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <TextPressure 
-              text="BROCODEDEVS" 
-              className="heading-xl mb-4 sm:mb-6 text-white"
-              delay={0.2}
-            />
+            <h1 className="heading-xl mb-4 sm:mb-6 text-white">
+              BROCODEDEVS
+            </h1>
             <p className="body-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
               Digital agency providing complete business solutions from company registration to digital marketing
             </p>

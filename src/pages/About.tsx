@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Users, Award, Target, Heart, ArrowRight, Star, CheckCircle } from 'lucide-react'
 import ProfileCard from '../components/ProfileCard'
-import TextPressure from '../components/TextPressure'
 
 const About = () => {
   const teamMembers = [
@@ -58,7 +57,7 @@ const About = () => {
   ]
 
   return (
-    <div className="min-h-screen pt-16 md:pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="section-padding bg-black text-white">
         <div className="container-custom">
@@ -69,11 +68,9 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
 
-              <TextPressure 
-                text="About BROCODEDEVS" 
-                className="heading-xl mb-6 text-white"
-                delay={0.2}
-              />
+              <h1 className="heading-xl mb-6 text-white">
+                About BROCODEDEVS
+              </h1>
               <p className="body-lg text-gray-300 mb-8">
                 We are a digital agency providing complete business solutions from company registration to digital marketing. Our passionate team of developers, designers, and business strategists is dedicated to helping South African businesses grow and succeed in the digital world.
               </p>

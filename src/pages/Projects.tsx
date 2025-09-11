@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ExternalLink } from 'lucide-react'
-import TextPressure from '../components/TextPressure'
 
 const Projects = () => {
   return (
@@ -15,11 +14,9 @@ const Projects = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <TextPressure 
-              text="Our Projects" 
-              className="heading-xl mb-4 sm:mb-6 text-white"
-              delay={0.2}
-            />
+            <h1 className="heading-xl mb-4 sm:mb-6 text-white">
+              Our Projects
+            </h1>
             <p className="body-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
               Showcasing our work and the digital solutions we've created for our clients
             </p>

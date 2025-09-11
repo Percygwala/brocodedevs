@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Globe, Smartphone, Database, Palette, Zap, Users, Shield, CheckCircle, Clock, Target } from 'lucide-react'
 import TiltedCard from '../components/TiltedCard'
-import TextPressure from '../components/TextPressure'
 
 const Services = () => {
   // Function to get the form path for each service
@@ -106,7 +105,7 @@ const Services = () => {
   ]
 
   return (
-    <div className="min-h-screen pt-16 md:pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="section-padding bg-black text-white">
         <div className="container-custom">
@@ -116,11 +115,9 @@ const Services = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <TextPressure 
-              text="Our Services" 
-              className="heading-xl mb-6 text-white"
-              delay={0.2}
-            />
+            <h1 className="heading-xl mb-6 text-white">
+              Our Services
+            </h1>
             <p className="body-lg text-gray-300">
               Complete business solutions from company registration to digital marketing. We help you establish and grow your business with professional services at competitive prices.
             </p>

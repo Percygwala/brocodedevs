@@ -52,10 +52,11 @@ const Footer = () => {
   ]
 
   return (
-    <footer className={`bg-black text-white ${needsTopPadding ? 'pt-16' : ''}`}>
-      <div className="container-custom">
-        <div className="py-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className={`bg-black text-white w-full ${needsTopPadding ? 'pt-16' : ''}`}>
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="py-8">
+          {/* Footer Columns - Full Width with Even Distribution */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Company Info */}
             <div className="space-y-4">
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -136,19 +137,19 @@ const Footer = () => {
             </div>
           </div>
 
-                     {/* Huge Logo */}
-           <div className="mt-0 mb-0">
-             <Link to="/" className="block">
-               <img 
-                 src="/logobt.png" 
-                 alt="BROCODEDEVS Logo" 
-                 className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[24rem] object-contain"
-               />
-             </Link>
-           </div>
+          {/* Huge Logo - Aligned to Far Left */}
+          <div className="mt-12 mb-8">
+            <Link to="/" className="block text-left">
+              <img 
+                src="/logobt.png" 
+                alt="BROCODEDEVS Logo" 
+                className="h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[24rem] object-contain"
+              />
+            </Link>
+          </div>
 
-                     {/* Bottom Bar */}
-           <div className="border-t border-gray-800 mt-12 pt-8 pb-8">
+          {/* Bottom Bar - Full Width */}
+          <div className="border-t border-gray-800 pt-8 pb-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-400 text-sm">
                 © {currentYear} BROCODEDEVS. All rights reserved.

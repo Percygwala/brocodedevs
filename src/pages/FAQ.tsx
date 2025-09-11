@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronDown, ArrowRight, Mail, Phone, Clock, MapPin } from 'lucide-react'
-import TextPressure from '../components/TextPressure'
 
 const FAQ = () => {
   const [openItems, setOpenItems] = useState<number[]>([])
@@ -107,7 +106,7 @@ const FAQ = () => {
   ]
 
   return (
-    <div className="min-h-screen pt-16 md:pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="section-padding bg-black text-white">
         <div className="container-custom">
@@ -117,11 +116,9 @@ const FAQ = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <TextPressure 
-              text="Frequently Asked Questions" 
-              className="heading-xl mb-6 text-white"
-              delay={0.2}
-            />
+            <h1 className="heading-xl mb-6 text-white">
+              Frequently Asked Questions
+            </h1>
             <p className="body-lg text-gray-300">
               Find answers to common questions about our services, pricing, and process. Can't find what you're looking for? Contact us directly.
             </p>

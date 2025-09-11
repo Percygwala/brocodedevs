@@ -179,12 +179,14 @@ const StaggeredMenu = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white'
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white/90 backdrop-blur-md shadow-2xl border-b border-white/20' 
+          : 'bg-white/90 backdrop-blur-sm shadow-lg border-b border-white/10'
       }`}
     >
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, x: -20 }}
@@ -200,7 +202,7 @@ const StaggeredMenu = () => {
               transition: { type: "spring", stiffness: 400, damping: 25 }
             }}
           >
-            <Link to="/" className="flex items-center group touch-target">
+            <Link to="/" className="flex items-center group touch-target mr-4">
               <div className="relative">
                 <img
                   src="/logowt.png"
@@ -217,9 +219,12 @@ const StaggeredMenu = () => {
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Spacer to push buttons to the right */}
+          <div className="flex-1 min-w-8"></div>
+
+          {/* Desktop Navigation and CTA Button Container */}
           <motion.div
-            className="hidden md:flex items-center space-x-6 lg:space-x-8"
+            className="hidden md:flex items-center space-x-3"
             initial="hidden"
             animate="show"
             variants={{
@@ -233,82 +238,95 @@ const StaggeredMenu = () => {
               },
             }}
           >
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.name}
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: -20,
-                    scale: 0.8,
-                  },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: {
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 24,
-                    },
-                  },
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  transition: { type: "spring", stiffness: 400, damping: 25 }
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to={item.path}
-                  className={`relative font-medium transition-colors duration-300 touch-target ${
-                    location.pathname === item.path
-                      ? 'text-black'
-                      : 'text-gray-600 hover:text-black'
-                  }`}
-                >
-                  <motion.span
-                    whileHover={{ x: 2 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  >
-                    {item.name}
-                  </motion.span>
-                  {location.pathname === item.path && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-black"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* CTA Button */}
-          <motion.div
-            className="hidden md:block"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 24,
-              delay: 0.8
-            }}
-            whileHover={{
-              scale: 1.05,
-              transition: { type: "spring", stiffness: 400, damping: 25 }
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link
-              to="/contact"
-              className="btn-primary btn-small"
+            {/* Desktop Navigation */}
+            <motion.div
+              className="flex items-center space-x-4"
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1 }
+              }}
             >
-              Get Started
-            </Link>
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      y: -20,
+                      scale: 0.8,
+                    },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      transition: {
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 24,
+                      },
+                    },
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { type: "spring", stiffness: 400, damping: 25 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    to={item.path}
+                    className={`relative text-sm font-medium transition-colors duration-300 touch-target ${
+                      location.pathname === item.path
+                        ? 'text-black'
+                        : 'text-gray-600 hover:text-black'
+                    }`}
+                  >
+                    <motion.span
+                      whileHover={{ x: 2 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    >
+                      {item.name}
+                    </motion.span>
+                    {location.pathname === item.path && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-black"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, scale: 0.8 },
+                show: { 
+                  opacity: 1, 
+                  scale: 1,
+                  transition: {
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 24,
+                    delay: 0.8
+                  }
+                }
+              }}
+              whileHover={{
+                scale: 1.05,
+                transition: { type: "spring", stiffness: 400, damping: 25 }
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/contact"
+                className="btn-primary text-xs px-3 py-1.5 min-h-0"
+              >
+                Get Started
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Mobile Menu Button */}
