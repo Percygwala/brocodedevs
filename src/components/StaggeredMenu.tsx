@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence, useCycle } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const StaggeredMenu = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
@@ -47,96 +45,8 @@ const StaggeredMenu = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    if (isOpen) toggleOpen()
-  }, [location.pathname])
 
 
-  // Prevent body scroll when mobile menu is open and preserve page state
-  useEffect(() => {
-    if (isOpen) {
-      // Store comprehensive page state
-      const pageState = {
-        scrollY: window.scrollY,
-        scrollX: window.scrollX,
-        bodyOverflow: document.body.style.overflow,
-        bodyPosition: document.body.style.position,
-        bodyTop: document.body.style.top,
-        bodyWidth: document.body.style.width,
-        // Store any form data that might be in progress
-        formData: new Map()
-      }
-      
-      // Store form data to preserve user input
-      const forms = document.querySelectorAll('form')
-      forms.forEach((form, index) => {
-        const formData = new FormData(form)
-        const formObject = {}
-        for (let [key, value] of formData.entries()) {
-          formObject[key] = value
-        }
-        pageState.formData.set(index, formObject)
-      })
-      
-      // Store the state in a way that persists
-      sessionStorage.setItem('menuPageState', JSON.stringify({
-        scrollY: pageState.scrollY,
-        scrollX: pageState.scrollX,
-        timestamp: Date.now()
-      }))
-      
-      // Prevent scrolling and preserve visual state
-      document.body.style.position = 'fixed'
-      document.body.style.top = `-${pageState.scrollY}px`
-      document.body.style.width = '100%'
-      document.body.style.overflow = 'hidden'
-      
-      // Prevent any potential page refresh
-      const preventRefresh = (e) => {
-        e.preventDefault()
-        e.returnValue = ''
-      }
-      window.addEventListener('beforeunload', preventRefresh)
-      
-      return () => {
-        // Restore scrolling and page state
-        document.body.style.position = ''
-        document.body.style.top = ''
-        document.body.style.width = ''
-        document.body.style.overflow = ''
-        
-        // Remove refresh prevention
-        window.removeEventListener('beforeunload', preventRefresh)
-        
-        // Restore scroll position immediately and persistently
-        const restoreScrollPosition = () => {
-          const savedState = sessionStorage.getItem('menuPageState')
-          if (savedState) {
-            try {
-              const state = JSON.parse(savedState)
-              if (state.scrollY !== undefined) {
-                window.scrollTo(state.scrollX || 0, state.scrollY)
-              }
-            } catch (error) {
-              console.warn('Failed to restore scroll position:', error)
-            }
-          }
-        }
-        
-        // Restore immediately
-        restoreScrollPosition()
-        
-        // Restore again after a short delay to ensure it sticks
-        setTimeout(restoreScrollPosition, 50)
-        
-        // Restore again after DOM updates
-        requestAnimationFrame(() => {
-          restoreScrollPosition()
-        })
-      }
-    }
-  }, [isOpen])
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -303,58 +213,8 @@ const StaggeredMenu = () => {
             </motion.div>
           </motion.div>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            onClick={() => toggleOpen()}
-            className="md:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 touch-target relative z-[70] bg-white/30 backdrop-blur-sm border border-gray-200"
-            aria-label="Toggle mobile menu"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            {isOpen ? (
-              <X className="w-6 h-6 text-black" />
-            ) : (
-              <Menu className="w-6 h-6 text-black" />
-            )}
-          </motion.button>
         </div>
 
-        {/* Mobile Menu - Simple Implementation */}
-        {isOpen && (
-          <div className="fixed inset-0 top-20 bg-white md:hidden z-50 overflow-y-auto">
-            <div className="p-6 space-y-4">
-              <div className="text-center text-gray-500 text-sm mb-6">
-                Navigation Menu
-              </div>
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => toggleOpen()}
-                  className={`block py-4 px-4 text-xl font-medium rounded-lg transition-colors ${
-                    location.pathname === item.path
-                      ? 'text-black bg-gray-100'
-                      : 'text-gray-700 hover:text-black hover:bg-gray-50'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-6 border-t border-gray-200">
-                <Link
-                  to="/contact"
-                  onClick={() => toggleOpen()}
-                  className="block w-full py-4 px-4 text-center bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
-                >
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </motion.nav>
   )
