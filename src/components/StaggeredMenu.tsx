@@ -330,17 +330,22 @@ const StaggeredMenu = () => {
           </motion.div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             onClick={() => toggleOpen()}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 touch-target relative z-50"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 touch-target relative z-50 bg-white/20 backdrop-blur-sm"
             aria-label="Toggle mobile menu"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
           >
             {isOpen ? (
               <X className="w-6 h-6 text-black" />
             ) : (
               <Menu className="w-6 h-6 text-black" />
             )}
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Menu */}
