@@ -236,36 +236,52 @@ const StaggeredMenu = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Full Screen */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden bg-white border-t border-gray-200 shadow-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-white z-40 md:hidden"
             >
-              <div className="px-4 py-6 space-y-2">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
+              <div className="flex flex-col h-full">
+                {/* Header with close button */}
+                <div className="flex justify-between items-center p-4 border-b border-gray-200">
+                  <h2 className="text-xl font-semibold text-black">Menu</h2>
+                  <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block py-3 px-4 text-lg font-medium rounded-lg transition-colors ${
-                      location.pathname === item.path
-                        ? 'text-black bg-gray-100'
-                        : 'text-gray-700 hover:text-black hover:bg-gray-50'
-                    }`}
+                    className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
                   >
-                    {item.name}
-                  </Link>
-                ))}
-                <div className="pt-4 border-t border-gray-200">
+                    <X className="w-6 h-6 text-black" />
+                  </button>
+                </div>
+                
+                {/* Menu content */}
+                <div className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block py-4 px-4 text-xl font-medium rounded-lg transition-colors ${
+                        location.pathname === item.path
+                          ? 'text-black bg-gray-100'
+                          : 'text-gray-700 hover:text-black hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                
+                {/* Bottom CTA */}
+                <div className="p-4 border-t border-gray-200">
                   <Link
                     to="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block w-full py-3 px-4 text-center bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+                    className="block w-full py-4 px-4 text-center bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
                   >
                     Get Started
                   </Link>
