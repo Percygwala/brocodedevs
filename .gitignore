@@ -15,14 +15,20 @@ build/
 .env.test.local
 .env.production.local
 
-# IDE files
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 
-# OS files
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
 # Logs
@@ -38,14 +44,21 @@ pids
 # Coverage directory used by tools like istanbul
 coverage/
 
-# nyc test coverage
-.nyc_output
-
-# Dependency directories
-jspm_packages/
+# Temporary folders
+tmp/
+temp/
 
 # Optional npm cache directory
 .npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
 
 # Optional REPL history
 .node_repl_history
@@ -79,4 +92,4 @@ jspm_packages/
 .dynamodb/
 
 # TernJS port file
-.tern-port 
+.tern-port
