@@ -52,6 +52,11 @@ const StaggeredMenu = () => {
     if (isOpen) toggleOpen()
   }, [location.pathname])
 
+  // Debug mobile menu state
+  useEffect(() => {
+    console.log('Mobile menu state changed:', isOpen)
+  }, [isOpen])
+
   // Prevent body scroll when mobile menu is open and preserve page state
   useEffect(() => {
     if (isOpen) {
@@ -335,7 +340,7 @@ const StaggeredMenu = () => {
               console.log('Mobile menu button clicked, current state:', isOpen);
               toggleOpen();
             }}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 touch-target relative z-50 bg-white/20 backdrop-blur-sm"
+            className="md:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 touch-target relative z-[70] bg-white/30 backdrop-blur-sm border border-gray-200"
             aria-label="Toggle mobile menu"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -352,15 +357,15 @@ const StaggeredMenu = () => {
         </div>
 
         {/* Mobile Menu */}
+        {isOpen && <div className="fixed top-0 left-0 w-full h-full bg-red-500/20 z-[80] md:hidden pointer-events-none"></div>}
         <AnimatePresence>
           {isOpen && (
-            console.log('Rendering mobile menu, isOpen:', isOpen),
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-0 top-20 bg-white/95 backdrop-blur-md md:hidden overflow-y-auto z-40"
+              className="fixed inset-0 top-20 bg-white/95 backdrop-blur-md md:hidden overflow-y-auto z-[60]"
             >
               <motion.div
                 variants={sideVariants}
