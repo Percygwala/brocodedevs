@@ -357,7 +357,6 @@ const StaggeredMenu = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isOpen && <div className="fixed top-0 left-0 w-full h-full bg-red-500/20 z-[80] md:hidden pointer-events-none"></div>}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -365,7 +364,7 @@ const StaggeredMenu = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-0 top-20 bg-white/95 backdrop-blur-md md:hidden overflow-y-auto z-[60]"
+              className="fixed top-20 left-0 right-0 bottom-0 bg-white backdrop-blur-md md:hidden overflow-y-auto z-[60]"
             >
               <motion.div
                 variants={sideVariants}
@@ -374,6 +373,10 @@ const StaggeredMenu = () => {
                 exit="closed"
                 className="py-8 px-6 space-y-4"
               >
+                {/* Test element to verify menu is rendering */}
+                <div className="text-center text-red-500 font-bold text-lg mb-4">
+                  MENU IS OPEN - {navItems.length} ITEMS
+                </div>
                 {navItems.map((item) => (
                   <motion.div variants={itemVariants} key={item.name}>
                     <Link
