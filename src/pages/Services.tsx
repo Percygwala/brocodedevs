@@ -105,7 +105,7 @@ const Services = () => {
   ]
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20 md:pt-0">
       {/* Hero Section */}
       <section className="section-padding bg-black text-white">
         <div className="container-custom">

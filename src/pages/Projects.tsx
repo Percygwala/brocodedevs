@@ -4,7 +4,7 @@ import { ExternalLink } from 'lucide-react'
 
 const Projects = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20 md:pt-0">
       {/* Hero Section */}
       <section className="relative bg-black text-white py-20 sm:py-24 md:py-32">
         <div className="container-custom">
