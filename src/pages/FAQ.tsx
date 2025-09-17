@@ -217,10 +217,10 @@ const FAQ = () => {
                 <Phone className="w-8 h-8 text-black mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Call Us</h3>
                 <a 
-                  href="tel:+27631563253" 
+                  href="tel:+27698392563" 
                   className="text-gray-600 hover:text-black transition-colors duration-300"
                 >
-                  +27 63 156 3253
+                  +27 69 839 2563
                 </a>
               </div>
             </div>

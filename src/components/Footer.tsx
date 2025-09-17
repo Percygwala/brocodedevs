@@ -47,7 +47,7 @@ const Footer = () => {
   const socialLinks = [
     { name: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/brocodedevs_official/profilecard/?igsh=aW1mczdnNzJoOGo3' },
     { name: 'Facebook', icon: Facebook, url: 'https://www.facebook.com/share/198LxFBKZx/?mibextid=wwXIfr' },
-    { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/27631563253' },
+    { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/27698392563' },
     { name: 'Pinterest', icon: PinterestIcon, url: 'https://pin.it/4HZ8yUzEk' },
   ]
 
@@ -123,7 +123,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-400 text-sm">+27 63 156 3253</span>
+                  <span className="text-gray-400 text-sm">+27 69 839 2563</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-4 h-4 text-gray-400" />

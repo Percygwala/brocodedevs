@@ -155,7 +155,7 @@ const Contact = () => {
                       id="phone"
                       name="phone"
                       className="form-input"
-                      placeholder="+27 63 156 3253"
+                      placeholder="+27 69 839 2563"
                     />
                   </div>
 
@@ -297,10 +297,10 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Phone</h3>
                     <a 
-                      href="tel:+27631563253" 
+                      href="tel:+27698392563" 
                       className="text-gray-600 hover:text-black transition-colors duration-300"
                     >
-                      +27 63 156 3253
+                      +27 69 839 2563
                     </a>
                     <p className="text-sm text-gray-500 mt-1">
                       Available during business hours
@@ -394,7 +394,7 @@ const Contact = () => {
                 <Mail className="w-5 h-5 ml-2 inline" />
               </a>
               <a
-                href="tel:+27631563253"
+                href="tel:+27698392563"
                 className="btn-secondary btn-large"
               >
                 Call Us

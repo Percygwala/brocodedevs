@@ -210,7 +210,7 @@ const Privacy: React.FC = () => {
                   <strong>Email:</strong> info@brocodedevs.co.za
                 </p>
                 <p className="text-gray-600 mb-2">
-                  <strong>Phone:</strong> +27 63 156 3253
+                  <strong>Phone:</strong> +27 69 839 2563
                 </p>
                 <p className="text-gray-600 mb-2">
                   <strong>Address:</strong> Durban, South Africa
