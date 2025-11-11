@@ -29,35 +29,35 @@ const JoyFootballAcademy = () => {
       description: 'Main logo for digital and print applications',
       background: 'bg-white',
       textColor: 'text-[#0B2239]',
-      logo: '/JF Academy/JFlogob.png'
+      logo: '/JF%20Academy/JFlogob.png'
     },
     {
       name: 'Logo on Red',
       description: 'Logo displayed on football/fighters red background',
       background: 'bg-[#D7263D]',
       textColor: 'text-white',
-      logo: '/JF Academy/JFlogow.png'
+      logo: '/JF%20Academy/JFlogow.png'
     },
     {
       name: 'Logo on Navy',
       description: 'Logo on dark navy for contrast applications',
       background: 'bg-[#0B2239]',
       textColor: 'text-white',
-      logo: '/JF Academy/JFlogow.png'
+      logo: '/JF%20Academy/JFlogow.png'
     },
     {
       name: 'Logo on Yellow',
       description: 'Logo on joy yellow for energetic applications',
       background: 'bg-[#FFD23F]',
       textColor: 'text-[#0B2239]',
-      logo: '/JF Academy/JFlogob.png'
+      logo: '/JF%20Academy/JFlogob.png'
     },
     {
       name: 'Logo on Light Blue',
       description: 'Logo on education blue for academic contexts',
       background: 'bg-[#A7D8F5]',
       textColor: 'text-[#0B2239]',
-      logo: '/JF Academy/JFlogob.png'
+      logo: '/JF%20Academy/JFlogob.png'
     }
   ]
 
@@ -94,7 +94,7 @@ const JoyFootballAcademy = () => {
       <div className="mb-16">
         <div className="w-full h-[32rem] bg-[#0B2239] rounded-lg flex items-center justify-center p-8">
           <img
-            src="/JF Academy/JFlogow.png"
+            src="/JF%20Academy/JFlogow.png"
             alt="Joy Football Academy Logo"
             className="w-[72%] h-[72%] object-contain"
           />
@@ -109,7 +109,7 @@ const JoyFootballAcademy = () => {
             {/* Soccer Ball Inspiration */}
             <div className="text-center">
               <img
-                src="/JF Academy/56209-O8I7TZ-289.png"
+                src="/JF%20Academy/56209-O8I7TZ-289.png"
                 alt="Soccer Ball Design Inspiration"
                 className="w-full h-auto max-w-md mx-auto rounded-lg"
               />
@@ -122,7 +122,7 @@ const JoyFootballAcademy = () => {
             {/* JF Monogram */}
             <div className="text-center">
               <img
-                src="/JF Academy/sign b.png"
+                src="/JF%20Academy/sign%20b.png"
                 alt="JF Monogram Logo"
                 className="w-full h-auto max-w-md mx-auto rounded-lg"
               />
@@ -297,9 +297,9 @@ const JoyFootballAcademy = () => {
                   className="group"
                 >
                   <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div className="relative cursor-pointer" onClick={() => setSelectedScreenshot("/JF Academy/Screenshot 1.png")}>
+                    <div className="relative cursor-pointer" onClick={() => setSelectedScreenshot("/JF%20Academy/Screenshot%201.png")}>
                       <img
-                        src="/JF Academy/Screenshot 1.png"
+                        src="/JF%20Academy/Screenshot%201.png"
                         alt="Joy Football Academy Home Page - Mission, Vision, and Core Values"
                         className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                       />
@@ -324,9 +324,9 @@ const JoyFootballAcademy = () => {
                   className="group"
                 >
                   <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div className="relative cursor-pointer" onClick={() => setSelectedScreenshot("/JF Academy/Screenshot 2.png")}>
+                    <div className="relative cursor-pointer" onClick={() => setSelectedScreenshot("/JF%20Academy/Screenshot%202.png")}>
                       <img
-                        src="/JF Academy/Screenshot 2.png"
+                        src="/JF%20Academy/Screenshot%202.png"
                         alt="Joy Football Academy Programs & Fees Page"
                         className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                       />
