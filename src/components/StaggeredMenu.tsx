@@ -96,7 +96,7 @@ const StaggeredMenu = () => {
             <Link to="/" className="flex items-center group touch-target mr-4">
               <div className="relative">
                 <img
-                  src="/logowt.png"
+                  src={`${import.meta.env.BASE_URL}logowt.png`}
                   alt="BROCODEDEVS Logo"
                   className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
                 />

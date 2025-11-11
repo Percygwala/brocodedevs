@@ -41,7 +41,7 @@ const Projects = () => {
                 {/* Project Logo */}
                 <div className="w-full aspect-[4/3] bg-[#0B2239] flex items-center justify-center mb-4">
                   <img 
-                    src="/JF%20Academy/JFlogow.png" 
+                    src={`${import.meta.env.BASE_URL}JF%20Academy/JFlogow.png`} 
                     alt="Joy Football Academy Logo" 
                     className="w-[80%] h-[80%] object-contain"
                   />

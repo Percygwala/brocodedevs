@@ -141,7 +141,7 @@ const Footer = () => {
           <div className="mt-12 mb-8">
             <Link to="/" className="block text-left">
               <img 
-                src="/logobt.png" 
+                src={`${import.meta.env.BASE_URL}logobt.png`} 
                 alt="BROCODEDEVS Logo" 
                 className="h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[24rem] object-contain"
               />

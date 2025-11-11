@@ -201,7 +201,7 @@ const Services = () => {
             >
               <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 h-96 flex items-center justify-center overflow-hidden">
                 <img 
-                  src="/image.png" 
+                  src={`${import.meta.env.BASE_URL}image.png`} 
                   alt="BROCODEDEVS Digital Solutions Portfolio - Web Development and Design Projects" 
                   className="w-full h-full object-cover rounded-xl"
                   loading="lazy"
